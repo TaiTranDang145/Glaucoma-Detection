@@ -1,0 +1,98 @@
+# ============================================================
+# EfficientNet-B3 Configuration
+# Glaucoma Detection — HYGD Dataset
+# ============================================================
+
+# --- Experiment ---
+experiment:
+  name: "efficientnet_b3_gon_classification"
+  seed: 42
+  device: "cuda"          # "cuda" or "cpu"
+
+# --- Paths ---
+paths:
+  data_dir: "data/"
+  images_dir: "data/Images/"
+  labels_csv: "data/Labels.csv"
+  output_dir: "outputs/"
+  checkpoint_dir: "outputs/checkpoints/"
+  log_dir: "outputs/logs/"
+  figures_dir: "outputs/figures/"
+
+# --- Dataset ---
+dataset:
+  image_size: 300         # EfficientNet-B3 native resolution
+  min_quality_score: 3    # Filter out low-quality images (score < 3)
+  use_quality_weights: true
+  patient_level_split: true   # Prevent patient data leakage
+  val_size: 0.15
+  test_size: 0.15
+
+# --- Augmentation ---
+augmentation:
+  train:
+    random_horizontal_flip: true
+    random_vertical_flip: true
+    random_rotation: 15
+    color_jitter:
+      brightness: 0.2
+      contrast: 0.2
+      saturation: 0.1
+    random_erasing_prob: 0.1
+    normalize:
+      mean: [0.485, 0.456, 0.406]  # ImageNet stats
+      std:  [0.229, 0.224, 0.225]
+  val:
+    normalize:
+      mean: [0.485, 0.456, 0.406]
+      std:  [0.229, 0.224, 0.225]
+
+# --- Model ---
+model:
+  architecture: "efficientnet_b3"
+  pretrained: true
+  dropout_rate: 0.3
+  freeze_backbone_epochs: 0    # 0 = fine-tune end-to-end from start
+
+# --- Training ---
+training:
+  epochs: 50
+  batch_size: 32
+  num_workers: 4
+  pin_memory: true
+
+  # Optimizer
+  optimizer: "adamw"
+  lr: 1.0e-4
+  weight_decay: 1.0e-4
+
+  # Scheduler
+  scheduler: "cosine_annealing"
+  warmup_epochs: 3
+  min_lr: 1.0e-6
+
+  # Loss
+  use_weighted_loss: true     # Handle class imbalance
+  label_smoothing: 0.1
+
+  # Early stopping
+  early_stopping:
+    enabled: true
+    patience: 10
+    monitor: "val_auc"
+    mode: "max"
+
+  # Checkpoint
+  save_best_only: true
+  monitor_metric: "val_auc"
+
+# --- Evaluation ---
+evaluation:
+  threshold: 0.5              # Decision threshold for binary classification
+  metrics:
+    - accuracy
+    - auc_roc
+    - f1_score
+    - sensitivity
+    - specificity
+    - precision
