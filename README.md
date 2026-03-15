@@ -4,7 +4,7 @@
 
 ![Python](https://img.shields.io/badge/Python-3.9%2B-blue?style=flat-square&logo=python)
 ![PyTorch](https://img.shields.io/badge/PyTorch-2.0%2B-EE4C2C?style=flat-square&logo=pytorch)
-![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)
+![License](https://img.shields.io/badge/License-ODC_By-green?style=flat-square)
 ![Dataset](https://img.shields.io/badge/Dataset-HYGD-orange?style=flat-square)
 
 **Binary classification of Glaucomatous Optic Neuropathy (GON) from Deep Fundus Images using EfficientNet-B3**
@@ -226,6 +226,12 @@ If using quality scores, also cite:
   year    = {2023}
 }
 ```
+
+---
+
+## 📄 License
+
+This project is licensed under the [ODC Attribution License (ODC-By)](https://opendatacommons.org/licenses/by/1-0/).
 
 ---
 
