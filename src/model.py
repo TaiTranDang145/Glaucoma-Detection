@@ -155,7 +155,7 @@ class LabelSmoothingBCE(nn.Module):
         self, logits: torch.Tensor, targets: torch.Tensor
     ) -> torch.Tensor:
         targets_smooth = targets.float() * (1 - self.smoothing) + 0.5 * self.smoothing
-        return self.bce(logits.squeeze(1), targets_smooth)
+        return self.bce(logits, targets_smooth)
 
 
 # ── Builder ───────────────────────────────────────────────────────────────────

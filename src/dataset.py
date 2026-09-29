@@ -53,7 +53,7 @@ def get_transforms(split: str, image_size: int = 300) -> A.Compose:
             A.GaussianBlur(blur_limit=(3, 5), p=0.2),
             A.CoarseDropout(
                 max_holes=4, max_height=20, max_width=20,
-                fill_value=0, p=0.1
+                p=0.1
             ),
             A.Normalize(mean=mean, std=std),
             ToTensorV2(),
