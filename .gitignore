@@ -9,3 +9,6 @@ venv/
 
 # Training artifacts
 outputs/
+
+# Local datasets
+data/
