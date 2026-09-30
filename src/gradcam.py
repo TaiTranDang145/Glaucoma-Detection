@@ -9,7 +9,7 @@ focuses on when predicting GON+ or GON-.
 Usage:
     python src/gradcam.py \
         --checkpoint outputs/checkpoints/best_model.pth \
-        --image_path data/Images/188_1.jpg \
+        --image_path data/HYDR/Images/188_1.jpg \
         --config configs/efficientnet_b3.yaml
 
     # Visualize multiple images from test set

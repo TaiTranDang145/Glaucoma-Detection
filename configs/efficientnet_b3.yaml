@@ -11,9 +11,10 @@ experiment:
 
 # --- Paths ---
 paths:
-  data_dir: "data/"
-  images_dir: "data/Images/"
-  labels_csv: "data/Labels.csv"
+  # Use the prepared dataset directly; no in-project deduplication step.
+  data_dir: "data/HYDR/"
+  images_dir: "data/HYDR/Images/"
+  labels_csv: "data/HYDR/Labels.csv"
   output_dir: "outputs/"
   checkpoint_dir: "outputs/checkpoints/"
   log_dir: "outputs/logs/"

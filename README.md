@@ -25,7 +25,7 @@ This project implements a deep learning pipeline for automated detection of **Gl
 ### Key Features
 
 - ✅ Transfer learning with **EfficientNet-B3** (ImageNet pretrained)
-- ✅ **Weighted loss** to handle class imbalance (548 GON+ vs 199 GON-)
+- ✅ **Weighted loss** to handle class imbalance (540 GON+ vs 197 GON− in the prepared dataset)
 - ✅ **Quality-score-aware** filtering & sample weighting
 - ✅ Comprehensive evaluation: AUC-ROC, F1, Sensitivity, Specificity
 - ✅ Grad-CAM visualizations for model explainability
@@ -36,15 +36,13 @@ This project implements a deep learning pipeline for automated detection of **Gl
 
 ## 📁 Dataset
 
-**Hillel Yaffe Glaucoma Dataset (HYGD)** — 747 annotated Deep Fundus Images.
+**Hillel Yaffe Glaucoma Dataset (HYGD)** — the prepared working dataset contains 737 images for 286 patients. The images and matching labels are already cleaned and are loaded directly from `data/HYDR/`.
 
 ```
 data/
-├── Images/          ← 747 DFIs in JPG format (1:1 aspect ratio)
-│   ├── 1_0.jpg
-│   ├── 1_1.jpg
-│   └── ...
-└── Labels.csv       ← Metadata & annotations
+└── HYDR/
+    ├── Images/             ← 737 prepared DFIs
+    └── Labels.csv          ← Labels for the prepared images
 ```
 
 | Column | Description |
@@ -52,21 +50,20 @@ data/
 | `Image Name` | Filename (e.g. `188_1.jpg`) |
 | `Patient` | Unique patient ID |
 | `Label` | `GON+` or `GON-` |
-| `Quality Score` | Image quality score (1–10) |
+| `Quality Score` | Image quality score (observed range: 2.04–7.69) |
 
 | Split | GON+ | GON- | Total |
 |-------|------|------|-------|
-| Train (70%) | 384 | 139 | 523 |
-| Val (15%) | 82 | 30 | 112 |
-| Test (15%) | 82 | 30 | 112 |
+| Train | 376 | 136 | 512 |
+| Val | 69 | 34 | 103 |
+| Test | 89 | 27 | 116 |
 
-> ⚠️ Patient-level splitting is used to prevent data leakage.
+Counts above use the prepared, already-deduplicated dataset after the configured quality filter (`Quality Score >= 3`) and patient-level split (seed 42). Training reads that dataset directly. `GroupShuffleSplit` keeps patients disjoint but does not stratify by label.
 
 ### Download Dataset
 
-1. Go to [Kaggle Dataset](https://www.kaggle.com/datasets/augieaditama/hillel-yaffe-glaucoma-dataset-hygd)
-2. Download and extract to `data/`
-3. Ensure structure matches above
+1. Obtain the prepared HYGD image set and its matching `Labels.csv` (the upstream [HYGD dataset](https://www.kaggle.com/datasets/augieaditama/hillel-yaffe-glaucoma-dataset-hygd) is the source dataset).
+2. Put the already-cleaned `Images/` folder and matching `Labels.csv` directly in `data/HYDR/`. The training config reads them there; no deduplication step is needed.
 
 ---
 
@@ -128,7 +125,7 @@ python src/evaluate.py \
 ```bash
 python src/gradcam.py \
     --checkpoint outputs/checkpoints/best_model.pth \
-    --image_path data/Images/188_1.jpg
+    --image_path data/HYDR/Images/188_1.jpg
 ```
 
 ### 5. Monitor Training
@@ -163,8 +160,9 @@ tensorboard --logdir outputs/logs/
 ```
 glaucoma-detection/
 ├── data/
-│   ├── Images/                  ← Raw fundus images
-│   └── Labels.csv               ← Annotations & metadata
+│   └── HYDR/
+│       ├── Images/              ← Prepared fundus images
+│       ├── Labels.csv           ← Matching annotations
 │
 ├── src/
 │   ├── dataset.py               ← PyTorch Dataset & DataLoader
