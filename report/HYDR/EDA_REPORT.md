@@ -75,19 +75,19 @@ Pipeline hiện lọc `Quality Score >= 3` trước khi chia. Áp dụng đúng 
 
 ### Phân bố nhãn
 
-![Phân bố nhãn](outputs/figures/eda_class_distribution.png)
+![Phân bố nhãn](../../outputs/figures/eda_class_distribution.png)
 
 ### Điểm chất lượng
 
-![Phân bố điểm chất lượng](outputs/figures/eda_quality_scores.png)
+![Phân bố điểm chất lượng](../../outputs/figures/eda_quality_scores.png)
 
 ### Số ảnh trên mỗi bệnh nhân
 
-![Số ảnh mỗi bệnh nhân](outputs/figures/eda_images_per_patient.png)
+![Số ảnh mỗi bệnh nhân](../../outputs/figures/eda_images_per_patient.png)
 
 ### Chia tập theo bệnh nhân trong notebook
 
-![Phân bố nhãn trong các tập](outputs/figures/eda_splits.png)
+![Phân bố nhãn trong các tập](../../outputs/figures/eda_splits.png)
 
 ## 7. Kết luận và khuyến nghị
 
