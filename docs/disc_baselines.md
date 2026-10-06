@@ -2,38 +2,13 @@
 
 Pipeline này tạo baseline hình thái cho bài GONet từ mask optic disc (OD) và optic cup (OC). Nó không thay thế hoặc sửa classifier GONet/DINOv2.
 
-## Điều kiện cần
+## Segmenter và phạm vi baseline
 
-Repository chưa có segmenter LUNet OD/OC hoặc checkpoint tương thích. Bạn cần cung cấp cả hai trước khi chạy inference. Không dùng checkpoint LUNet artery/vein công khai hoặc segmentation ground truth của bộ dữ liệu làm dự đoán thay thế.
+Config mặc định dùng `FunduSegmenter_OriginalImage.pth` qua `src.models.fundu_segmenter_adapter`. Đây là segmenter OD/OC thay thế do bạn cung cấp, **không phải LUNet đã được GONet fine-tune**; vì vậy kết quả là CDR baseline từ FunduSegmenter, không phải tái lập chính xác segmentation branch của paper GONet. Adapter bám theo mã test chính thức: resize 256×256, chuẩn hóa ImageNet, logits nội suy bicubic về kích thước gốc; class 1 (rim) và 2 (cup) hợp thành OD, class 2 là OC. Xem [mã inference chính thức](https://github.com/JusticeZzy/FunduSegmenter/blob/main/test_nopadding.py), [transform chính thức](https://github.com/JusticeZzy/FunduSegmenter/blob/main/utils/transform.py), và [mã nguồn model](https://github.com/JusticeZzy/FunduSegmenter).
 
-Adapter segmenter phải cung cấp factory có dạng:
+Các model weights có license CC BY-NC 4.0. Tác giả ghi checkpoint `FunduSegmenter_OriginalImage.pth` được train trên Drishti-GS, RIM-ONE-r3, REFUGE train và REFUGE validation; hiệu năng checkpoint này chưa được kiểm chứng rộng. Do đó cần đánh dấu Drishti-GS và REFUGE là domain có nguy cơ leakage khi báo cáo AUROC, không coi chúng là đánh giá độc lập. Xem [license và phạm vi train trong README chính thức](https://github.com/JusticeZzy/FunduSegmenter#6-evaluation-only).
 
-```python
-def make_segmenter(checkpoint: str, device: str):
-    ...
-```
-
-Factory trả về object có method:
-
-```python
-from typing import Tuple
-
-def predict_masks(image_rgb: np.ndarray) -> Tuple[np.ndarray, np.ndarray]:
-    # Trả về optic_disc_mask, optic_cup_mask theo đúng thứ tự.
-    # Cả hai là mask nhị phân 2D, cùng kích thước ảnh RGB đầu vào.
-    ...
-```
-
-Adapter chịu trách nhiệm preprocessing, threshold output, mapping channel OD/OC và đưa mask về tọa độ/kích thước ảnh gốc. Ảnh truyền vào là RGB `uint8`. Trong Kaggle, đặt module adapter ở một thư mục có thể import được, ví dụ thêm thư mục dataset adapter vào `sys.path` trong notebook, rồi điền cấu hình:
-
-```yaml
-segmenter:
-  factory: my_adapter:make_segmenter
-  checkpoint: /kaggle/input/my-segmenter/model.pth
-  device: cuda
-```
-
-Đường dẫn tương đối trong config được tính từ thư mục repository; đường dẫn tuyệt đối được giữ nguyên. Nếu thiếu factory hoặc checkpoint, inference dừng với thông báo cấu hình cần bổ sung.
+Checkpoint mặc định được tìm ở `outputs/FunduSegmenter_OriginalImage.pth`. Factory cần thêm source repo chính thức vào môi trường Python qua biến `FUNDUS_SEGMENTER_REPO`; code kiến trúc không bị sao chép vào project. Ảnh đầu vào adapter là RGB `uint8`, output gồm hai mask nhị phân cùng kích thước ảnh: optic disc rồi optic cup.
 
 ## CDR
 
@@ -55,6 +30,8 @@ Reference: [Rim-to-Disc Ratio Outperforms Cup-to-Disc Ratio for Glaucoma Prescre
 ## Input manifest và output inference
 
 Manifest cần có các cột `image_path`, `patient_id`, `domain`, `label`. `image_path` là đường dẫn tương đối dưới `data_root`; label dùng `1 = GON+`, `0 = GON-`. Nếu `patient_id` trống thì output để trống. Manifest hiện tại không có patient ID cho REFUGE; pipeline không suy ra ID từ tên file.
+
+`src.prepare_data` bỏ qua dataset folder không có mặt. REFUGE2 vẫn chỉ được audit và loại khỏi manifest vì hiện không có glaucoma label; nó không thay cho REFUGE có nhãn. HYDR, DRISHTI-GS và PAPILA cần được đặt dưới cùng một `data_root` với tên folder `HYDR/`, `DRISHTI-GS/`, `PAPILA/`. HYDR cần `Labels.csv` và `Images/`; PAPILA cần `FundusImages/` và `ClinicalData/`.
 
 Mặc định đọc đường dẫn trong `configs/disc_baselines.yaml`. Chạy từ thư mục gốc repository:
 
@@ -123,6 +100,90 @@ python -m src.visualize_disc_baselines \
 ```
 
 Mỗi ảnh overlay hiển thị fundus gốc, contour OD/OC, CDR và trạng thái `RDR unavailable`. Script báo rõ nếu ảnh/mask thiếu, mask không phải grayscale 2D, hoặc mask không cùng kích thước với ảnh.
+
+## Chạy trên Kaggle
+
+1. Tạo private Kaggle Dataset chứa `FunduSegmenter_OriginalImage.pth`, rồi gắn nó cùng với các bộ ảnh bằng **Add Input**. Ổ `D:` của máy cá nhân không được Kaggle mount tự động.
+2. Đảm bảo notebook dùng phiên bản repository có adapter này. Nếu notebook clone `main`, các commit chỉ có trong local checkout sẽ chưa xuất hiện cho tới khi bạn push chúng lên GitHub.
+3. Trong Kaggle, clone source FunduSegmenter và cài dependency bổ sung (không cài đè PyTorch CUDA của Kaggle):
+
+```python
+from pathlib import Path
+import os
+import subprocess
+
+FUNDUS_REPO = Path("/kaggle/working/FunduSegmenter")
+subprocess.run([
+    "git", "clone", "--depth", "1",
+    "https://github.com/JusticeZzy/FunduSegmenter.git", str(FUNDUS_REPO)
+], check=True)
+os.environ["FUNDUS_SEGMENTER_REPO"] = str(FUNDUS_REPO)
+%pip install -q einops ml-collections timm
+```
+
+4. Chạy cell sau để xem input folder, tự tìm slug theo tên dataset, rồi tạo alias folder. Nó tìm HYDR theo `Labels.csv` có `Images/` bên cạnh; kiểm tra kết quả log trước khi tiếp tục:
+
+```python
+from pathlib import Path
+
+input_roots = list(Path("/kaggle/input").iterdir())
+for item in input_roots:
+    print(item.name, [child.name for child in item.iterdir()][:12])
+
+data_root = Path("/kaggle/working/gonet-data")
+data_root.mkdir(parents=True, exist_ok=True)
+tokens = {"DRISHTI-GS": "drishti", "PAPILA": "papila", "REFUGE2": "refuge2"}
+for alias, token in tokens.items():
+    matches = [item for item in input_roots if token in item.name.casefold()]
+    if len(matches) == 1:
+        (data_root / alias).symlink_to(matches[0], target_is_directory=True)
+    else:
+        print(f"{alias}: expected one input matching {token!r}; found {matches}")
+
+hydr_inputs = [item for item in input_roots if "hydr" in item.name.casefold()]
+hydr_dirs = [
+    label_file.parent
+    for item in hydr_inputs
+    for label_file in item.rglob("Labels.csv")
+    if (label_file.parent / "Images").is_dir()
+]
+if len(hydr_dirs) == 1:
+    (data_root / "HYDR").symlink_to(hydr_dirs[0], target_is_directory=True)
+else:
+    print(f"HYDR: expected one Labels.csv + Images/ pair; found {hydr_dirs}")
+```
+
+PAPILA phải chứa `FundusImages/` và `ClinicalData/`; nếu chúng không nằm trong cùng input folder được tìm thấy, dừng và kiểm tra tree thay vì chạy manifest sai.
+
+5. Dùng đoạn sau để tìm checkpoint và ghi config riêng ở thư mục output. `DATA_ROOT` là alias folder đã tạo:
+
+```python
+from pathlib import Path
+from omegaconf import OmegaConf
+
+REPO = Path("/kaggle/working/Glaucoma-Detection")
+DATA_ROOT = Path("/kaggle/working/gonet-data")
+checkpoints = list(Path("/kaggle/input").rglob("FunduSegmenter_OriginalImage.pth"))
+assert len(checkpoints) == 1, f"Expected one checkpoint, found: {checkpoints}"
+
+cfg = OmegaConf.load(REPO / "configs/disc_baselines.yaml")
+cfg.segmenter.checkpoint = str(checkpoints[0])
+cfg.segmenter.device = "cuda"
+cfg.paths.data_root = str(DATA_ROOT)
+cfg.paths.manifest = "/kaggle/working/gonet_msd.csv"
+cfg.paths.output_dir = "/kaggle/working/disc-baselines"
+OmegaConf.save(cfg, "/kaggle/working/disc_baselines.yaml")
+```
+
+Sau đó chạy:
+
+```bash
+python -m src.prepare_data --data-root /kaggle/working/gonet-data --output /kaggle/working/gonet_msd.csv
+python -m src.infer_disc_baselines --config /kaggle/working/disc_baselines.yaml
+python -m src.evaluate_disc_baselines --results /kaggle/working/disc-baselines/disc_baselines.csv --output-dir /kaggle/working/disc-baselines
+```
+
+Kaggle phải bật Internet để clone source và bật GPU để inference thuận tiện. Khi xong, kiểm tra số mẫu/label trong manifest trước khi chạy hết dataset; inference chỉ tạo mask và CDR, không train segmenter hay classifier.
 
 ## Kiểm tra unit tests
 

@@ -1,13 +1,12 @@
-# Requires a user-supplied OD/OC segmenter factory and compatible checkpoint.
+# FunduSegmenter is a substitute OD/OC segmenter, not GONet's retrained LUNet.
 paths:
   data_root: data
   manifest: data/manifests/gonet_msd.csv
   output_dir: outputs/disc_baselines
 
 segmenter:
-  # Python import reference in the form module.path:factory_name.
-  factory: null
-  checkpoint: null
+  factory: src.models.fundu_segmenter_adapter:make_segmenter
+  checkpoint: outputs/FunduSegmenter_OriginalImage.pth
   device: cuda
 
 evaluation:
