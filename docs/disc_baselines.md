@@ -103,6 +103,8 @@ Mỗi ảnh overlay hiển thị fundus gốc, contour OD/OC, CDR và trạng th
 
 ## Chạy trên Kaggle
 
+Notebook dựng sẵn: [`notebooks/kaggle_disc_baseline.ipynb`](../notebooks/kaggle_disc_baseline.ipynb). Có thể mở notebook Kaggle mới rồi dùng **File → Import Notebook** để tải file `.ipynb` từ máy tính lên.
+
 1. Tạo private Kaggle Dataset chứa `FunduSegmenter_OriginalImage.pth`, rồi gắn nó cùng với các bộ ảnh bằng **Add Input**. Ổ `D:` của máy cá nhân không được Kaggle mount tự động.
 2. Đảm bảo notebook dùng phiên bản repository có adapter này. Nếu notebook clone `main`, các commit chỉ có trong local checkout sẽ chưa xuất hiện cho tới khi bạn push chúng lên GitHub.
 3. Trong Kaggle, clone source FunduSegmenter và cài dependency bổ sung (không cài đè PyTorch CUDA của Kaggle):

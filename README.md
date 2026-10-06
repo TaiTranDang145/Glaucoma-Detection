@@ -7,7 +7,7 @@
 ![License](https://img.shields.io/badge/License-ODC_By-green?style=flat-square)
 ![Dataset](https://img.shields.io/badge/Dataset-HYGD-orange?style=flat-square)
 
-**Binary classification of Glaucomatous Optic Neuropathy (GON) from Deep Fundus Images using EfficientNet-B3**
+**GONet reproduction: DINOv2 ViT-B/14 fine-tuned across multiple fundus-image domains**
 
 [Overview](#-overview) • [Dataset](#-dataset) • [Installation](#-installation) • [Usage](#-usage) • [Results](#-results) • [Citation](#-citation)
 
@@ -17,16 +17,16 @@
 
 ## 📋 Overview
 
-This project implements a deep learning pipeline for automated detection of **Glaucomatous Optic Neuropathy (GON)** from Deep Fundus Images (DFIs). Using transfer learning with **EfficientNet-B3**, the model classifies each fundus image as either:
+This project contains a GONet reproduction and keeps the original EfficientNet-B3 HYDR baseline. GONet uses a DINOv2 ViT-B/14 backbone for binary **Glaucomatous Optic Neuropathy (GON)** classification:
 
 - `GON+` — Glaucomatous (positive)
 - `GON-` — Non-glaucomatous (negative)
 
 ### Key Features
 
-- ✅ Transfer learning with **EfficientNet-B3** (ImageNet pretrained)
-- ✅ **Weighted loss** to handle class imbalance (540 GON+ vs 197 GON− in the prepared dataset)
-- ✅ **Quality-score-aware** filtering & sample weighting
+- ✅ DINOv2 ViT-B/14 with multi-source leave-one-domain-out evaluation
+- ✅ Paper preprocessing: black square padding, 392×392 resize, ImageNet normalization
+- ✅ Label-verified manifests for HYDR, DRISHTI-GS, PAPILA, and REFUGE
 - ✅ Comprehensive evaluation: AUC-ROC, F1, Sensitivity, Specificity
 - ✅ Grad-CAM visualizations for model explainability
 - ✅ Full experiment logging with **TensorBoard**
@@ -36,34 +36,20 @@ This project implements a deep learning pipeline for automated detection of **Gl
 
 ## 📁 Dataset
 
-**Hillel Yaffe Glaucoma Dataset (HYGD)** — the prepared working dataset contains 737 images for 286 patients. The images and matching labels are already cleaned and are loaded directly from `data/HYDR/`.
+The MSD manifest is prepared from the local folders below. GAMMA is intentionally excluded.
 
-```
-data/
-└── HYDR/
-    ├── Images/             ← 737 prepared DFIs
-    └── Labels.csv          ← Labels for the prepared images
-```
+| Folder | Domain | Label source |
+|--------|--------|--------------|
+| `data/HYDR/` | HYDR | `Labels.csv` |
+| `data/DRISHTI-GS/` | DRISHTI-GS | `Images/GLAUCOMA` and `Images/NORMAL` class folders |
+| `data/PAPILA/` | PAPILA | OD/OS clinical workbooks; suspect class 2 is excluded |
+| `data/Refuge/` | REFUGE | training class folders and validation/test label workbooks |
 
-| Column | Description |
-|--------|-------------|
-| `Image Name` | Filename (e.g. `188_1.jpg`) |
-| `Patient` | Unique patient ID |
-| `Label` | `GON+` or `GON-` |
-| `Quality Score` | Image quality score (observed range: 2.04–7.69) |
+Run the preparation command to create `data/manifests/gonet_msd.csv`. In the current local copy, REFUGE2 has 800 images that are exact REFUGE duplicates and 400 unique images without a diagnosis-label file; it is therefore excluded as a separate domain to prevent leakage. The script rechecks and prints these counts when it prepares the manifest.
 
-| Split | GON+ | GON- | Total |
-|-------|------|------|-------|
-| Train | 376 | 136 | 512 |
-| Val | 69 | 34 | 103 |
-| Test | 89 | 27 | 116 |
+The free preprint describes FundusQ-Net quality filtering and LUNet optic-disc filtering. Their model weights are not part of this repository, so this first implementation does not claim to reproduce those filters. HYDR's supplied quality score is retained out of that filter because it is not a verified FundusQ-Net score.
 
-Counts above use the prepared, already-deduplicated dataset after the configured quality filter (`Quality Score >= 3`) and patient-level split (seed 42). Training reads that dataset directly. `GroupShuffleSplit` keeps patients disjoint but does not stratify by label.
-
-### Download Dataset
-
-1. Obtain the prepared HYGD image set and its matching `Labels.csv` (the upstream [HYGD dataset](https://www.kaggle.com/datasets/augieaditama/hillel-yaffe-glaucoma-dataset-hygd) is the source dataset).
-2. Put the already-cleaned `Images/` folder and matching `Labels.csv` directly in `data/HYDR/`. The training config reads them there; no deduplication step is needed.
+Patient-level source splitting uses IDs supplied by HYDR and PAPILA. DRISHTI-GS contains one image per subject. The local REFUGE annotations do not include a patient crosswalk, so its source-domain validation split is image-level and cannot guarantee separation of both eyes from the same person.
 
 ---
 
@@ -99,7 +85,41 @@ pip install -r requirements.txt
 jupyter notebook notebooks/01_eda.ipynb
 ```
 
-### 2. Train the Model
+### 2. Prepare data and train GONet (MSD)
+
+```bash
+python src/prepare_data.py --data-root data
+python src/train_msd.py --config configs/gonet_msd.yaml
+
+# Run one leave-one-domain-out fold
+python src/train_msd.py --config configs/gonet_msd.yaml --target-domain PAPILA
+```
+
+#### Train on Kaggle
+
+The Kaggle notebook supports the three labeled inputs available for this run: HYDR, DRISHTI-GS, and PAPILA. It creates a common `DATA_ROOT` from their separate Kaggle mounts and runs three leave-one-domain-out folds. Original REFUGE is optional; REFUGE2 is not used as a replacement because it has no glaucoma labels. Run [`notebooks/kaggle_train.ipynb`](notebooks/kaggle_train.ipynb) after pushing the current repository code to GitHub `main`:
+
+```bash
+python src/prepare_data.py \
+  --data-root "$DATA_ROOT" \
+  --output /kaggle/working/gonet_msd.csv
+
+python src/train_msd.py --config configs/gonet_msd.yaml \
+  --data-root "$DATA_ROOT" \
+  --manifest /kaggle/working/gonet_msd.csv \
+  --output-dir /kaggle/working/gonet_msd_runs \
+  --batch-size 16 --num-workers 2
+```
+
+`/kaggle/input` is read-only; checkpoints, metrics, and combined per-image held-out probabilities (`gonet_predictions.csv`) are written under `/kaggle/working/gonet_msd_runs`. Enable Kaggle Internet for package installation and the first download of pretrained DINOv2 weights. If GPU memory runs out, lower `--batch-size` (the paper setting is 16).
+
+GONet fully fine-tunes the pretrained DINOv2 backbone and binary classification head. Its training uses batch size 16, Adam, learning rate `1e-6`, weight decay `0.04`, a 10× learning-rate reduction after four validation-loss epochs without improvement, and early stopping/checkpoint selection by validation loss. These optimizer settings are adapted from [DRStageNet, arXiv:2312.14891v1](https://arxiv.org/abs/2312.14891), which addresses diabetic-retinopathy grade regression; this GONet implementation retains binary BCE loss and a one-layer classification head rather than DRStageNet's MSE loss and regression head. The cited paper does not specify an early-stopping patience, so this implementation uses 10 epochs.
+
+The first pretrained run downloads DINOv2 weights through `timm`. The GONet preprint specifies the DINOv2 ViT-B backbone and MSD protocol but does not list the exact binary fine-tuning hyperparameters or classifier head. KULRD was a source domain in the paper but is private/unavailable here; this implementation trains on the available labeled domains. The reproduction is based on the [free arXiv preprint](https://arxiv.org/abs/2502.19514).
+
+The run writes per-domain best checkpoints and `outputs/gonet_msd/ood_metrics.csv` with AUC, a bootstrap 95% AUC interval, and Brier score. It also writes `gonet_predictions.csv` with `image_path`, `domain`, and `gonet_prob`, ready for comparison against the CDR baseline.
+
+### 3. Train the EfficientNet-B3 baseline
 
 ```bash
 # Using default config
@@ -112,7 +132,7 @@ python src/train.py --config configs/efficientnet_b3.yaml \
     --lr 1e-4
 ```
 
-### 3. Evaluate
+### 4. Evaluate the EfficientNet-B3 baseline
 
 ```bash
 python src/evaluate.py \
@@ -120,7 +140,7 @@ python src/evaluate.py \
     --checkpoint outputs/checkpoints/best_model.pth
 ```
 
-### 4. Grad-CAM Visualization
+### 5. Grad-CAM Visualization (EfficientNet-B3)
 
 ```bash
 python src/gradcam.py \
@@ -128,7 +148,7 @@ python src/gradcam.py \
     --image_path data/HYDR/Images/188_1.jpg
 ```
 
-### 5. Monitor Training
+### 6. Monitor Training
 
 ```bash
 tensorboard --logdir outputs/logs/
@@ -143,6 +163,8 @@ tensorboard --logdir outputs/logs/
 | Metric | Value |
 |--------|-------|
 | AUC-ROC | — |
+| AUC 95% CI | — |
+| Brier score | — |
 | Accuracy | — |
 | Sensitivity (Recall) | — |
 | Specificity | — |
@@ -165,15 +187,22 @@ glaucoma-detection/
 │       ├── Labels.csv           ← Matching annotations
 │
 ├── src/
-│   ├── dataset.py               ← PyTorch Dataset & DataLoader
-│   ├── model.py                 ← EfficientNet-B3 model definition
-│   ├── train.py                 ← Training loop
-│   ├── evaluate.py              ← Evaluation & metrics
-│   ├── gradcam.py               ← Grad-CAM visualization
-│   └── utils.py                 ← Helper functions
+│   ├── dataset.py               ← HYDR and manifest-backed datasets
+│   ├── prepare_data.py          ← Dataset adapters and common manifest
+│   ├── models/
+│   │   ├── __init__.py          ← Architecture factory
+│   │   ├── efficientnet_b3.py   ← EfficientNet-B3 baseline
+│   │   └── gonet.py             ← DINOv2 GONet
+│   ├── losses.py                ← Shared binary losses
+│   ├── train.py                 ← EfficientNet training loop
+│   ├── train_msd.py             ← GONet leave-one-domain-out loop
+│   ├── evaluate.py              ← EfficientNet evaluation
+│   ├── gradcam.py               ← EfficientNet Grad-CAM
+│   └── utils.py                 ← Metrics and helpers
 │
 ├── configs/
-│   └── efficientnet_b3.yaml     ← Hyperparameters & settings
+│   ├── efficientnet_b3.yaml     ← HYDR baseline settings
+│   └── gonet_msd.yaml           ← GONet MSD settings
 │
 ├── notebooks/
 │   ├── 01_eda.ipynb             ← Exploratory Data Analysis

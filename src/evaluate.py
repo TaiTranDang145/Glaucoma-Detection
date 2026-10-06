@@ -24,7 +24,7 @@ from sklearn.metrics import (
 )
 
 from dataset import build_dataloaders
-from model import build_model
+from models import build_model
 from utils import set_seed, get_logger, compute_metrics, load_checkpoint
 
 

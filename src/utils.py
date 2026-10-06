@@ -103,6 +103,7 @@ def compute_metrics(
 
     return {
         "auc":         round(float(auc),         4),
+        "brier":       round(float(np.mean((probs - labels) ** 2)), 4),
         "accuracy":    round(float(accuracy),     4),
         "f1":          round(float(f1),           4),
         "sensitivity": round(float(recall),       4),

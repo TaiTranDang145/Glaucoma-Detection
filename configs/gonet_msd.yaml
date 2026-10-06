@@ -1,0 +1,36 @@
+# GONet MSD reproduction using the free arXiv preprint.
+experiment:
+  name: gonet_msd
+  seed: 42
+  device: cuda
+
+paths:
+  data_root: data
+  manifest: data/manifests/gonet_msd.csv
+  output_dir: outputs/gonet_msd
+
+dataset:
+  image_size: 392
+  validation_fraction: 0.10
+
+model:
+  architecture: gonet
+  pretrained: true
+  dropout_rate: 0.0
+
+training:
+  epochs: 20
+  batch_size: 16
+  num_workers: 4
+  # Optimizer schedule adapted from DRStageNet arXiv:2312.14891v1.
+  lr: 1.0e-6
+  weight_decay: 4.0e-2
+  scheduler_patience: 4
+  scheduler_factor: 0.1
+  # The cited paper does not specify a numeric early-stopping patience.
+  patience: 10
+  early_stopping_delta: 0.0
+
+evaluation:
+  bootstrap_repetitions: 1000
+  bootstrap_fraction: 0.95

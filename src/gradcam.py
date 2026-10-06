@@ -32,7 +32,8 @@ import torch.nn.functional as F
 from PIL import Image
 from omegaconf import OmegaConf
 
-from model import build_model, GlaucomaClassifier
+from models import build_model
+from models.efficientnet_b3 import GlaucomaClassifier
 from utils import set_seed, load_checkpoint
 from dataset import get_transforms, LABEL_MAP
 
@@ -202,6 +203,8 @@ def parse_args() -> argparse.Namespace:
 def main():
     args   = parse_args()
     cfg    = OmegaConf.load(args.config)
+    if not str(cfg.model.architecture).casefold().startswith("efficientnet_b3"):
+        raise SystemExit("Grad-CAM is currently implemented for EfficientNet-B3 only.")
     device = torch.device(cfg.experiment.device if torch.cuda.is_available() else "cpu")
 
     set_seed(cfg.experiment.seed)

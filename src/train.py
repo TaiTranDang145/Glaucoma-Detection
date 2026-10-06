@@ -21,7 +21,8 @@ from omegaconf import OmegaConf
 from tqdm import tqdm
 
 from dataset import build_dataloaders
-from model import build_model, build_criterion
+from models import build_model
+from losses import build_criterion
 from utils import (
     set_seed, get_logger, compute_metrics,
     log_metrics, save_checkpoint, EarlyStopping,

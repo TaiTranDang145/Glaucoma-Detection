@@ -289,3 +289,69 @@ def build_dataloaders(
           f"(GON+: {split_info['test']['GON+']}, GON-: {split_info['test']['GON-']})\n")
 
     return train_loader, val_loader, test_loader, split_info
+
+
+# ── Paper preprocessing and multi-source manifest ───────────────────────────
+
+def get_msd_transforms(split: str, image_size: int = 392) -> A.Compose:
+    """Paper-sized transforms; square black padding is applied by the dataset."""
+    mean, std = (0.485, 0.456, 0.406), (0.229, 0.224, 0.225)
+    transforms = [A.Resize(image_size, image_size)]
+    if split == "train":
+        transforms.extend([
+            A.HorizontalFlip(p=0.5),
+            A.VerticalFlip(p=0.5),
+            A.Affine(scale=(0.9, 1.1), rotate=(-15, 15), p=0.5),
+            A.RandomBrightnessContrast(p=0.5),
+        ])
+    transforms.extend([A.Normalize(mean=mean, std=std), ToTensorV2()])
+    return A.Compose(transforms)
+
+
+class ManifestDataset(Dataset):
+    """Dataset for prepare_data.py's common CSV schema."""
+
+    def __init__(self, dataframe, root_dir, transform=None):
+        self.df = dataframe.reset_index(drop=True)
+        self.root_dir = Path(root_dir)
+        self.transform = transform
+
+    def __len__(self):
+        return len(self.df)
+
+    def __getitem__(self, index):
+        row = self.df.iloc[index]
+        image_path = self.root_dir / row["image_path"]
+        with Image.open(image_path) as source:
+            image = source.convert("RGB")
+        width, height = image.size
+        side = max(width, height)
+        canvas = Image.new("RGB", (side, side), (0, 0, 0))
+        canvas.paste(image, ((side - width) // 2, (side - height) // 2))
+        image = np.array(canvas)
+        if self.transform:
+            image = self.transform(image=image)["image"]
+        return image, int(row["label"]), row["image_path"]
+
+
+def build_manifest_loader(
+    dataframe,
+    root_dir,
+    image_size=392,
+    batch_size=16,
+    num_workers=4,
+    split="train",
+):
+    dataset = ManifestDataset(
+        dataframe,
+        root_dir,
+        transform=get_msd_transforms(split, image_size),
+    )
+    return DataLoader(
+        dataset,
+        batch_size=batch_size,
+        shuffle=(split == "train"),
+        num_workers=num_workers,
+        pin_memory=torch.cuda.is_available(),
+        drop_last=False,
+    )
