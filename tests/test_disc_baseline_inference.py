@@ -85,6 +85,43 @@ class DiscBaselineInferenceTests(unittest.TestCase):
         self.assertTrue(np.isnan(row["cdr"]))
         self.assertEqual(row["segmentation_status"], "shape_mismatch")
 
+    def test_nonfinite_mask_values_are_marked_invalid_and_not_saved(self):
+        disc, cup = self._masks()
+        disc = disc.astype(np.float32)
+        disc[2, 1] = np.nan
+
+        csv_path = run_inference(
+            self.manifest_path,
+            self.data_root,
+            self.root / "nonfinite-results",
+            StaticSegmenter(disc, cup),
+        )
+
+        row = pd.read_csv(csv_path).iloc[0]
+        self.assertFalse(row["segmentation_valid"])
+        self.assertTrue(np.isnan(row["cdr"]))
+        self.assertEqual(row["segmentation_status"], "invalid_mask_values")
+        self.assertTrue(pd.isna(row["od_mask_path"]))
+
+    def test_same_stem_with_different_extensions_gets_distinct_mask_paths(self):
+        Image.new("RGB", (10, 12), color=(100, 40, 20)).save(self.data_root / "sample.jpg")
+        pd.DataFrame([
+            {"image_path": "sample.png", "domain": "TEST", "label": 1, "patient_id": ""},
+            {"image_path": "sample.jpg", "domain": "TEST", "label": 0, "patient_id": ""},
+        ]).to_csv(self.manifest_path, index=False)
+        disc, cup = self._masks()
+
+        csv_path = run_inference(
+            self.manifest_path,
+            self.data_root,
+            self.root / "colliding-results",
+            StaticSegmenter(disc, cup),
+        )
+
+        rows = pd.read_csv(csv_path)
+        self.assertEqual(rows["od_mask_path"].nunique(), 2)
+        self.assertEqual(rows["oc_mask_path"].nunique(), 2)
+
     def test_missing_factory_is_reported(self):
         cfg = OmegaConf.create({"segmenter": {"factory": "", "checkpoint": ""}})
 

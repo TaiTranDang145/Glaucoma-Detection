@@ -90,13 +90,21 @@ def run_inference(
 
         od_mask_path = ""
         oc_mask_path = ""
-        if disc.ndim == 2 and cup.ndim == 2 and disc.shape == cup.shape == image_rgb.shape[:2]:
+        if (
+            result.status != "invalid_mask_values"
+            and disc.ndim == 2
+            and cup.ndim == 2
+            and disc.shape == cup.shape == image_rgb.shape[:2]
+        ):
             safe_domain = re.sub(r"[^A-Za-z0-9_.-]+", "_", str(row["domain"]))
             if safe_domain in {"", ".", ".."}:
                 safe_domain = "unknown_domain"
-            mask_relative = Path("masks") / safe_domain / relative_image.with_suffix(".png")
+            mask_relative = (
+                Path("masks") / safe_domain / relative_image.parent
+                / (relative_image.name + "_od.png")
+            )
             od_output = output_dir / mask_relative
-            oc_output = output_dir / mask_relative.parent / (mask_relative.stem + "_cup.png")
+            oc_output = output_dir / mask_relative.parent / (relative_image.name + "_oc.png")
             od_output.parent.mkdir(parents=True, exist_ok=True)
             Image.fromarray((disc != 0).astype(np.uint8) * 255, mode="L").save(od_output)
             Image.fromarray((cup != 0).astype(np.uint8) * 255, mode="L").save(oc_output)

@@ -29,6 +29,8 @@ def calculate_vertical_cdr(optic_disc_mask: np.ndarray, optic_cup_mask: np.ndarr
         return _invalid("invalid_dimensions")
     if disc_source.shape != cup_source.shape:
         return _invalid("shape_mismatch")
+    if not _is_binary_mask(disc_source) or not _is_binary_mask(cup_source):
+        return _invalid("invalid_mask_values")
 
     disc = disc_source != 0
     cup = cup_source != 0
@@ -67,3 +69,13 @@ def _largest_component(mask: np.ndarray) -> Tuple[np.ndarray, int]:
     component_label = 1 + int(np.argmax(stats[1:, cv2.CC_STAT_AREA]))
     area = int(stats[component_label, cv2.CC_STAT_AREA])
     return labels == component_label, area
+
+
+def _is_binary_mask(mask: np.ndarray) -> bool:
+    """Accept finite binary masks encoded as 0/1 or 0/255."""
+    try:
+        finite = np.isfinite(mask)
+        binary = (mask == 0) | (mask == 1) | (mask == 255)
+    except (TypeError, ValueError):
+        return False
+    return bool(finite.all() and binary.all())

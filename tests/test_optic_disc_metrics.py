@@ -103,6 +103,19 @@ class VerticalCDRTests(unittest.TestCase):
         self.assertTrue(np.isnan(result.cdr))
         self.assertEqual(result.status, "invalid_dimensions")
 
+    def test_nonbinary_or_nonfinite_values_are_invalid(self):
+        disc = np.zeros((12, 10), dtype=np.float32)
+        cup = np.zeros_like(disc)
+        disc[2:10, 1:9] = 1
+        cup[4:8, 3:7] = 1
+        disc[2, 1] = np.nan
+
+        result = calculate_vertical_cdr(disc, cup)
+
+        self.assertFalse(result.segmentation_valid)
+        self.assertTrue(np.isnan(result.cdr))
+        self.assertEqual(result.status, "invalid_mask_values")
+
 
 if __name__ == "__main__":
     unittest.main()

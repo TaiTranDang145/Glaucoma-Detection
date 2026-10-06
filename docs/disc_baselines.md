@@ -44,7 +44,7 @@ vertical_CDR = vertical_height(OC) / vertical_height(OD)
 vertical_height(mask) = max(y) - min(y) + 1
 ```
 
-Hai mép trên/dưới được tính vào chiều cao. Trước khi đo, hàm giữ lại connected component 8-lân cận lớn nhất của mỗi mask để bỏ chấm nhiễu rời. Mask rỗng, mask chỉ có một pixel, shape không hợp lệ hoặc cup nằm ngoài disc trả về `cdr=NaN`, `segmentation_valid=false` và `segmentation_status` tương ứng. Cup không bị cắt/clamp vào disc.
+Hai mép trên/dưới được tính vào chiều cao. Mask phải có giá trị hữu hạn và nhị phân (encoding `0/1` hoặc `0/255`). Trước khi đo, hàm giữ lại connected component 8-lân cận lớn nhất của mỗi mask để bỏ chấm nhiễu rời. Mask rỗng, mask chỉ có một pixel, giá trị không nhị phân, shape không hợp lệ hoặc cup nằm ngoài disc trả về `cdr=NaN`, `segmentation_valid=false` và `segmentation_status` tương ứng. Cup không bị cắt/clamp vào disc.
 
 ## RDR
 
