@@ -1,0 +1,21 @@
+# Requires a user-supplied OD/OC segmenter factory and compatible checkpoint.
+paths:
+  data_root: data
+  manifest: data/manifests/gonet_msd.csv
+  output_dir: outputs/disc_baselines
+
+segmenter:
+  # Python import reference in the form module.path:factory_name.
+  factory: null
+  checkpoint: null
+  device: cuda
+
+evaluation:
+  gonet_predictions: null
+  bootstrap_repetitions: 1000
+  bootstrap_fraction: 0.95
+  seed: 42
+
+visualization:
+  sample_count: 16
+  seed: 42
