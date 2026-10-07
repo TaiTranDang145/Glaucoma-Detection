@@ -22,6 +22,11 @@ import albumentations as A
 from albumentations.pytorch import ToTensorV2
 from sklearn.model_selection import GroupShuffleSplit
 
+try:
+    from .domain_sampling import make_domain_balanced_sampler
+except ImportError:  # Support `python src/train_msd.py` imports from Kaggle.
+    from domain_sampling import make_domain_balanced_sampler
+
 
 # ── Label mapping ─────────────────────────────────────────────────────────────
 LABEL_MAP = {"GON+": 1, "GON-": 0}
@@ -341,16 +346,22 @@ def build_manifest_loader(
     batch_size=16,
     num_workers=4,
     split="train",
+    domain_balanced_sampling=False,
 ):
     dataset = ManifestDataset(
         dataframe,
         root_dir,
         transform=get_msd_transforms(split, image_size),
     )
+    sampler = None
+    if split == "train" and domain_balanced_sampling:
+        sampler = make_domain_balanced_sampler(dataframe["domain"].tolist())
+
     return DataLoader(
         dataset,
         batch_size=batch_size,
-        shuffle=(split == "train"),
+        sampler=sampler,
+        shuffle=(split == "train" and sampler is None),
         num_workers=num_workers,
         pin_memory=torch.cuda.is_available(),
         drop_last=False,

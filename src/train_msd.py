@@ -64,6 +64,11 @@ def parse_args():
     parser.add_argument("--epochs", type=int, help="Override configured epoch count.")
     parser.add_argument("--batch-size", type=int, help="Override configured batch size.")
     parser.add_argument("--num-workers", type=int, help="Override configured DataLoader workers.")
+    parser.add_argument(
+        "--domain-balanced-sampling",
+        action="store_true",
+        help="Balance source-domain contribution in training batches (ablation).",
+    )
     return parser.parse_args()
 
 
@@ -114,10 +119,13 @@ def main():
             "Target %s: train=%d val=%d target=%d",
             target, len(train_df), len(val_df), len(target_df),
         )
+        if args.domain_balanced_sampling:
+            logger.info("Domain-balanced sampling enabled for training only.")
 
         train_loader = build_manifest_loader(
             train_df, data_root, cfg.dataset.image_size, cfg.training.batch_size,
             cfg.training.num_workers, "train",
+            domain_balanced_sampling=args.domain_balanced_sampling,
         )
         val_loader = build_manifest_loader(
             val_df, data_root, cfg.dataset.image_size, cfg.training.batch_size,
