@@ -1,0 +1,138 @@
+{
+  "oof_segmentation_train_summary": {
+    "train_oof_cdr_mae": 0.0826,
+    "train_oof_cdr_pearson_r": 0.755,
+    "train_oof_cdr_spearman_rho": 0.722,
+    "train_oof_cdr_icc": 0.6939,
+    "train_oof_mean_disc_dice": 0.9354,
+    "train_oof_mean_cup_dice": 0.7109
+  },
+  "M5a_auto_oof": {
+    "mean_auc": 0.8673,
+    "std_auc": 0.0045,
+    "min_auc": 0.8627,
+    "max_auc": 0.8733,
+    "mean_calibrated_brier": 0.1131,
+    "mean_sensitivity": 0.9231,
+    "mean_specificity": 0.7373,
+    "ensemble_auc": 0.8688,
+    "runs": [
+      {
+        "seed": 42,
+        "val_auc": 0.8226,
+        "test_auc": 0.8733,
+        "ci_eye": [
+          0.7044,
+          0.9808
+        ],
+        "ci_cluster": [
+          0.7255,
+          0.9885
+        ],
+        "sensitivity": 0.9231,
+        "specificity": 0.8039,
+        "accuracy": 0.8281,
+        "brier_calibrated": 0.1036,
+        "threshold": 0.0269
+      },
+      {
+        "seed": 123,
+        "val_auc": 0.8163,
+        "test_auc": 0.8627,
+        "ci_eye": [
+          0.693,
+          0.9717
+        ],
+        "ci_cluster": [
+          0.7099,
+          0.9729
+        ],
+        "sensitivity": 0.9231,
+        "specificity": 0.7647,
+        "accuracy": 0.7969,
+        "brier_calibrated": 0.1159,
+        "threshold": 0.039
+      },
+      {
+        "seed": 2024,
+        "val_auc": 0.8163,
+        "test_auc": 0.8658,
+        "ci_eye": [
+          0.702,
+          0.9729
+        ],
+        "ci_cluster": [
+          0.7148,
+          0.98
+        ],
+        "sensitivity": 0.9231,
+        "specificity": 0.6667,
+        "accuracy": 0.7188,
+        "brier_calibrated": 0.1109,
+        "threshold": 0.0338
+      },
+      {
+        "seed": 3407,
+        "val_auc": 0.8195,
+        "test_auc": 0.8718,
+        "ci_eye": [
+          0.7163,
+          0.9726
+        ],
+        "ci_cluster": [
+          0.7391,
+          0.9786
+        ],
+        "sensitivity": 0.9231,
+        "specificity": 0.7255,
+        "accuracy": 0.7656,
+        "brier_calibrated": 0.1116,
+        "threshold": 0.0221
+      },
+      {
+        "seed": 777,
+        "val_auc": 0.8163,
+        "test_auc": 0.8627,
+        "ci_eye": [
+          0.6987,
+          0.9708
+        ],
+        "ci_cluster": [
+          0.7142,
+          0.9749
+        ],
+        "sensitivity": 0.9231,
+        "specificity": 0.7255,
+        "accuracy": 0.7656,
+        "brier_calibrated": 0.1235,
+        "threshold": 0.022
+      }
+    ]
+  },
+  "comparison_3_levels": {
+    "M2_Global_mean_auc": 0.876,
+    "M5a_Oracle_mean_auc": 0.889,
+    "M5a_Auto_OOF_mean_auc": 0.8673,
+    "delta_auto_vs_m2": -0.0087
+  },
+  "paired_bootstraps": {
+    "M5a_auto_OOF_vs_M2_seed42": {
+      "mean_delta_auc": 0.0374,
+      "bootstrap_95ci_patient_clustered": [
+        -0.0546,
+        0.1536
+      ],
+      "empirical_p_value_one_sided": 0.26,
+      "pct_bootstrap_positive": 74.0
+    },
+    "M1_auto_vs_M1_oracle": {
+      "mean_delta_auc": 0.0434,
+      "bootstrap_95ci_patient_clustered": [
+        -0.0661,
+        0.1565
+      ],
+      "empirical_p_value_one_sided": 0.2355,
+      "pct_bootstrap_positive": 76.45
+    }
+  }
+}

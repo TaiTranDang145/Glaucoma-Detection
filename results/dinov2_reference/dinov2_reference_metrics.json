@@ -1,0 +1,117 @@
+{
+  "model": "DINOv2_ViT_B_14",
+  "mean_test_auc": 0.8232,
+  "std_test_auc": 0.0043,
+  "min_test_auc": 0.8175,
+  "max_test_auc": 0.8296,
+  "ensemble_test_auc": 0.8235,
+  "mean_sensitivity": 0.7692,
+  "mean_specificity": 0.6745,
+  "mean_brier": 0.1234,
+  "efficiency": {
+    "params": 86579712,
+    "params_m": 86.58,
+    "checkpoint_size_mb": 330.28,
+    "total_flops": 46322454528,
+    "gflops": 46.32,
+    "mmacs": 23161.23,
+    "gpu_latency_ms": 23.489,
+    "gpu_std_ms": 1.263,
+    "gpu_fps": 42.6,
+    "cpu_latency_ms": 189.093,
+    "cpu_std_ms": 19.243,
+    "cpu_fps": 5.3
+  },
+  "runs": [
+    {
+      "seed": 42,
+      "val_auc": 0.8163,
+      "test_auc": 0.822,
+      "ci_eye": [
+        0.6666,
+        0.9442
+      ],
+      "ci_cluster": [
+        0.674,
+        0.9544
+      ],
+      "sensitivity": 0.7692,
+      "specificity": 0.6667,
+      "accuracy": 0.6875,
+      "brier_calibrated": 0.1221,
+      "threshold": 0.3112
+    },
+    {
+      "seed": 123,
+      "val_auc": 0.821,
+      "test_auc": 0.8296,
+      "ci_eye": [
+        0.6762,
+        0.9559
+      ],
+      "ci_cluster": [
+        0.6809,
+        0.9643
+      ],
+      "sensitivity": 0.7692,
+      "specificity": 0.6863,
+      "accuracy": 0.7031,
+      "brier_calibrated": 0.1196,
+      "threshold": 0.3201
+    },
+    {
+      "seed": 2024,
+      "val_auc": 0.8257,
+      "test_auc": 0.8175,
+      "ci_eye": [
+        0.6729,
+        0.9442
+      ],
+      "ci_cluster": [
+        0.6682,
+        0.9465
+      ],
+      "sensitivity": 0.7692,
+      "specificity": 0.6667,
+      "accuracy": 0.6875,
+      "brier_calibrated": 0.1241,
+      "threshold": 0.2809
+    },
+    {
+      "seed": 3407,
+      "val_auc": 0.8116,
+      "test_auc": 0.8205,
+      "ci_eye": [
+        0.6666,
+        0.9427
+      ],
+      "ci_cluster": [
+        0.6775,
+        0.9551
+      ],
+      "sensitivity": 0.7692,
+      "specificity": 0.6667,
+      "accuracy": 0.6875,
+      "brier_calibrated": 0.128,
+      "threshold": 0.2973
+    },
+    {
+      "seed": 777,
+      "val_auc": 0.8273,
+      "test_auc": 0.8265,
+      "ci_eye": [
+        0.6789,
+        0.9519
+      ],
+      "ci_cluster": [
+        0.6785,
+        0.9606
+      ],
+      "sensitivity": 0.7692,
+      "specificity": 0.6863,
+      "accuracy": 0.7031,
+      "brier_calibrated": 0.1232,
+      "threshold": 0.3083
+    }
+  ]
+}

@@ -1,0 +1,170 @@
+{
+  "ensemble_m2_auc": 0.8824,
+  "ensemble_m5a_auc": 0.9065,
+  "ensemble_delta_auc": 0.0241,
+  "correlations": {
+    "pearson_m2_m3": 0.6036,
+    "pearson_m2_cdr": 0.3866,
+    "spearman_m2_cdr": 0.2525,
+    "pearson_m3_cdr": 0.3893
+  },
+  "rescue_cases_count": 1,
+  "harmed_cases_count": 1,
+  "both_wrong_count": 13,
+  "rescue_cases": [
+    {
+      "image_id": "RET176OD",
+      "patient_id": "RET176",
+      "label": "GON-",
+      "cdr": 0.2406,
+      "m2_prob": 0.303,
+      "m5a_prob": 0.0669,
+      "m2_pred": 1,
+      "m5a_pred": 0
+    }
+  ],
+  "harmed_cases": [
+    {
+      "image_id": "RET267OD",
+      "patient_id": "RET267",
+      "label": "GON-",
+      "cdr": 0.2972,
+      "m2_prob": 0.1579,
+      "m5a_prob": 0.1151,
+      "m2_pred": 0,
+      "m5a_pred": 1
+    }
+  ],
+  "both_wrong_cases": [
+    {
+      "image_id": "RET135OD",
+      "patient_id": "RET135",
+      "label": "GON-",
+      "cdr": 0.1564,
+      "m2_prob": 0.5285,
+      "m5a_prob": 0.2973,
+      "m2_pred": 1,
+      "m5a_pred": 1
+    },
+    {
+      "image_id": "RET135OS",
+      "patient_id": "RET135",
+      "label": "GON-",
+      "cdr": 0.1813,
+      "m2_prob": 0.7878,
+      "m5a_prob": 0.4548,
+      "m2_pred": 1,
+      "m5a_pred": 1
+    },
+    {
+      "image_id": "RET165OD",
+      "patient_id": "RET165",
+      "label": "GON-",
+      "cdr": 0.4434,
+      "m2_prob": 0.5399,
+      "m5a_prob": 0.458,
+      "m2_pred": 1,
+      "m5a_pred": 1
+    },
+    {
+      "image_id": "RET171OD",
+      "patient_id": "RET171",
+      "label": "GON-",
+      "cdr": 0.2937,
+      "m2_prob": 0.7043,
+      "m5a_prob": 0.5599,
+      "m2_pred": 1,
+      "m5a_pred": 1
+    },
+    {
+      "image_id": "RET171OS",
+      "patient_id": "RET171",
+      "label": "GON-",
+      "cdr": 0.2712,
+      "m2_prob": 0.4114,
+      "m5a_prob": 0.5306,
+      "m2_pred": 1,
+      "m5a_pred": 1
+    },
+    {
+      "image_id": "RET172OD",
+      "patient_id": "RET172",
+      "label": "GON-",
+      "cdr": 0.5232,
+      "m2_prob": 0.166,
+      "m5a_prob": 0.4338,
+      "m2_pred": 1,
+      "m5a_pred": 1
+    },
+    {
+      "image_id": "RET172OS",
+      "patient_id": "RET172",
+      "label": "GON-",
+      "cdr": 0.4168,
+      "m2_prob": 0.3997,
+      "m5a_prob": 0.4308,
+      "m2_pred": 1,
+      "m5a_pred": 1
+    },
+    {
+      "image_id": "RET229OD",
+      "patient_id": "RET229",
+      "label": "GON-",
+      "cdr": 0.4359,
+      "m2_prob": 0.9504,
+      "m5a_prob": 0.9164,
+      "m2_pred": 1,
+      "m5a_pred": 1
+    },
+    {
+      "image_id": "RET229OS",
+      "patient_id": "RET229",
+      "label": "GON-",
+      "cdr": 0.5078,
+      "m2_prob": 0.2252,
+      "m5a_prob": 0.6369,
+      "m2_pred": 1,
+      "m5a_pred": 1
+    },
+    {
+      "image_id": "RET230OD",
+      "patient_id": "RET230",
+      "label": "GON-",
+      "cdr": 0.1635,
+      "m2_prob": 0.7539,
+      "m5a_prob": 0.4162,
+      "m2_pred": 1,
+      "m5a_pred": 1
+    },
+    {
+      "image_id": "RET230OS",
+      "patient_id": "RET230",
+      "label": "GON-",
+      "cdr": 0.264,
+      "m2_prob": 0.4936,
+      "m5a_prob": 0.1989,
+      "m2_pred": 1,
+      "m5a_pred": 1
+    },
+    {
+      "image_id": "RET265OS",
+      "patient_id": "RET265",
+      "label": "GON+",
+      "cdr": 0.3727,
+      "m2_prob": 0.0,
+      "m5a_prob": 0.0041,
+      "m2_pred": 0,
+      "m5a_pred": 0
+    },
+    {
+      "image_id": "RET282OD",
+      "patient_id": "RET282",
+      "label": "GON-",
+      "cdr": 0.1118,
+      "m2_prob": 0.2412,
+      "m5a_prob": 0.1322,
+      "m2_pred": 1,
+      "m5a_pred": 1
+    }
+  ]
+}

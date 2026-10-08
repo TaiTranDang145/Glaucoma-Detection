@@ -1,0 +1,59 @@
+{
+  "experiment": "M5a_global_cdr",
+  "input_modalities": "Global Full Fundus (1024-d) + Clinical Consensus CDR (1-d)",
+  "feature_dim": 1025,
+  "fusion_head_architecture": "LayerNorm(1025) -> Dropout(0.2) -> Linear(1025, 1)",
+  "parameters": {
+    "total": 3076,
+    "trainable": 3076
+  },
+  "training_setup": {
+    "device": "cuda",
+    "epochs": 40,
+    "best_epoch": 14,
+    "batch_size": 16,
+    "lr": 0.001,
+    "weight_decay": 0.01,
+    "pos_weight": 3.819672131147541,
+    "selection_criterion": "best_val_auc",
+    "best_val_loss": 1.2214,
+    "best_val_auc": 0.8289
+  },
+  "threshold_selection": {
+    "selected_on": "validation_set",
+    "criterion": "maximum_youdens_j",
+    "threshold": 0.0474,
+    "validation_sensitivity": 1.0,
+    "validation_specificity": 0.6122
+  },
+  "test_results": {
+    "n_test_images": 64,
+    "n_test_patients": 32,
+    "gon_plus_count": 13,
+    "gon_minus_count": 51,
+    "roc_auc": 0.8627,
+    "bootstrap_95ci_eye_level": [
+      0.6938,
+      0.974
+    ],
+    "bootstrap_95ci_patient_clustered": [
+      0.7067,
+      0.976
+    ],
+    "sensitivity": 0.8462,
+    "specificity": 0.8039,
+    "accuracy": 0.8125,
+    "brier_score_calibrated": 0.1163,
+    "brier_score_raw": 0.1056,
+    "confusion_matrix": {
+      "tp": 11,
+      "fp": 10,
+      "tn": 41,
+      "fn": 2
+    }
+  },
+  "platt_calibrator": {
+    "slope": 2.1863,
+    "intercept": -2.2932
+  }
+}

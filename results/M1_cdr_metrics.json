@@ -1,0 +1,79 @@
+{
+  "experiment": "M1_oracle_cdr_baseline",
+  "dataset": "PAPILA_binary_non_suspect",
+  "methodology_note": "Oracle / Ground-truth CDR baseline derived directly from expert manual contours to assess the maximum diagnostic discriminability of ideal clinical morphology (not automated segmentation).",
+  "risk_score": "cdr_mean = (cdr_exp1 + cdr_exp2) / 2",
+  "threshold_selection": {
+    "selected_on": "validation_set",
+    "criterion": "maximum_youdens_j",
+    "threshold": 0.4068,
+    "validation_sensitivity": 0.9231,
+    "validation_specificity": 0.8571
+  },
+  "test_results": {
+    "n_test_images": 64,
+    "n_test_patients": 32,
+    "gon_plus_count": 13,
+    "gon_minus_count": 51,
+    "roc_auc": 0.8039,
+    "bootstrap_95ci_eye_level": [
+      0.6265,
+      0.9516
+    ],
+    "bootstrap_95ci_patient_clustered": [
+      0.5416,
+      0.9741
+    ],
+    "sensitivity": 0.6154,
+    "specificity": 0.7647,
+    "accuracy": 0.7344,
+    "brier_score_calibrated": 0.1243,
+    "brier_score_raw": 0.1393,
+    "confusion_matrix": {
+      "tp": 8,
+      "fp": 12,
+      "tn": 39,
+      "fn": 5
+    }
+  },
+  "inter_expert_agreement": {
+    "mean_cdr_exp1": 0.3619,
+    "mean_cdr_exp2": 0.3583,
+    "mean_consensus_cdr": 0.3601,
+    "mean_absolute_difference_cdr_units": 0.0366,
+    "mean_absolute_difference_percentage_points": 3.66,
+    "max_absolute_difference_cdr_units": 0.2191,
+    "correlation_pearson": 0.9539,
+    "icc_2_1_absolute_agreement": 0.9538,
+    "bland_altman_bias_cdr_units": 0.0036,
+    "bland_altman_loa_95": [
+      -0.0903,
+      0.0974
+    ]
+  },
+  "mask_topology_qc": {
+    "expert_1": {
+      "cup_strictly_subset_of_disc_cases": "418/420 (99.52%)",
+      "empty_disc_masks": 0,
+      "empty_cup_masks": 0,
+      "multiple_connected_components_disc": 0,
+      "multiple_connected_components_cup": 0,
+      "mean_cup_pixels_outside_disc_pct": 0.0011,
+      "max_cup_pixels_outside_disc_pct": 0.4357,
+      "cases_with_minor_boundary_overflow": [
+        {"image_id": "RET044OD", "outside_pixels": 14, "cup_total_pixels": 136512, "pct": 0.0103},
+        {"image_id": "RET119OD", "outside_pixels": 241, "cup_total_pixels": 55313, "pct": 0.4357}
+      ]
+    },
+    "expert_2": {
+      "cup_strictly_subset_of_disc_cases": "420/420 (100.0%)",
+      "empty_disc_masks": 0,
+      "empty_cup_masks": 0,
+      "multiple_connected_components_disc": 0,
+      "multiple_connected_components_cup": 0,
+      "mean_cup_pixels_outside_disc_pct": 0.0,
+      "max_cup_pixels_outside_disc_pct": 0.0,
+      "cases_with_minor_boundary_overflow": []
+    }
+  }
+}

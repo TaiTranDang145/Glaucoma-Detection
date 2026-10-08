@@ -1,0 +1,58 @@
+{
+  "experiment": "M3_local",
+  "input_type": "oracle_od_crop",
+  "model_architecture": "mobilenetv3_small_100",
+  "parameters": {
+    "total": 1518881,
+    "trainable": 1518881
+  },
+  "training_setup": {
+    "epochs": 35,
+    "best_epoch": 11,
+    "batch_size": 16,
+    "image_size": 224,
+    "lr": 0.0001,
+    "weight_decay": 0.01,
+    "pos_weight": 3.819672131147541,
+    "selection_criterion": "best_val_auc",
+    "best_val_loss": 2.3158,
+    "best_val_auc": 0.8791
+  },
+  "threshold_selection": {
+    "selected_on": "validation_set",
+    "criterion": "maximum_youdens_j",
+    "threshold": 0.0002,
+    "validation_sensitivity": 1.0,
+    "validation_specificity": 0.6327
+  },
+  "test_results": {
+    "n_test_images": 64,
+    "n_test_patients": 32,
+    "gon_plus_count": 13,
+    "gon_minus_count": 51,
+    "roc_auc": 0.7481,
+    "bootstrap_95ci_eye_level": [
+      0.5915,
+      0.88
+    ],
+    "bootstrap_95ci_patient_clustered": [
+      0.6362,
+      0.8574
+    ],
+    "sensitivity": 0.7692,
+    "specificity": 0.6078,
+    "accuracy": 0.6406,
+    "brier_score_calibrated": 0.1684,
+    "brier_score_raw": 0.1978,
+    "confusion_matrix": {
+      "tp": 10,
+      "fp": 20,
+      "tn": 31,
+      "fn": 3
+    }
+  },
+  "platt_calibrator": {
+    "slope": 0.5031,
+    "intercept": -0.3294
+  }
+}

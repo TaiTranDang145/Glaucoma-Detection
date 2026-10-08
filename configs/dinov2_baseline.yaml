@@ -1,0 +1,50 @@
+# Public-data DINOv2 method reproduction for binary GON classification.
+# The defaults follow the GONet/DRStageNet fine-tuning recipe where reported.
+experiment:
+  name: dinov2_public_gon_baseline
+  seed: 42
+  device: cuda
+
+paths:
+  data_root: data
+  manifest: data/manifests/all_public.csv
+  output_dir: outputs/dinov2_baseline
+
+dataset:
+  image_size: 392
+  validation_fraction: 0.10
+  # Patient IDs are used when a dataset supplies them; otherwise images are
+  # grouped independently and this limitation is recorded in metrics.json.
+
+model:
+  architecture: gonet
+  pretrained: true
+  dropout_rate: 0.0
+
+training:
+  epochs: 20
+  batch_size: 16
+  num_workers: 4
+  mixed_precision: true
+  # Adapted from DRStageNet, as specified by the GONet paper.
+  optimizer: Adam
+  lr: 1.0e-6
+  weight_decay: 4.0e-2
+  gradient_clip_norm: 1.0
+  scheduler: ReduceLROnPlateau
+  scheduler_patience: 4
+  scheduler_factor: 0.1
+  early_stopping_patience: 10
+  selection_metric: source_validation_bce_loss
+
+augmentation:
+  horizontal_flip_probability: 0.5
+  vertical_flip_probability: 0.5
+  zoom_scale: [0.9, 1.1]
+  rotation_degrees: [-15, 15]
+  brightness_limit: 0.2
+
+evaluation:
+  bootstrap_repetitions: 1000
+  bootstrap_fraction: 0.95
+  threshold: null

@@ -20,9 +20,9 @@ class BuildManifestTests(unittest.TestCase):
             records = build_manifest(root)
 
         self.assertEqual(len(records), 1)
-        self.assertEqual(records[0]["domain"], "HYDR")
+        self.assertEqual(records[0]["domain"], "HYRD")
         self.assertEqual(records[0]["label"], 1)
-        self.assertEqual(records[0]["patient_id"], "HYDR:patient-01")
+        self.assertEqual(records[0]["patient_id"], "HYRD:patient-01")
 
 
 if __name__ == "__main__":

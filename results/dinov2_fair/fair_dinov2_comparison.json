@@ -1,0 +1,224 @@
+{
+  "DINOv2_224_finetuned": {
+    "mean_auc": 0.813,
+    "std_auc": 0.0345,
+    "ensemble_auc": 0.8175,
+    "mean_sensitivity": 0.7692,
+    "mean_specificity": 0.7451,
+    "mean_accuracy": 0.75,
+    "mean_calibrated_brier": 0.1331,
+    "runs": [
+      {
+        "seed": 42,
+        "resolution": 224,
+        "best_epoch": 4,
+        "val_auc": 0.8956,
+        "test_auc": 0.7715,
+        "ci_eye": [
+          0.6085,
+          0.9151
+        ],
+        "ci_cluster": [
+          0.6265,
+          0.9233
+        ],
+        "sensitivity": 0.6154,
+        "specificity": 0.8235,
+        "accuracy": 0.7812,
+        "brier_calibrated": 0.1264,
+        "threshold": 0.7852
+      },
+      {
+        "seed": 123,
+        "resolution": 224,
+        "best_epoch": 8,
+        "val_auc": 0.7959,
+        "test_auc": 0.8115,
+        "ci_eye": [
+          0.6636,
+          0.9194
+        ],
+        "ci_cluster": [
+          0.6585,
+          0.9398
+        ],
+        "sensitivity": 0.9231,
+        "specificity": 0.5686,
+        "accuracy": 0.6406,
+        "brier_calibrated": 0.1531,
+        "threshold": 0.0432
+      },
+      {
+        "seed": 2024,
+        "resolution": 224,
+        "best_epoch": 11,
+        "val_auc": 0.8462,
+        "test_auc": 0.856,
+        "ci_eye": [
+          0.7041,
+          0.9657
+        ],
+        "ci_cluster": [
+          0.7241,
+          0.9646
+        ],
+        "sensitivity": 0.7692,
+        "specificity": 0.8431,
+        "accuracy": 0.8281,
+        "brier_calibrated": 0.1199,
+        "threshold": 0.0036
+      }
+    ],
+    "efficiency": {
+      "resolution": 224,
+      "params": 86580481,
+      "params_m": 86.58,
+      "checkpoint_size_mb": 330.28,
+      "total_flops": 46322456064,
+      "gflops": 46.32,
+      "mmacs": 23161.23,
+      "gpu_latency_ms": 21.342,
+      "gpu_std_ms": 1.507,
+      "gpu_fps": 46.9,
+      "cpu_latency_ms": 177.286,
+      "cpu_std_ms": 14.153,
+      "cpu_fps": 5.6
+    }
+  },
+  "DINOv2_392_finetuned": {
+    "mean_auc": 0.8012,
+    "std_auc": 0.1022,
+    "ensemble_auc": 0.8899,
+    "mean_sensitivity": 0.7436,
+    "mean_specificity": 0.7255,
+    "mean_accuracy": 0.7291,
+    "mean_calibrated_brier": 0.1282,
+    "runs": [
+      {
+        "seed": 42,
+        "resolution": 392,
+        "best_epoch": 10,
+        "val_auc": 0.5911,
+        "test_auc": 0.6569,
+        "ci_eye": [
+          0.4768,
+          0.8093
+        ],
+        "ci_cluster": [
+          0.4654,
+          0.8355
+        ],
+        "sensitivity": 0.8462,
+        "specificity": 0.4314,
+        "accuracy": 0.5156,
+        "brier_calibrated": 0.1603,
+        "threshold": 0.3623
+      },
+      {
+        "seed": 123,
+        "resolution": 392,
+        "best_epoch": 10,
+        "val_auc": 0.843,
+        "test_auc": 0.8658,
+        "ci_eye": [
+          0.7147,
+          0.9674
+        ],
+        "ci_cluster": [
+          0.7276,
+          0.9726
+        ],
+        "sensitivity": 0.5385,
+        "specificity": 0.8431,
+        "accuracy": 0.7812,
+        "brier_calibrated": 0.1275,
+        "threshold": 0.6064
+      },
+      {
+        "seed": 2024,
+        "resolution": 392,
+        "best_epoch": 10,
+        "val_auc": 0.9042,
+        "test_auc": 0.8808,
+        "ci_eye": [
+          0.7149,
+          0.988
+        ],
+        "ci_cluster": [
+          0.7253,
+          0.9866
+        ],
+        "sensitivity": 0.8462,
+        "specificity": 0.902,
+        "accuracy": 0.8906,
+        "brier_calibrated": 0.0967,
+        "threshold": 0.1447
+      }
+    ],
+    "efficiency": {
+      "resolution": 392,
+      "params": 86580481,
+      "params_m": 86.58,
+      "checkpoint_size_mb": 330.28,
+      "total_flops": 156772013568,
+      "gflops": 156.77,
+      "mmacs": 78386.01,
+      "gpu_latency_ms": 64.019,
+      "gpu_std_ms": 4.15,
+      "gpu_fps": 15.6,
+      "cpu_latency_ms": 571.041,
+      "cpu_std_ms": 22.646,
+      "cpu_fps": 1.8
+    }
+  },
+  "paired_comparisons": {
+    "delta_proposed_vs_dinov2_224_seed42": {
+      "mean_delta_auc": 0.101,
+      "bootstrap_95ci_patient_clustered": [
+        -0.0475,
+        0.2748
+      ],
+      "empirical_p_value_one_sided": 0.098,
+      "pct_bootstrap_positive": 90.2
+    },
+    "delta_proposed_vs_dinov2_392_seed42": {
+      "mean_delta_auc": 0.2219,
+      "bootstrap_95ci_patient_clustered": [
+        0.0937,
+        0.3785
+      ],
+      "empirical_p_value_one_sided": 0.0,
+      "pct_bootstrap_positive": 100.0
+    },
+    "delta_proposed_vs_dinov2_224_ensemble": {
+      "mean_delta_auc": 0.0515,
+      "bootstrap_95ci_patient_clustered": [
+        -0.0687,
+        0.2012
+      ],
+      "empirical_p_value_one_sided": 0.2295,
+      "pct_bootstrap_positive": 77.05
+    },
+    "delta_proposed_vs_dinov2_392_ensemble": {
+      "mean_delta_auc": -0.0209,
+      "bootstrap_95ci_patient_clustered": [
+        -0.1162,
+        0.0545
+      ],
+      "empirical_p_value_one_sided": 0.701,
+      "pct_bootstrap_positive": 29.9
+    }
+  },
+  "summary_comparison": {
+    "Proposed_M5a_auto_OOF_mean_auc": 0.8673,
+    "Proposed_M5a_auto_OOF_ensemble_auc": 0.8688,
+    "DINOv2_224_mean_auc": 0.813,
+    "DINOv2_224_ensemble_auc": 0.8175,
+    "DINOv2_392_mean_auc": 0.8012,
+    "DINOv2_392_ensemble_auc": 0.8899,
+    "delta_proposed_minus_dinov2_224_mean": 0.0543,
+    "delta_proposed_minus_dinov2_392_mean": 0.0661,
+    "delta_proposed_minus_dinov2_224_ensemble": 0.0513,
+    "delta_proposed_minus_dinov2_392_ensemble": -0.0211
+  }
+}

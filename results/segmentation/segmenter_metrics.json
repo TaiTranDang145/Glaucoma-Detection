@@ -1,0 +1,33 @@
+{
+  "best_epoch": 37,
+  "validation_metrics": {
+    "disc_dice_consensus": 0.9231,
+    "cup_dice_consensus": 0.7195,
+    "mean_dice_consensus": 0.8213,
+    "disc_dice_exp1": 0.9214,
+    "cup_dice_exp1": 0.7107,
+    "disc_dice_exp2": 0.9131,
+    "cup_dice_exp2": 0.697,
+    "disc_iou_consensus": 0.8604,
+    "cup_iou_consensus": 0.5954,
+    "cdr_mae": 0.08,
+    "cdr_pearson_r": 0.7036,
+    "cdr_spearman_rho": 0.6043,
+    "cdr_icc_2_1": 0.6871
+  },
+  "test_metrics": {
+    "disc_dice_consensus": 0.9249,
+    "cup_dice_consensus": 0.6912,
+    "mean_dice_consensus": 0.808,
+    "disc_dice_exp1": 0.9245,
+    "cup_dice_exp1": 0.6783,
+    "disc_dice_exp2": 0.9174,
+    "cup_dice_exp2": 0.6595,
+    "disc_iou_consensus": 0.8631,
+    "cup_iou_consensus": 0.5684,
+    "cdr_mae": 0.0675,
+    "cdr_pearson_r": 0.8251,
+    "cdr_spearman_rho": 0.8039,
+    "cdr_icc_2_1": 0.8262
+  }
+}

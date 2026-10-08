@@ -1,0 +1,45 @@
+{
+  "dataset_name": "PAPILA",
+  "total_source_patients": 244,
+  "suspect_patients_excluded": 34,
+  "suspect_eyes_excluded": 68,
+  "usable_patients": 210,
+  "usable_images": 420,
+  "split_patient_counts": {
+    "train": 147,
+    "val": 31,
+    "test": 32
+  },
+  "split_image_counts": {
+    "train": 294,
+    "test": 64,
+    "val": 62
+  },
+  "split_label_counts": {
+    "test": {
+      "total": 64,
+      "gon_plus": 13,
+      "gon_minus": 51,
+      "gon_plus_ratio": 0.2031
+    },
+    "train": {
+      "total": 294,
+      "gon_plus": 61,
+      "gon_minus": 233,
+      "gon_plus_ratio": 0.2075
+    },
+    "val": {
+      "total": 62,
+      "gon_plus": 13,
+      "gon_minus": 49,
+      "gon_plus_ratio": 0.2097
+    }
+  },
+  "patient_overlap_check": {
+    "train_val_overlap": 0,
+    "train_test_overlap": 0,
+    "val_test_overlap": 0
+  },
+  "hash_duplicates_within_manifest": 0,
+  "random_seed": 42
+}

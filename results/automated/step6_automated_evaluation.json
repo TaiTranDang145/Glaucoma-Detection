@@ -1,0 +1,143 @@
+{
+  "M1_auto": {
+    "model": "M1_auto_predicted_cdr",
+    "threshold": 0.3778,
+    "test_auc": 0.8462,
+    "ci_eye": [
+      0.7024,
+      0.9535
+    ],
+    "ci_cluster": [
+      0.6529,
+      0.9774
+    ],
+    "sensitivity": 0.7692,
+    "specificity": 0.6863,
+    "accuracy": 0.7031,
+    "brier_calibrated": 0.1269
+  },
+  "M5a_auto": {
+    "mean_auc": 0.8679,
+    "std_auc": 0.0055,
+    "min_auc": 0.8612,
+    "max_auc": 0.8763,
+    "mean_calibrated_brier": 0.115,
+    "ensemble_auc": 0.8688,
+    "runs": [
+      {
+        "seed": 42,
+        "val_auc": 0.821,
+        "test_auc": 0.8763,
+        "ci_eye": [
+          0.7131,
+          0.981
+        ],
+        "ci_cluster": [
+          0.7313,
+          0.9885
+        ],
+        "sensitivity": 0.9231,
+        "specificity": 0.7843,
+        "accuracy": 0.8125,
+        "brier_calibrated": 0.1042,
+        "threshold": 0.028
+      },
+      {
+        "seed": 123,
+        "val_auc": 0.8163,
+        "test_auc": 0.8612,
+        "ci_eye": [
+          0.6914,
+          0.971
+        ],
+        "ci_cluster": [
+          0.7096,
+          0.9722
+        ],
+        "sensitivity": 0.9231,
+        "specificity": 0.7647,
+        "accuracy": 0.7969,
+        "brier_calibrated": 0.1194,
+        "threshold": 0.0452
+      },
+      {
+        "seed": 2024,
+        "val_auc": 0.8148,
+        "test_auc": 0.8627,
+        "ci_eye": [
+          0.6992,
+          0.9713
+        ],
+        "ci_cluster": [
+          0.7088,
+          0.9779
+        ],
+        "sensitivity": 0.9231,
+        "specificity": 0.6667,
+        "accuracy": 0.7188,
+        "brier_calibrated": 0.1186,
+        "threshold": 0.047
+      },
+      {
+        "seed": 3407,
+        "val_auc": 0.8226,
+        "test_auc": 0.8703,
+        "ci_eye": [
+          0.7163,
+          0.9714
+        ],
+        "ci_cluster": [
+          0.7388,
+          0.9777
+        ],
+        "sensitivity": 0.9231,
+        "specificity": 0.7255,
+        "accuracy": 0.7656,
+        "brier_calibrated": 0.112,
+        "threshold": 0.0221
+      },
+      {
+        "seed": 777,
+        "val_auc": 0.8148,
+        "test_auc": 0.8688,
+        "ci_eye": [
+          0.7115,
+          0.9728
+        ],
+        "ci_cluster": [
+          0.7187,
+          0.9783
+        ],
+        "sensitivity": 0.9231,
+        "specificity": 0.7255,
+        "accuracy": 0.7656,
+        "brier_calibrated": 0.121,
+        "threshold": 0.0202
+      }
+    ]
+  },
+  "comparison_3_levels": {
+    "M2_Global_mean_auc": 0.876,
+    "M5a_Oracle_mean_auc": 0.889,
+    "M5a_Auto_mean_auc": 0.8679,
+    "delta_auto_vs_m2": -0.0081,
+    "retention_of_oracle_gain_pct": -62.62
+  },
+  "end_to_end_efficiency": {
+    "segmenter_params": 1256050,
+    "classifier_params": 1518881,
+    "head_params": 3076,
+    "total_params": 2778007,
+    "total_params_m": 2.778,
+    "total_flops": 1983985538,
+    "total_mflops": 1983.99,
+    "total_gflops": 1.984,
+    "total_mmacs": 991.99,
+    "gpu_latency_ms": 5.485,
+    "gpu_std_ms": 0.413,
+    "gpu_fps": 182.3,
+    "cpu_latency_ms": 30.183,
+    "cpu_std_ms": 1.595,
+    "cpu_fps": 33.1
+  }
+}

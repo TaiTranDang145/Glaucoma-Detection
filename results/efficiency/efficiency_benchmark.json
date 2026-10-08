@@ -1,0 +1,106 @@
+{
+  "M2_Global_MobileNetV3_Small": {
+    "params": {
+      "total_params": 1518881,
+      "trainable_params": 1518881,
+      "params_m": 1.519,
+      "total_flops": 110974848,
+      "mflops": 110.97,
+      "gflops": 0.111,
+      "mmacs": 55.49
+    },
+    "checkpoint_size_mb": 5.92,
+    "latency_gpu_rtx3050": {
+      "mean_ms": 1.733,
+      "std_ms": 0.613,
+      "median_ms": 1.534,
+      "p95_ms": 3.297,
+      "fps": 577.1
+    },
+    "latency_cpu": {
+      "mean_ms": 4.589,
+      "std_ms": 1.996,
+      "median_ms": 4.297,
+      "p95_ms": 6.333,
+      "fps": 217.9
+    }
+  },
+  "M5a_Global_CDR_Fusion": {
+    "params": {
+      "total_params": 1521957,
+      "trainable_params": 1521957,
+      "params_m": 1.522,
+      "total_flops": 110974850,
+      "mflops": 110.97,
+      "gflops": 0.111,
+      "mmacs": 55.49
+    },
+    "checkpoint_size_mb": 5.94,
+    "latency_gpu_rtx3050": {
+      "mean_ms": 1.634,
+      "std_ms": 0.279,
+      "median_ms": 1.541,
+      "p95_ms": 2.455,
+      "fps": 611.9
+    },
+    "latency_cpu": {
+      "mean_ms": 3.643,
+      "std_ms": 0.576,
+      "median_ms": 3.35,
+      "p95_ms": 4.775,
+      "fps": 274.5
+    }
+  },
+  "Reference_ResNet50": {
+    "params": {
+      "total_params": 23510081,
+      "trainable_params": 23510081,
+      "params_m": 23.51,
+      "total_flops": 8174276608,
+      "mflops": 8174.28,
+      "gflops": 8.1743,
+      "mmacs": 4087.14
+    },
+    "checkpoint_size_mb": 89.98,
+    "latency_gpu_rtx3050": {
+      "mean_ms": 5.841,
+      "std_ms": 0.565,
+      "median_ms": 5.716,
+      "p95_ms": 7.084,
+      "fps": 171.2
+    },
+    "latency_cpu": {
+      "mean_ms": 46.148,
+      "std_ms": 4.168,
+      "median_ms": 46.765,
+      "p95_ms": 50.422,
+      "fps": 21.7
+    }
+  },
+  "Reference_MobileNetV3_Large": {
+    "params": {
+      "total_params": 4203313,
+      "trainable_params": 4203313,
+      "params_m": 4.203,
+      "total_flops": 430622080,
+      "mflops": 430.62,
+      "gflops": 0.4306,
+      "mmacs": 215.31
+    },
+    "checkpoint_size_mb": 16.03,
+    "latency_gpu_rtx3050": {
+      "mean_ms": 1.882,
+      "std_ms": 0.255,
+      "median_ms": 1.829,
+      "p95_ms": 2.408,
+      "fps": 531.3
+    },
+    "latency_cpu": {
+      "mean_ms": 8.852,
+      "std_ms": 2.757,
+      "median_ms": 7.987,
+      "p95_ms": 11.515,
+      "fps": 113.0
+    }
+  }
+}

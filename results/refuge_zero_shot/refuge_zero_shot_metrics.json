@@ -1,0 +1,131 @@
+{
+  "REFUGE_All_1200": {
+    "n_total": 1200,
+    "n_pos": 120,
+    "n_neg": 1080,
+    "M2_Global_AUC": 0.6407,
+    "M2_95CI": [
+      0.5886,
+      0.6875
+    ],
+    "M1_Auto_CDR_AUC": 0.6388,
+    "M1_Auto_95CI": [
+      0.5853,
+      0.6916
+    ],
+    "M5a_Fusion_AUC": 0.7544,
+    "M5a_95CI": [
+      0.7029,
+      0.7998
+    ],
+    "Delta_M5a_minus_M2": {
+      "mean_delta_auc": 0.1128,
+      "ci_95": [
+        0.0701,
+        0.1548
+      ],
+      "empirical_p_one_sided": 0.0,
+      "pct_positive": 100.0
+    },
+    "DINOv2_Foundation_AUC": 0.6686,
+    "Delta_M5a_minus_DINOv2": 0.0858
+  },
+  "REFUGE_Test400": {
+    "n_total": 400,
+    "n_pos": 40,
+    "n_neg": 360,
+    "M2_Global_AUC": 0.6307,
+    "M2_95CI": [
+      0.5331,
+      0.7221
+    ],
+    "M1_Auto_CDR_AUC": 0.5512,
+    "M1_Auto_95CI": [
+      0.4582,
+      0.6429
+    ],
+    "M5a_Fusion_AUC": 0.7576,
+    "M5a_95CI": [
+      0.658,
+      0.8419
+    ],
+    "Delta_M5a_minus_M2": {
+      "mean_delta_auc": 0.1271,
+      "ci_95": [
+        0.0664,
+        0.1924
+      ],
+      "empirical_p_one_sided": 0.0,
+      "pct_positive": 100.0
+    },
+    "DINOv2_Foundation_AUC": 0.7171,
+    "Delta_M5a_minus_DINOv2": 0.0405
+  },
+  "REFUGE_Validation400": {
+    "n_total": 400,
+    "n_pos": 40,
+    "n_neg": 360,
+    "M2_Global_AUC": 0.7296,
+    "M2_95CI": [
+      0.655,
+      0.8041
+    ],
+    "M1_Auto_CDR_AUC": 0.5841,
+    "M1_Auto_95CI": [
+      0.4983,
+      0.6725
+    ],
+    "M5a_Fusion_AUC": 0.8078,
+    "M5a_95CI": [
+      0.7442,
+      0.8725
+    ],
+    "Delta_M5a_minus_M2": {
+      "mean_delta_auc": 0.0788,
+      "ci_95": [
+        0.0202,
+        0.1345
+      ],
+      "empirical_p_one_sided": 0.0015,
+      "pct_positive": 99.85
+    },
+    "DINOv2_Foundation_AUC": 0.6916,
+    "Delta_M5a_minus_DINOv2": 0.1162
+  },
+  "REFUGE_Training400": {
+    "n_total": 400,
+    "n_pos": 40,
+    "n_neg": 360,
+    "M2_Global_AUC": 0.6008,
+    "M2_95CI": [
+      0.5145,
+      0.6859
+    ],
+    "M1_Auto_CDR_AUC": 0.7101,
+    "M1_Auto_95CI": [
+      0.5896,
+      0.8234
+    ],
+    "M5a_Fusion_AUC": 0.7183,
+    "M5a_95CI": [
+      0.6147,
+      0.8103
+    ],
+    "Delta_M5a_minus_M2": {
+      "mean_delta_auc": 0.117,
+      "ci_95": [
+        0.017,
+        0.2169
+      ],
+      "empirical_p_one_sided": 0.013,
+      "pct_positive": 98.7
+    },
+    "DINOv2_Foundation_AUC": 0.6201,
+    "Delta_M5a_minus_DINOv2": 0.0982
+  },
+  "segmentation_on_refuge_gt": {
+    "n_evaluated": 800,
+    "mean_cdr_mae": 0.3208,
+    "cdr_pearson_r": 0.1518
+  }
+}

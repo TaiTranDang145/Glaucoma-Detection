@@ -1,0 +1,5 @@
+# Kaggle supplies its CUDA-enabled PyTorch, NumPy, pandas, scikit-learn,
+# Pillow, matplotlib, and OpenCV packages. Do not replace Kaggle's torch build.
+timm==1.0.30
+albumentations==2.0.8
+omegaconf>=2.3,<3

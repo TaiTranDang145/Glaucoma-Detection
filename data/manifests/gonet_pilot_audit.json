@@ -1,0 +1,112 @@
+{
+  "protocol": {
+    "name": "Preliminary public-only GONet method reproduction",
+    "single_source_training": "HYDR train; HYDR validation; REFUGE test",
+    "multi_source_training": "HYDR + PAPILA + DRISHTI_GS train; source validation; REFUGE test",
+    "target_domain": "REFUGE",
+    "validation_fraction_per_source_domain": 0.1,
+    "seed": 42,
+    "exact_duplicate_policy": "deduplicate byte-identical images within domain, retaining lexically first image_path",
+    "split_unit": "linked split_group when supplied, otherwise patient_id, otherwise one image/case per group"
+  },
+  "input_manifest": "data/manifests/all_public.csv",
+  "input_manifest_sha256": "94ee94b3a4ca858649612e0869f4f5969004a5dc2004e8858cd19745e5225ca4",
+  "input_rows_selected": 2458,
+  "image_integrity_audit": {
+    "files_checked": 2458,
+    "missing_or_unreadable": 0
+  },
+  "rows_after_deduplication": 2458,
+  "duplicates_removed": 0,
+  "duplicate_groups": [],
+  "source_validation_split_details": {
+    "HYRD": {
+      "groups_total": 283,
+      "groups_validation": 27,
+      "score": null,
+      "split_source": "all_public.source_split"
+    },
+    "PAPILA": {
+      "groups_total": 210,
+      "groups_validation": 21,
+      "score": null,
+      "split_source": "all_public.source_split"
+    },
+    "DRISHTI_GS": {
+      "groups_total": 101,
+      "groups_validation": 10,
+      "score": null,
+      "split_source": "all_public.source_split"
+    }
+  },
+  "counts": {
+    "DRISHTI_GS": {
+      "train": {
+        "n": 91,
+        "gon_minus": 28,
+        "gon_plus": 63,
+        "patients": 0
+      },
+      "val": {
+        "n": 10,
+        "gon_minus": 3,
+        "gon_plus": 7,
+        "patients": 0
+      }
+    },
+    "HYRD": {
+      "train": {
+        "n": 663,
+        "gon_minus": 177,
+        "gon_plus": 486,
+        "patients": 259
+      },
+      "val": {
+        "n": 74,
+        "gon_minus": 20,
+        "gon_plus": 54,
+        "patients": 27
+      }
+    },
+    "PAPILA": {
+      "train": {
+        "n": 378,
+        "gon_minus": 300,
+        "gon_plus": 78,
+        "patients": 189
+      },
+      "val": {
+        "n": 42,
+        "gon_minus": 33,
+        "gon_plus": 9,
+        "patients": 21
+      }
+    },
+    "REFUGE": {
+      "test": {
+        "n": 1200,
+        "gon_minus": 1080,
+        "gon_plus": 120,
+        "patients": 0
+      }
+    }
+  },
+  "split_audit": {
+    "passed": true,
+    "problems": [],
+    "target_rows_all_test": true,
+    "source_target_hash_overlap_count": 0,
+    "source_patient_train_val_leakage_count": 0,
+    "source_split_group_train_val_leakage_count": 0,
+    "source_hash_train_val_leakage_count": 0
+  },
+  "outputs": {
+    "manifest": "data/manifests/gonet_pilot.csv",
+    "audit": "data/manifests/gonet_pilot_audit.json"
+  },
+  "limitations": [
+    "KULRD is unavailable, so this is not an exact numerical reproduction of GONet.",
+    "REFUGE patient identifiers are not available in the local manifest; its test bootstrap will be image-level.",
+    "The SSD versus MSD comparison changes both source-domain count and source-data volume."
+  ]
+}

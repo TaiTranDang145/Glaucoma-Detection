@@ -1,0 +1,289 @@
+{
+  "seeds": [
+    42,
+    123,
+    2024,
+    3407,
+    777
+  ],
+  "n_seeds": 5,
+  "M2_global": {
+    "mean_auc": 0.876,
+    "std_auc": 0.0259,
+    "min_auc": 0.8341,
+    "max_auc": 0.9035,
+    "individual_runs": [
+      {
+        "seed": 42,
+        "best_epoch": 6,
+        "val_auc": 0.8336,
+        "test_auc": 0.8341,
+        "ci_eye": [
+          0.6706,
+          0.9537
+        ],
+        "ci_cluster": [
+          0.6928,
+          0.9657
+        ],
+        "sensitivity": 0.6923,
+        "specificity": 0.8039,
+        "accuracy": 0.7812,
+        "brier_calibrated": 0.1078,
+        "threshold": 0.1628
+      },
+      {
+        "seed": 123,
+        "best_epoch": 17,
+        "val_auc": 0.8619,
+        "test_auc": 0.8673,
+        "ci_eye": [
+          0.7321,
+          0.9657
+        ],
+        "ci_cluster": [
+          0.7371,
+          0.9759
+        ],
+        "sensitivity": 0.6923,
+        "specificity": 0.8235,
+        "accuracy": 0.7969,
+        "brier_calibrated": 0.1461,
+        "threshold": 0.7068
+      },
+      {
+        "seed": 2024,
+        "best_epoch": 32,
+        "val_auc": 0.8823,
+        "test_auc": 0.9035,
+        "ci_eye": [
+          0.7899,
+          0.9852
+        ],
+        "ci_cluster": [
+          0.7979,
+          0.9849
+        ],
+        "sensitivity": 0.8462,
+        "specificity": 0.7647,
+        "accuracy": 0.7812,
+        "brier_calibrated": 0.1134,
+        "threshold": 0.0045
+      },
+      {
+        "seed": 3407,
+        "best_epoch": 24,
+        "val_auc": 0.8336,
+        "test_auc": 0.9035,
+        "ci_eye": [
+          0.7656,
+          0.9925
+        ],
+        "ci_cluster": [
+          0.7823,
+          0.9932
+        ],
+        "sensitivity": 0.8462,
+        "specificity": 0.7059,
+        "accuracy": 0.7344,
+        "brier_calibrated": 0.0775,
+        "threshold": 0.0009
+      },
+      {
+        "seed": 777,
+        "best_epoch": 14,
+        "val_auc": 0.7834,
+        "test_auc": 0.8718,
+        "ci_eye": [
+          0.7471,
+          0.9663
+        ],
+        "ci_cluster": [
+          0.7464,
+          0.9712
+        ],
+        "sensitivity": 0.6923,
+        "specificity": 0.8039,
+        "accuracy": 0.7812,
+        "brier_calibrated": 0.1145,
+        "threshold": 0.4239
+      }
+    ]
+  },
+  "M5a_global_cdr": {
+    "mean_auc": 0.889,
+    "std_auc": 0.0281,
+    "min_auc": 0.8446,
+    "max_auc": 0.917,
+    "individual_runs": [
+      {
+        "seed": 42,
+        "best_epoch": 26,
+        "val_auc": 0.8744,
+        "test_auc": 0.8446,
+        "ci_eye": [
+          0.6998,
+          0.9576
+        ],
+        "ci_cluster": [
+          0.7131,
+          0.9643
+        ],
+        "sensitivity": 0.7692,
+        "specificity": 0.7059,
+        "accuracy": 0.7188,
+        "brier_calibrated": 0.1337,
+        "threshold": 0.1058
+      },
+      {
+        "seed": 123,
+        "best_epoch": 23,
+        "val_auc": 0.8179,
+        "test_auc": 0.917,
+        "ci_eye": [
+          0.8027,
+          0.9936
+        ],
+        "ci_cluster": [
+          0.8125,
+          0.9949
+        ],
+        "sensitivity": 0.9231,
+        "specificity": 0.6667,
+        "accuracy": 0.7188,
+        "brier_calibrated": 0.0803,
+        "threshold": 0.0181
+      },
+      {
+        "seed": 2024,
+        "best_epoch": 25,
+        "val_auc": 0.8697,
+        "test_auc": 0.9065,
+        "ci_eye": [
+          0.7933,
+          0.9872
+        ],
+        "ci_cluster": [
+          0.7914,
+          0.9872
+        ],
+        "sensitivity": 0.8462,
+        "specificity": 0.7647,
+        "accuracy": 0.7812,
+        "brier_calibrated": 0.0911,
+        "threshold": 0.052
+      },
+      {
+        "seed": 3407,
+        "best_epoch": 4,
+        "val_auc": 0.8116,
+        "test_auc": 0.9095,
+        "ci_eye": [
+          0.7727,
+          0.9971
+        ],
+        "ci_cluster": [
+          0.7813,
+          0.9984
+        ],
+        "sensitivity": 0.8462,
+        "specificity": 0.7255,
+        "accuracy": 0.75,
+        "brier_calibrated": 0.0686,
+        "threshold": 0.157
+      },
+      {
+        "seed": 777,
+        "best_epoch": 4,
+        "val_auc": 0.7849,
+        "test_auc": 0.8673,
+        "ci_eye": [
+          0.7352,
+          0.9743
+        ],
+        "ci_cluster": [
+          0.7452,
+          0.9795
+        ],
+        "sensitivity": 0.7692,
+        "specificity": 0.7843,
+        "accuracy": 0.7812,
+        "brier_calibrated": 0.1056,
+        "threshold": 0.1741
+      }
+    ]
+  },
+  "paired_comparison": {
+    "mean_delta_auc": 0.0129,
+    "std_delta_auc": 0.019,
+    "min_delta_auc": -0.0045,
+    "max_delta_auc": 0.0497,
+    "individual_paired_bootstraps": [
+      {
+        "mean_delta_auc": 0.0089,
+        "bootstrap_95ci_patient_clustered": [
+          -0.072,
+          0.1026
+        ],
+        "empirical_p_value_one_sided": 0.443,
+        "pct_bootstrap_positive": 55.7,
+        "seed": 42,
+        "m2_auc": 0.8341,
+        "m5a_auc": 0.8446,
+        "delta_auc": 0.0105
+      },
+      {
+        "mean_delta_auc": 0.0503,
+        "bootstrap_95ci_patient_clustered": [
+          -0.0081,
+          0.1445
+        ],
+        "empirical_p_value_one_sided": 0.0625,
+        "pct_bootstrap_positive": 93.75,
+        "seed": 123,
+        "m2_auc": 0.8673,
+        "m5a_auc": 0.917,
+        "delta_auc": 0.0497
+      },
+      {
+        "mean_delta_auc": 0.0031,
+        "bootstrap_95ci_patient_clustered": [
+          -0.0335,
+          0.0468
+        ],
+        "empirical_p_value_one_sided": 0.4555,
+        "pct_bootstrap_positive": 54.45,
+        "seed": 2024,
+        "m2_auc": 0.9035,
+        "m5a_auc": 0.9065,
+        "delta_auc": 0.003
+      },
+      {
+        "mean_delta_auc": 0.006,
+        "bootstrap_95ci_patient_clustered": [
+          -0.0208,
+          0.0403
+        ],
+        "empirical_p_value_one_sided": 0.3534,
+        "pct_bootstrap_positive": 64.66,
+        "seed": 3407,
+        "m2_auc": 0.9035,
+        "m5a_auc": 0.9095,
+        "delta_auc": 0.006
+      },
+      {
+        "mean_delta_auc": -0.0051,
+        "bootstrap_95ci_patient_clustered": [
+          -0.0572,
+          0.0452
+        ],
+        "empirical_p_value_one_sided": 0.5903,
+        "pct_bootstrap_positive": 40.97,
+        "seed": 777,
+        "m2_auc": 0.8718,
+        "m5a_auc": 0.8673,
+        "delta_auc": -0.0045
+      }
+    ]
+  }
+}

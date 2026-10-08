@@ -1,0 +1,26 @@
+Component,Status,File,What it currently does,Reusable?,Problems
+Dataset loader,PARTIAL,src/dataset.py,Loads fundus images via GlaucomaDataset (HYDR) and ManifestDataset (generic manifest),YES,ManifestDataset hardwired to 392x392 or 300x300. No crop/patch loader.
+Manifest builder,PARTIAL,src/prepare_gonet_pilot.py & src/prepare_data.py,Builds all_public.csv from 5 datasets with deduplication and source/target splits,YES,Aimed at multi-domain pilot (OOD target). Unit test fails due to HYRD vs HYDR domain string mismatch.
+Train/val/test split,PARTIAL,src/dataset.py & src/dinov2_engine.py,patient_level_split (HYDR 70/15/15) and split_source_domains (90/10 group split),YES,GroupShuffleSplit in dataset.py does not stratify by class label.
+Patient-level split,READY,src/dataset.py & src/prepare_gonet_pilot.py,Groups by Patient (HYDR) and split_group (PAPILA/HYRD),YES,Only HYRD and PAPILA have patient IDs. DRISHTI and REFUGE lack patient tables.
+Image preprocessing,READY,src/dataset.py,Square black padding + bilinear resize + ImageNet normalization,YES,Configured for 392x392 (ViT) or 300x300 (B3). Needs 224x224 configuration for MobileNet.
+Augmentation,READY,src/dataset.py,Albumentations pipeline: flips affine scale/rotate brightness jitter,YES,None. Well tested.
+DINOv2 classifier,READY,src/models/gonet.py & src/dinov2_engine.py,vit_base_patch14_dinov2.lvd142m + linear head for binary GON,YES (as M7 baseline),Heavy model (86M params 329MB). Not lightweight.
+SSD training,READY,src/train_ssd.py & src/dinov2_engine.py,Single-source domain training for DINOv2,YES (loop logic),Tightly coupled to DINOv2 and domain adaptation OOD protocol.
+MSD training,READY,src/train_msd.py & src/dinov2_engine.py,Multi-source domain training for DINOv2,YES (reference),Focuses on domain generalization not single-dataset internal validation.
+MobileNet classifier,MISSING,None,Does not exist in codebase,NO,Must implement MobileNetV3-Small / Large.
+EfficientNet classifier,PARTIAL,src/models/efficientnet_b3.py,EfficientNet-B3 with 2-layer MLP head (512-ReLU-1),YES (can adapt to B0),Only B3 is supported (~12M params). Model factory rejects other architectures.
+OD detector,MISSING,None,Does not exist in codebase,NO,No bounding box detector (YOLO or Faster-RCNN).
+OD/OC segmenter,RISKY,src/models/fundu_segmenter_adapter.py,Inference adapter for external ViT-Large FunduSegmenter,NO (clean baseline),Checkpoint not local; trained on Drishti-GS & REFUGE (direct leakage).
+FunduSegmenter,RISKY,src/models/fundu_segmenter_adapter.py,Official ViT-Large architecture adapter (~300M params),PARTIAL (code only),Severe leakage risk on Drishti-GS/REFUGE. License CC BY-NC 4.0.
+CDR calculation,READY,src/metrics/optic_disc.py,Computes vertical CDR = cup_height / disc_height on largest component,YES,Very strict cup_outside_disc check marks entire image invalid.
+RDR calculation,BROKEN,src/metrics/optic_disc.py & src/infer_disc_baselines.py,Returns NaN with status unverified_mask_level_definition,NO,Mask-level discrete definition not verified or implemented.
+OD crop generation,MISSING,None,Does not exist in codebase,NO,Must implement OD bbox extraction margin expansion cropping resizing.
+Feature extraction,MISSING,None,Does not exist in codebase,NO,Must implement feature pooling and caching for z_global and z_local.
+Fusion model,MISSING,None,Does not exist in codebase,NO,Must implement MLP classifier fusing [z_global z_local z_clinical].
+Evaluation,READY,src/utils.py & src/evaluate_disc_baselines.py,Computes ROC-AUC Accuracy Sensitivity Specificity Precision F1,YES,Threshold currently fixed at 0.5; needs threshold tuning on validation set.
+Bootstrap CI,READY,src/metrics/auc.py & src/dinov2_engine.py,Percentile 95% CI from 1000 bootstrap resamples (sampling 95%),YES,None. Clean implementation.
+Brier score,READY,src/dinov2_engine.py,Computes Brier score loss via sklearn,YES,Only present in dinov2_engine.py not in utils.py compute_metrics.
+Inference benchmark,MISSING,None,Does not exist in codebase,NO,Need script to measure FLOPs/MACs parameter count model size and latency.
+Checkpoint save/load,READY,src/utils.py & src/dinov2_engine.py,Saves and loads state_dict optimizer epoch best metric,YES,None.
+Prediction export,READY,src/infer_disc_baselines.py & src/dinov2_engine.py,Exports CSV with image_path domain probability ground truth,YES,None.
