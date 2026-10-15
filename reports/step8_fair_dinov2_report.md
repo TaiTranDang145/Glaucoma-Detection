@@ -1,3 +1,5 @@
+> **Audit update, 2026-10-15:** Saved classification metrics are reproducible from predictions, but proposed-model seeds vary only the head while DINOv2 seeds vary full fine-tuning. A confidence interval crossing zero does not establish statistical equivalence. See the [research claims audit](research_claims_audit_2026-10-15.md) before citing the conclusions below.
+
 # Step 8: Comprehensive Audit & Fair DINOv2 Full Fine-Tuning Comparison Report
 
 **Date:** October 7, 2026  

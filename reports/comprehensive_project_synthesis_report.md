@@ -1,3 +1,5 @@
+> **Cập nhật audit 15/10/2026:** Các phát biểu về ưu thế, độ ổn định, bất biến giải phẫu và an toàn lâm sàng dưới đây cần điều chỉnh. REFUGE chưa đánh giá đúng pipeline auto-OOF. Xem [báo cáo audit và trạng thái bằng chứng](research_claims_audit_2026-10-15.md) trước khi dùng nội dung này cho paper; kết quả lịch sử được giữ để truy vết.
+
 # BÁO CÁO TỔNG HỢP TOÀN DIỆN DỰ ÁN
 ## Lightweight Clinical-Aware GON Classification: Mô hình Tinh gọn Kết hợp Hình thái Lâm sàng Tự động Vượt trội Vision Foundation Model trong Sàng lọc Glaucoma
 

@@ -1,0 +1,962 @@
+{
+  "scope": "Recomputation from saved predictions and original masks; no training or model selection.",
+  "papila_split": {
+    "splits": {
+      "test": {
+        "images": 64,
+        "patients": 32,
+        "positive_images": 13,
+        "positive_patients": 7
+      },
+      "train": {
+        "images": 294,
+        "patients": 147,
+        "positive_images": 61,
+        "positive_patients": 33
+      },
+      "val": {
+        "images": 62,
+        "patients": 31,
+        "positive_images": 13,
+        "positive_patients": 7
+      }
+    },
+    "patients_in_multiple_splits": 0,
+    "duplicate_image_ids": 0,
+    "duplicate_manifest_hashes": 0,
+    "all_patients_have_two_eyes": true,
+    "morphology_order_matches": true,
+    "oof_order_matches": true,
+    "train_patient_in_multiple_oof_folds": 0,
+    "raw_image_hash_mismatches": []
+  },
+  "classification_runs": [
+    {
+      "model": "M2",
+      "seed": 42,
+      "n": 64,
+      "auc": 0.8340874811463046,
+      "tn": 41,
+      "fp": 10,
+      "fn": 4,
+      "tp": 9,
+      "sensitivity": 0.6923076923076923,
+      "specificity": 0.803921568627451,
+      "false_negative_ids": [
+        "RET016OD",
+        "RET025OD",
+        "RET233OD",
+        "RET265OS"
+      ],
+      "thresholds": [
+        0.1628093123435974
+      ],
+      "binary_threshold_consistent": true,
+      "brier_calibrated": 0.10776675633743155
+    },
+    {
+      "model": "M2",
+      "seed": 123,
+      "n": 64,
+      "auc": 0.8672699849170438,
+      "tn": 42,
+      "fp": 9,
+      "fn": 4,
+      "tp": 9,
+      "sensitivity": 0.6923076923076923,
+      "specificity": 0.8235294117647058,
+      "false_negative_ids": [
+        "RET016OD",
+        "RET016OS",
+        "RET025OD",
+        "RET265OS"
+      ],
+      "thresholds": [
+        0.7068182229995728
+      ],
+      "binary_threshold_consistent": true,
+      "brier_calibrated": 0.1461095004424699
+    },
+    {
+      "model": "M2",
+      "seed": 2024,
+      "n": 64,
+      "auc": 0.9034690799396682,
+      "tn": 39,
+      "fp": 12,
+      "fn": 2,
+      "tp": 11,
+      "sensitivity": 0.8461538461538461,
+      "specificity": 0.7647058823529411,
+      "false_negative_ids": [
+        "RET233OS",
+        "RET265OS"
+      ],
+      "thresholds": [
+        0.0044748838990926
+      ],
+      "binary_threshold_consistent": true,
+      "brier_calibrated": 0.11340205065732263
+    },
+    {
+      "model": "M2",
+      "seed": 3407,
+      "n": 64,
+      "auc": 0.9034690799396682,
+      "tn": 36,
+      "fp": 15,
+      "fn": 2,
+      "tp": 11,
+      "sensitivity": 0.8461538461538461,
+      "specificity": 0.7058823529411765,
+      "false_negative_ids": [
+        "RET025OD",
+        "RET265OS"
+      ],
+      "thresholds": [
+        0.0008803704404272
+      ],
+      "binary_threshold_consistent": true,
+      "brier_calibrated": 0.07752400522217875
+    },
+    {
+      "model": "M2",
+      "seed": 777,
+      "n": 64,
+      "auc": 0.8717948717948718,
+      "tn": 41,
+      "fp": 10,
+      "fn": 4,
+      "tp": 9,
+      "sensitivity": 0.6923076923076923,
+      "specificity": 0.803921568627451,
+      "false_negative_ids": [
+        "RET025OD",
+        "RET233OD",
+        "RET233OS",
+        "RET265OS"
+      ],
+      "thresholds": [
+        0.4238752424716949
+      ],
+      "binary_threshold_consistent": true,
+      "brier_calibrated": 0.11451983935484561
+    },
+    {
+      "model": "M5a_oracle",
+      "seed": 42,
+      "n": 64,
+      "auc": 0.8446455505279035,
+      "tn": 36,
+      "fp": 15,
+      "fn": 3,
+      "tp": 10,
+      "sensitivity": 0.7692307692307693,
+      "specificity": 0.7058823529411765,
+      "false_negative_ids": [
+        "RET025OD",
+        "RET233OD",
+        "RET265OS"
+      ],
+      "thresholds": [
+        0.1057994067668914
+      ],
+      "binary_threshold_consistent": true,
+      "brier_calibrated": 0.1337175096736255
+    },
+    {
+      "model": "M5a_oracle",
+      "seed": 123,
+      "n": 64,
+      "auc": 0.9170437405731523,
+      "tn": 34,
+      "fp": 17,
+      "fn": 1,
+      "tp": 12,
+      "sensitivity": 0.9230769230769231,
+      "specificity": 0.6666666666666666,
+      "false_negative_ids": [
+        "RET265OS"
+      ],
+      "thresholds": [
+        0.0180837195366621
+      ],
+      "binary_threshold_consistent": true,
+      "brier_calibrated": 0.08029828869163813
+    },
+    {
+      "model": "M5a_oracle",
+      "seed": 2024,
+      "n": 64,
+      "auc": 0.9064856711915535,
+      "tn": 39,
+      "fp": 12,
+      "fn": 2,
+      "tp": 11,
+      "sensitivity": 0.8461538461538461,
+      "specificity": 0.7647058823529411,
+      "false_negative_ids": [
+        "RET233OS",
+        "RET265OS"
+      ],
+      "thresholds": [
+        0.0520178452134132
+      ],
+      "binary_threshold_consistent": true,
+      "brier_calibrated": 0.09105114882190568
+    },
+    {
+      "model": "M5a_oracle",
+      "seed": 3407,
+      "n": 64,
+      "auc": 0.9095022624434389,
+      "tn": 37,
+      "fp": 14,
+      "fn": 2,
+      "tp": 11,
+      "sensitivity": 0.8461538461538461,
+      "specificity": 0.7254901960784313,
+      "false_negative_ids": [
+        "RET025OD",
+        "RET265OS"
+      ],
+      "thresholds": [
+        0.1569882780313491
+      ],
+      "binary_threshold_consistent": true,
+      "brier_calibrated": 0.06860373366549716
+    },
+    {
+      "model": "M5a_oracle",
+      "seed": 777,
+      "n": 64,
+      "auc": 0.8672699849170438,
+      "tn": 40,
+      "fp": 11,
+      "fn": 3,
+      "tp": 10,
+      "sensitivity": 0.7692307692307693,
+      "specificity": 0.7843137254901961,
+      "false_negative_ids": [
+        "RET025OD",
+        "RET233OS",
+        "RET265OS"
+      ],
+      "thresholds": [
+        0.1740918457508087
+      ],
+      "binary_threshold_consistent": true,
+      "brier_calibrated": 0.10563763755849115
+    },
+    {
+      "model": "M5a_auto_oof",
+      "seed": 42,
+      "n": 64,
+      "auc": 0.8733031674208146,
+      "tn": 41,
+      "fp": 10,
+      "fn": 1,
+      "tp": 12,
+      "sensitivity": 0.9230769230769231,
+      "specificity": 0.803921568627451,
+      "false_negative_ids": [
+        "RET265OS"
+      ],
+      "thresholds": [
+        0.0268833879381418
+      ],
+      "binary_threshold_consistent": true,
+      "brier_calibrated": 0.10361996242315735
+    },
+    {
+      "model": "M5a_auto_oof",
+      "seed": 123,
+      "n": 64,
+      "auc": 0.8627450980392157,
+      "tn": 39,
+      "fp": 12,
+      "fn": 1,
+      "tp": 12,
+      "sensitivity": 0.9230769230769231,
+      "specificity": 0.7647058823529411,
+      "false_negative_ids": [
+        "RET265OS"
+      ],
+      "thresholds": [
+        0.0390082895755767
+      ],
+      "binary_threshold_consistent": true,
+      "brier_calibrated": 0.11587831461606167
+    },
+    {
+      "model": "M5a_auto_oof",
+      "seed": 2024,
+      "n": 64,
+      "auc": 0.8657616892911011,
+      "tn": 34,
+      "fp": 17,
+      "fn": 1,
+      "tp": 12,
+      "sensitivity": 0.9230769230769231,
+      "specificity": 0.6666666666666666,
+      "false_negative_ids": [
+        "RET265OS"
+      ],
+      "thresholds": [
+        0.0337679758667945
+      ],
+      "binary_threshold_consistent": true,
+      "brier_calibrated": 0.11090509381716207
+    },
+    {
+      "model": "M5a_auto_oof",
+      "seed": 3407,
+      "n": 64,
+      "auc": 0.8717948717948719,
+      "tn": 37,
+      "fp": 14,
+      "fn": 1,
+      "tp": 12,
+      "sensitivity": 0.9230769230769231,
+      "specificity": 0.7254901960784313,
+      "false_negative_ids": [
+        "RET265OS"
+      ],
+      "thresholds": [
+        0.0220500919967889
+      ],
+      "binary_threshold_consistent": true,
+      "brier_calibrated": 0.11158296619268676
+    },
+    {
+      "model": "M5a_auto_oof",
+      "seed": 777,
+      "n": 64,
+      "auc": 0.8627450980392157,
+      "tn": 37,
+      "fp": 14,
+      "fn": 1,
+      "tp": 12,
+      "sensitivity": 0.9230769230769231,
+      "specificity": 0.7254901960784313,
+      "false_negative_ids": [
+        "RET265OS"
+      ],
+      "thresholds": [
+        0.0220345333218574
+      ],
+      "binary_threshold_consistent": true,
+      "brier_calibrated": 0.1234948825556621
+    },
+    {
+      "model": "DINOv2_224",
+      "seed": 42,
+      "n": 64,
+      "auc": 0.7714932126696833,
+      "tn": 42,
+      "fp": 9,
+      "fn": 5,
+      "tp": 8,
+      "sensitivity": 0.6153846153846154,
+      "specificity": 0.8235294117647058,
+      "false_negative_ids": [
+        "RET025OD",
+        "RET088OS",
+        "RET233OD",
+        "RET233OS",
+        "RET265OS"
+      ],
+      "thresholds": [
+        0.78515625
+      ],
+      "binary_threshold_consistent": true,
+      "brier_calibrated": 0.12643679293412668
+    },
+    {
+      "model": "DINOv2_224",
+      "seed": 123,
+      "n": 64,
+      "auc": 0.8114630467571644,
+      "tn": 29,
+      "fp": 22,
+      "fn": 1,
+      "tp": 12,
+      "sensitivity": 0.9230769230769231,
+      "specificity": 0.5686274509803921,
+      "false_negative_ids": [
+        "RET265OS"
+      ],
+      "thresholds": [
+        0.043212890625
+      ],
+      "binary_threshold_consistent": true,
+      "brier_calibrated": 0.15307148781362223
+    },
+    {
+      "model": "DINOv2_224",
+      "seed": 2024,
+      "n": 64,
+      "auc": 0.8559577677224737,
+      "tn": 43,
+      "fp": 8,
+      "fn": 3,
+      "tp": 10,
+      "sensitivity": 0.7692307692307693,
+      "specificity": 0.8431372549019608,
+      "false_negative_ids": [
+        "RET025OD",
+        "RET088OS",
+        "RET265OS"
+      ],
+      "thresholds": [
+        0.0036067962646484
+      ],
+      "binary_threshold_consistent": true,
+      "brier_calibrated": 0.11991391476049303
+    },
+    {
+      "model": "DINOv2_392",
+      "seed": 42,
+      "n": 64,
+      "auc": 0.6568627450980392,
+      "tn": 22,
+      "fp": 29,
+      "fn": 2,
+      "tp": 11,
+      "sensitivity": 0.8461538461538461,
+      "specificity": 0.43137254901960786,
+      "false_negative_ids": [
+        "RET025OD",
+        "RET265OS"
+      ],
+      "thresholds": [
+        0.3623046875
+      ],
+      "binary_threshold_consistent": true,
+      "brier_calibrated": 0.16028291996487443
+    },
+    {
+      "model": "DINOv2_392",
+      "seed": 123,
+      "n": 64,
+      "auc": 0.8657616892911011,
+      "tn": 43,
+      "fp": 8,
+      "fn": 6,
+      "tp": 7,
+      "sensitivity": 0.5384615384615384,
+      "specificity": 0.8431372549019608,
+      "false_negative_ids": [
+        "RET016OD",
+        "RET025OD",
+        "RET088OS",
+        "RET233OD",
+        "RET233OS",
+        "RET265OS"
+      ],
+      "thresholds": [
+        0.6064453125
+      ],
+      "binary_threshold_consistent": true,
+      "brier_calibrated": 0.12746124791396996
+    },
+    {
+      "model": "DINOv2_392",
+      "seed": 2024,
+      "n": 64,
+      "auc": 0.880844645550528,
+      "tn": 46,
+      "fp": 5,
+      "fn": 2,
+      "tp": 11,
+      "sensitivity": 0.8461538461538461,
+      "specificity": 0.9019607843137255,
+      "false_negative_ids": [
+        "RET025OD",
+        "RET265OS"
+      ],
+      "thresholds": [
+        0.1446533203125
+      ],
+      "binary_threshold_consistent": true,
+      "brier_calibrated": 0.0967056434558702
+    }
+  ],
+  "stored_per_run_metric_mismatches": [],
+  "classification_summary": {
+    "M2": {
+      "mean_auc": 0.8760180995475114,
+      "std_auc_ddof0": 0.02592163023703271,
+      "ensemble_auc": 0.8823529411764707,
+      "seeds": [
+        42,
+        123,
+        2024,
+        3407,
+        777
+      ]
+    },
+    "M5a_oracle": {
+      "mean_auc": 0.8889894419306185,
+      "std_auc_ddof0": 0.0281142420625816,
+      "ensemble_auc": 0.9064856711915535,
+      "seeds": [
+        42,
+        123,
+        2024,
+        3407,
+        777
+      ]
+    },
+    "M5a_auto_oof": {
+      "mean_auc": 0.8672699849170439,
+      "std_auc_ddof0": 0.004474327895683694,
+      "ensemble_auc": 0.8687782805429864,
+      "seeds": [
+        42,
+        123,
+        2024,
+        3407,
+        777
+      ]
+    },
+    "DINOv2_224": {
+      "mean_auc": 0.8129713423831072,
+      "std_auc_ddof0": 0.03449899981002244,
+      "ensemble_auc": 0.8174962292609351,
+      "seeds": [
+        42,
+        123,
+        2024
+      ]
+    },
+    "DINOv2_392": {
+      "mean_auc": 0.8011563599798893,
+      "std_auc_ddof0": 0.10221663062383644,
+      "ensemble_auc": 0.8898944193061841,
+      "seeds": [
+        42,
+        123,
+        2024
+      ]
+    }
+  },
+  "papila_paired_comparisons": {
+    "auto_oof_vs_multiseed_M2_seed42": {
+      "point_delta_auc": 0.03921568627451,
+      "bootstrap_mean_delta_auc": 0.03743060021766472,
+      "patient_clustered_ci95": [
+        -0.05455357142857135,
+        0.15364728009259251
+      ],
+      "bootstrap_fraction_delta_le_zero": 0.2635,
+      "valid_resamples": 2000
+    },
+    "auto_oof_vs_cached_backbone_M2": {
+      "42": {
+        "point_delta_auc": 0.03619909502262464,
+        "bootstrap_mean_delta_auc": 0.03578513176818005,
+        "patient_clustered_ci95": [
+          -0.03572722567287783,
+          0.12053956280788176
+        ],
+        "bootstrap_fraction_delta_le_zero": 0.185,
+        "valid_resamples": 2000
+      },
+      "123": {
+        "point_delta_auc": 0.025641025641025772,
+        "bootstrap_mean_delta_auc": 0.02539486485515365,
+        "patient_clustered_ci95": [
+          -0.0424107142857143,
+          0.10919699872286082
+        ],
+        "bootstrap_fraction_delta_le_zero": 0.263,
+        "valid_resamples": 2000
+      },
+      "2024": {
+        "point_delta_auc": 0.02865761689291113,
+        "bootstrap_mean_delta_auc": 0.028302730805383924,
+        "patient_clustered_ci95": [
+          -0.03759544209360605,
+          0.10714947089947081
+        ],
+        "bootstrap_fraction_delta_le_zero": 0.2245,
+        "valid_resamples": 2000
+      },
+      "3407": {
+        "point_delta_auc": 0.03469079939668196,
+        "bootstrap_mean_delta_auc": 0.03423634102670417,
+        "patient_clustered_ci95": [
+          -0.024747660166040134,
+          0.10994808449695673
+        ],
+        "bootstrap_fraction_delta_le_zero": 0.1675,
+        "valid_resamples": 2000
+      },
+      "777": {
+        "point_delta_auc": 0.025641025641025772,
+        "bootstrap_mean_delta_auc": 0.025407156029929854,
+        "patient_clustered_ci95": [
+          -0.04262830990519783,
+          0.10858702791461401
+        ],
+        "bootstrap_fraction_delta_le_zero": 0.263,
+        "valid_resamples": 2000
+      }
+    },
+    "auto_oof_3seed_ensemble_auc": 0.8687782805429864,
+    "auto_oof_vs_DINOv2_224_seed42": {
+      "point_delta_auc": 0.1018099547511313,
+      "bootstrap_mean_delta_auc": 0.10095680578531029,
+      "patient_clustered_ci95": [
+        -0.047461662631154075,
+        0.2747705289502163
+      ],
+      "bootstrap_fraction_delta_le_zero": 0.1,
+      "valid_resamples": 2000
+    },
+    "auto_oof_vs_DINOv2_224_3seed_ensemble": {
+      "point_delta_auc": 0.05128205128205132,
+      "bootstrap_mean_delta_auc": 0.051497673684379866,
+      "patient_clustered_ci95": [
+        -0.06869245337995337,
+        0.2011807239604896
+      ],
+      "bootstrap_fraction_delta_le_zero": 0.231,
+      "valid_resamples": 2000
+    },
+    "auto_oof_vs_DINOv2_392_seed42": {
+      "point_delta_auc": 0.21644042232277538,
+      "bootstrap_mean_delta_auc": 0.2219180532854034,
+      "patient_clustered_ci95": [
+        0.09372996794871795,
+        0.37848496240601476
+      ],
+      "bootstrap_fraction_delta_le_zero": 0.0,
+      "valid_resamples": 2000
+    },
+    "auto_oof_vs_DINOv2_392_3seed_ensemble": {
+      "point_delta_auc": -0.021116138763197623,
+      "bootstrap_mean_delta_auc": -0.020938447365983773,
+      "patient_clustered_ci95": [
+        -0.11616403807899975,
+        0.054545454545454564
+      ],
+      "bootstrap_fraction_delta_le_zero": 0.7055,
+      "valid_resamples": 2000
+    }
+  },
+  "original_M2": {
+    "n": 64,
+    "auc": 0.83710407239819,
+    "tn": 45,
+    "fp": 6,
+    "fn": 3,
+    "tp": 10,
+    "sensitivity": 0.7692307692307693,
+    "specificity": 0.8823529411764706,
+    "false_negative_ids": [
+      "RET055OD",
+      "RET233OS",
+      "RET265OS"
+    ],
+    "thresholds": [
+      0.761001706123352
+    ],
+    "binary_threshold_consistent": true,
+    "brier_calibrated": 0.12370604613435432
+  },
+  "sensitivity_patient_clustered_ci95_seed42": [
+    0.75,
+    1.0
+  ],
+  "papila_cdr": {
+    "test": {
+      "n": 64,
+      "mae": 0.0674875,
+      "pearson_r": 0.8250825014506084
+    },
+    "train": {
+      "n": 294,
+      "mae": 0.08261972789115647,
+      "pearson_r": 0.7550037205044658
+    },
+    "val": {
+      "n": 62,
+      "mae": 0.07999193548387097,
+      "pearson_r": 0.7035515720476805
+    }
+  },
+  "refuge_prediction_integrity": {
+    "duplicate_image_ids": 0,
+    "duplicate_image_paths": 0,
+    "dinov2_score_columns": [],
+    "dinov2_json_metrics_have_no_per_image_scores_in_this_artifact": true,
+    "cdr_equals_stored_height_ratio": true
+  },
+  "refuge_classification": {
+    "REFUGE_All_1200": {
+      "n": 1200,
+      "M2_Global_AUC": 0.6407175925925925,
+      "M1_Auto_CDR_AUC": 0.6388425925925927,
+      "M5a_Fusion_AUC": 0.7543518518518517,
+      "point_delta_M5a_minus_M2": 0.11363425925925918
+    },
+    "REFUGE_Test400": {
+      "n": 400,
+      "M2_Global_AUC": 0.6306944444444444,
+      "M1_Auto_CDR_AUC": 0.5512152777777778,
+      "M5a_Fusion_AUC": 0.7575694444444444,
+      "point_delta_M5a_minus_M2": 0.12687499999999996
+    },
+    "REFUGE_Validation400": {
+      "n": 400,
+      "M2_Global_AUC": 0.7295833333333333,
+      "M1_Auto_CDR_AUC": 0.5840625,
+      "M5a_Fusion_AUC": 0.8077777777777778,
+      "point_delta_M5a_minus_M2": 0.07819444444444457
+    },
+    "REFUGE_Training400": {
+      "n": 400,
+      "M2_Global_AUC": 0.6008333333333333,
+      "M1_Auto_CDR_AUC": 0.7100694444444445,
+      "M5a_Fusion_AUC": 0.7183333333333334,
+      "point_delta_M5a_minus_M2": 0.11750000000000005
+    }
+  },
+  "refuge_mask_issues": [],
+  "refuge_morphometry": {
+    "REFUGE-Validation400": {
+      "n": 400,
+      "mae_256": 0.3185339758096341,
+      "pearson_r_256": 0.1128107701593015,
+      "mae_native": 0.317070128926423,
+      "pearson_r_native": 0.12009820537624027,
+      "mean_signed_error_256": 0.29852285472205325,
+      "pred_cdr_median": 0.8019607843137255,
+      "gt_cdr_256_median": 0.45346320346320346,
+      "empty_predicted_disc": 1,
+      "zero_predicted_cup": 7,
+      "max_256_height_definition_difference": 0.0
+    },
+    "Test400": {
+      "n": 400,
+      "mae_256": 0.3230383722118335,
+      "pearson_r_256": 0.19087777928566493,
+      "mae_native": 0.3229900806720035,
+      "pearson_r_native": 0.1841797426976814,
+      "mean_signed_error_256": 0.3095002921584005,
+      "pred_cdr_median": 0.8108108108108109,
+      "gt_cdr_256_median": 0.45584415584415583,
+      "empty_predicted_disc": 3,
+      "zero_predicted_cup": 4,
+      "max_256_height_definition_difference": 0.0
+    },
+    "Training400": {
+      "n": 400,
+      "mae_256": 0.18300716695120114,
+      "pearson_r_256": 0.2658360556818563,
+      "mae_native": 0.18297137613589648,
+      "pearson_r_native": 0.265146508602497,
+      "mean_signed_error_256": -0.0664811678524804,
+      "pred_cdr_median": 0.4604989604989605,
+      "gt_cdr_256_median": 0.46153846153846156,
+      "empty_predicted_disc": 29,
+      "zero_predicted_cup": 74,
+      "max_256_height_definition_difference": 0.0
+    },
+    "legacy_800": {
+      "n": 800,
+      "mae_256": 0.3207861740107338,
+      "pearson_r_256": 0.1517525080111895,
+      "mae_native": 0.3200301047992133,
+      "pearson_r_native": 0.15190183834551463,
+      "mean_signed_error_256": 0.3040115734402269,
+      "pred_cdr_median": 0.8055555555555556,
+      "gt_cdr_256_median": 0.45454545454545453,
+      "empty_predicted_disc": 4,
+      "zero_predicted_cup": 11,
+      "max_256_height_definition_difference": 0.0
+    },
+    "all_1200": {
+      "n": 1200,
+      "mae_256": 0.27485983832422295,
+      "pearson_r_256": 0.1060991017273458,
+      "mae_native": 0.274343861911441,
+      "pearson_r_native": 0.10729958760830371,
+      "mean_signed_error_256": 0.18051399300932444,
+      "pred_cdr_median": 0.75,
+      "gt_cdr_256_median": 0.4577380952380952,
+      "empty_predicted_disc": 33,
+      "zero_predicted_cup": 85,
+      "max_256_height_definition_difference": 0.0
+    }
+  },
+  "input_fingerprints": [
+    {
+      "path": "results/multiseed/M2_seed_42_test_predictions.csv",
+      "bytes": 6670,
+      "sha256": "acbbfde7c09213af473d64ede5fb1f179e8eaa4d80eb371628bc6e6fab8ca55b"
+    },
+    {
+      "path": "results/multiseed/M2_seed_123_test_predictions.csv",
+      "bytes": 6686,
+      "sha256": "e64aa063561491fc03181ecca12ed87a20c3f1cd16087ebb20761b858ae56eb0"
+    },
+    {
+      "path": "results/multiseed/M2_seed_2024_test_predictions.csv",
+      "bytes": 6873,
+      "sha256": "8dfc93ae32185f9925925864efbc5214b9b4c8b32ccec5e541527baea85714e1"
+    },
+    {
+      "path": "results/multiseed/M2_seed_3407_test_predictions.csv",
+      "bytes": 6911,
+      "sha256": "083264d5ce99ee4eeb5faadc43df4e4646fc570369f67f3fc99ca900d1a724de"
+    },
+    {
+      "path": "results/multiseed/M2_seed_777_test_predictions.csv",
+      "bytes": 6758,
+      "sha256": "26a18351f47120cfb1d658ae2832007658494e1c19788f0242888dcd7a128528"
+    },
+    {
+      "path": "results/multiseed/M5a_seed_42_test_predictions.csv",
+      "bytes": 28169,
+      "sha256": "c3e558ef84a5cb9ffd7f63a7f1f0f59ea78d8d4b83e0761adbd6b30733a2bae7"
+    },
+    {
+      "path": "results/multiseed/M5a_seed_123_test_predictions.csv",
+      "bytes": 28265,
+      "sha256": "c3f5fab7f2213bef755232a2b65be75191f26b58c52f251d5576f16637e3580e"
+    },
+    {
+      "path": "results/multiseed/M5a_seed_2024_test_predictions.csv",
+      "bytes": 28188,
+      "sha256": "f6a4b86094ce5e43548ff0a592375cd31cd7acd778a48e0f4ca30e7c185eef8f"
+    },
+    {
+      "path": "results/multiseed/M5a_seed_3407_test_predictions.csv",
+      "bytes": 28136,
+      "sha256": "590288aa3fb98dcaa1bb38d2ac113a8f864c8b7bad6ee5b3ab9da43a641246d6"
+    },
+    {
+      "path": "results/multiseed/M5a_seed_777_test_predictions.csv",
+      "bytes": 28130,
+      "sha256": "06e11112a5d3bed5128a9fce190b9c08e22d4a6d5e244f40ebf3cb70133cd689"
+    },
+    {
+      "path": "results/automated/M5a_auto_oof_seed_42_test_predictions.csv",
+      "bytes": 8501,
+      "sha256": "d86af25a544b8977cc1a177c595e9c36476f8846f2ca2ff0e230733438f41716"
+    },
+    {
+      "path": "results/automated/M5a_auto_oof_seed_123_test_predictions.csv",
+      "bytes": 8442,
+      "sha256": "5df5b38ddf01c88a8e7c4f3547bcc72ce6a61512a51d53f9943a04613d685c78"
+    },
+    {
+      "path": "results/automated/M5a_auto_oof_seed_2024_test_predictions.csv",
+      "bytes": 8486,
+      "sha256": "81b87814ca3c1daa7d80a8e08284901af55a100df097bd81ad022df3f59f0e43"
+    },
+    {
+      "path": "results/automated/M5a_auto_oof_seed_3407_test_predictions.csv",
+      "bytes": 8443,
+      "sha256": "881fa28936dcbc5b84206ff02279c2ca4de6547dd78621edb6b1df8c879b3dd9"
+    },
+    {
+      "path": "results/automated/M5a_auto_oof_seed_777_test_predictions.csv",
+      "bytes": 8499,
+      "sha256": "5b496386c45cabc10cb1a74aedb39c4f63e7cf34b1cb0839a5fcb270cab153e6"
+    },
+    {
+      "path": "results/dinov2_fair/dinov2_224_seed_42_test_predictions.csv",
+      "bytes": 5204,
+      "sha256": "9cdc1ba8444cb21d65638f9ce0d04cb446a59d0f514d9aac42deb1303e22f9bf"
+    },
+    {
+      "path": "results/dinov2_fair/dinov2_224_seed_123_test_predictions.csv",
+      "bytes": 5597,
+      "sha256": "b9640be9de81c518d188858d142d4c50b98a18b2c1a1653b894fcf2e5eccc4c5"
+    },
+    {
+      "path": "results/dinov2_fair/dinov2_224_seed_2024_test_predictions.csv",
+      "bytes": 6228,
+      "sha256": "3383551fe23ff3f01a0d195a98be63194b89a60fb7bfc9690bc4ec1443b3e2f3"
+    },
+    {
+      "path": "results/dinov2_fair/dinov2_392_seed_42_test_predictions.csv",
+      "bytes": 5455,
+      "sha256": "2cf2a76b93df6139fe3aa24a3db3f5c7371c7d32ea803d46b4d273818bf265fc"
+    },
+    {
+      "path": "results/dinov2_fair/dinov2_392_seed_123_test_predictions.csv",
+      "bytes": 5509,
+      "sha256": "42183bce643440089cbaeebcbbf5a109f14928dcd23a98d4a2078e4cbe77516f"
+    },
+    {
+      "path": "results/dinov2_fair/dinov2_392_seed_2024_test_predictions.csv",
+      "bytes": 5805,
+      "sha256": "5b54fe33d64a1b28a0cb22471c9e9fe2e557498951ae7131a8aac80d86933f6a"
+    },
+    {
+      "path": "data/manifests/papila_manifest.csv",
+      "bytes": 320369,
+      "sha256": "886d7ae904386586eb594cf69f03d0d44b0415148907341e0e1e6a7b3ade7946"
+    },
+    {
+      "path": "data/manifests/papila_morphology.csv",
+      "bytes": 159454,
+      "sha256": "0460f7015c6f6660554034788cfd1c1337e58e6550c94493326553516516ee7c"
+    },
+    {
+      "path": "data/manifests/papila_oof_predicted_cdr.csv",
+      "bytes": 28210,
+      "sha256": "741706706d8e2409207f92cd8e4fc6121c56db56695c3a73b0384cd22d1ad018"
+    },
+    {
+      "path": "results/refuge_zero_shot/refuge_zero_shot_predictions.csv",
+      "bytes": 203396,
+      "sha256": "78374c3948df95eba327970b24427c88ea73c1d667ccad6138e311df7ea2062d"
+    },
+    {
+      "path": "results/multiseed/multiseed_summary.json",
+      "bytes": 6313,
+      "sha256": "46006ee072ade2f916ec8d020d329a44aa24f716d17b16d02a706a6912a22311"
+    },
+    {
+      "path": "results/automated/step6_oof_summary.json",
+      "bytes": 3117,
+      "sha256": "7087791f3de6502cd47e070b8825fd08c4bf0cc1ae1956e1f80939a3c04dcaa9"
+    },
+    {
+      "path": "results/dinov2_fair/fair_dinov2_comparison.json",
+      "bytes": 5418,
+      "sha256": "c3a65bf1561ab1e190436bcc125b31f22489911c81eeb3fa87b386dac96a243c"
+    },
+    {
+      "path": "results/refuge_zero_shot/refuge_zero_shot_metrics.json",
+      "bytes": 2506,
+      "sha256": "307cb281733cb1fd89b3e50e580a18ad5dff5bb984bdcf11ce4525f1437ceb02"
+    },
+    {
+      "path": "src/run_step6_oof_pipeline.py",
+      "bytes": 23872,
+      "sha256": "5c3fba80013777d692afbc179ee666fbecd499e09c0981ebe60c7b97026b9a50"
+    },
+    {
+      "path": "src/evaluate_zero_shot_refuge.py",
+      "bytes": 15300,
+      "sha256": "004da28616bc51fee29daa9fd403f4e9f088b195faf2526dcce3d7ef85244621"
+    },
+    {
+      "path": "src/train_fusion.py",
+      "bytes": 19424,
+      "sha256": "a23d5d24535324e69463160d85a293cf622f88cdea2b7e98a99afd78668fdf40"
+    },
+    {
+      "path": "src/run_multiseed_evaluation.py",
+      "bytes": 28164,
+      "sha256": "8282cd231a60340cb1a591f0b3900c941c137faf9ce651bbe5045f7ca0562269"
+    }
+  ]
+}

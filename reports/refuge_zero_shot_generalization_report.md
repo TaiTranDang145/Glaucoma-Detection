@@ -1,3 +1,5 @@
+> **Cập nhật audit 15/10/2026:** Benchmark dưới đây dùng head train với CDR chuyên gia, scaler oracle và global input 256 thay vì train 224; chưa phải pipeline auto-OOF. Sai số CDR external lớn đã được xác nhận; DINOv2 external thiếu predictions để tái tính. Xem [báo cáo audit](research_claims_audit_2026-10-15.md) trước khi dùng các kết luận dưới đây cho paper.
+
 # Báo cáo Thử nghiệm Tổng quát hóa Xuyên miền (Zero-Shot OOD Generalization) trên Tập REFUGE (1,200 Ảnh)
 
 **Ngày thực nghiệm:** 07 Tháng 10, 2026  

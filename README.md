@@ -1,3 +1,5 @@
+> **Protocol update (2026-10-15):** Use the [clinical OOF v2 workflow](docs/clinical_protocol_v2.md) for new runs. The [research audit](reports/research_claims_audit_2026-10-15.md) limits the historical claims below; corrected full-training results are pending.
+
 <div align="center">
 
 # 👁️ Lightweight Clinical-Aware GON Classification
@@ -6,8 +8,8 @@
 
 [![Python](https://img.shields.io/badge/Python-3.9%20%7C%203.10%20%7C%203.11%20%7C%203.12%20%7C%203.13-blue.svg)](https://www.python.org/)
 [![PyTorch](https://img.shields.io/badge/PyTorch-2.0%2B-ee4c2c.svg)](https://pytorch.org/)
-[![Status](https://img.shields.io/badge/Status-Peer--Review%20Ready-success.svg)](#)
-[![Test Suite](https://img.shields.io/badge/Tests-27%2F27%20Passing-brightgreen.svg)](#)
+[![Status](https://img.shields.io/badge/Status-Protocol%20v2%20Implemented-blue.svg)](docs/clinical_protocol_v2.md)
+[![Test Suite](https://img.shields.io/badge/Tests-37%2F37%20Passing-brightgreen.svg)](#)
 [![Parameters](https://img.shields.io/badge/Model%20Size-2.78M%20Params%20(10.8%20MB)-orange.svg)](#)
 [![License](https://img.shields.io/badge/License-ODC--By%20%2F%20CC--BY--NC--ND-lightgrey.svg)](#license)
 
@@ -194,7 +196,7 @@ pip install -r requirements.txt
 ```bash
 python -m unittest discover tests
 ```
-*All 27 test cases should pass cleanly in < 1 second.*
+*The suite includes synthetic training and bundle-reload integration checks; runtime depends on hardware.*
 
 ---
 
@@ -222,21 +224,21 @@ python src/train_lightweight.py --manifest data/manifests/papila_morphology.csv 
 
 ### Step 4: 5-Fold Out-Of-Fold Segmentation & CDR Estimation ($M_{1\text{-auto}}$)
 ```bash
-python src/run_step6_oof_pipeline.py
+python src/run_step6_oof_pipeline.py --plan-only --output-dir outputs/clinical_oof_v2_plan
 ```
-*Trains 5-fold cross-validated MobileNetV3-UNet models, predicting $\widehat{\text{CDR}}$ without stacking bias, saving `data/manifests/papila_oof_predicted_cdr.csv`.*
+*Validates the fixed source split, reserves calibration patients and exports nested OOF fold assignments without training. See the [v2 protocol](docs/clinical_protocol_v2.md).*
 
 ### Step 5: Train Clinical-Vision Fusion Model ($M_{5a\text{-auto-OOF}}$)
 ```bash
-python src/train_fusion.py --model m5a --epochs 50
+python src/run_step6_oof_pipeline.py --output-dir outputs/clinical_oof_v2_run01 --seeds 42 --device cuda
 ```
-*Fuses 576-D global embeddings with $\widehat{\text{CDR}}$ via a lightweight MLP.*
+*Trains fresh backbone/segmenters and the 1025-input fusion head, then fits calibration on reserved patients and exports the complete bundle. This command performs all v2 training stages.*
 
 ### Step 6: End-to-End Automated Pipeline Evaluation
 ```bash
-python src/evaluate_automated_pipeline.py
+python -m unittest discover -s tests -p test_clinical_protocol.py -v
 ```
-*Evaluates the fully autonomous pipeline on the frozen test set ($M_{5a\text{-auto-OOF}}$: AUC = 0.8673, Sensitivity = 92.31%).*
+*Checks patient separation, preprocessing and export/reload of the full pipeline on synthetic data. Research predictions and source-test metrics are saved by the training command; historical results are not v2 measurements.*
 
 ### Step 7: Multi-Seed Robustness & Efficiency Benchmarking
 ```bash
@@ -257,9 +259,9 @@ python src/run_fair_dinov2_benchmark.py
 
 ### Step 9: Zero-Shot Cross-Domain Generalization on REFUGE
 ```bash
-python src/evaluate_zero_shot_refuge.py
+python src/evaluate_zero_shot_refuge.py --bundle outputs/clinical_oof_v2_run01/seed_42/bundle.pt --output-dir results/refuge_oof_v2_run01 --device cuda
 ```
-*Evaluates zero-shot cross-dataset transfer on REFUGE (AUC = 0.8872).*
+*Evaluates the supplied v2 bundle without target fitting. A corrected AUC must come from this new run, not the historical exploratory report.*
 
 ### Step 10: Generate HUD Visualizations
 ```bash

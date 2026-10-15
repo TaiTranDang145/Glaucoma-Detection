@@ -1,0 +1,87 @@
+{
+  "source_images_checked": [
+    {
+      "role": "calibration",
+      "image_id": "RET044OD",
+      "global_shape": [
+        3,
+        224,
+        224
+      ],
+      "segmenter_shape": [
+        3,
+        256,
+        256
+      ],
+      "mask_shape": [
+        2,
+        256,
+        256
+      ],
+      "train_inference_inputs_identical": true
+    },
+    {
+      "role": "test",
+      "image_id": "RET016OD",
+      "global_shape": [
+        3,
+        224,
+        224
+      ],
+      "segmenter_shape": [
+        3,
+        256,
+        256
+      ],
+      "mask_shape": [
+        2,
+        256,
+        256
+      ],
+      "train_inference_inputs_identical": true
+    },
+    {
+      "role": "train",
+      "image_id": "RET004OD",
+      "global_shape": [
+        3,
+        224,
+        224
+      ],
+      "segmenter_shape": [
+        3,
+        256,
+        256
+      ],
+      "mask_shape": [
+        2,
+        256,
+        256
+      ],
+      "train_inference_inputs_identical": true
+    },
+    {
+      "role": "val",
+      "image_id": "RET015OD",
+      "global_shape": [
+        3,
+        224,
+        224
+      ],
+      "segmenter_shape": [
+        3,
+        256,
+        256
+      ],
+      "mask_shape": [
+        2,
+        256,
+        256
+      ],
+      "train_inference_inputs_identical": true
+    }
+  ],
+  "source_code_fingerprints_current": true,
+  "historical_result_files_unchanged": 26,
+  "full_papila_training_executed": false
+}

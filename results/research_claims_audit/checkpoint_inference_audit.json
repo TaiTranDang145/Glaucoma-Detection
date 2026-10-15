@@ -1,0 +1,234 @@
+{
+  "device": "CPU",
+  "torch_version": "2.14.0+cu130",
+  "scope": "First four PAPILA test images and first four images in each REFUGE partition; existing route, not a corrected external benchmark.",
+  "papila_feature_id_order_matches": true,
+  "M2_checkpoint": {
+    "epoch": 11,
+    "val_loss": 1.6224380396306515,
+    "val_auc": 0.858712715855573,
+    "args": {
+      "branch": "global",
+      "manifest": "data/manifests/papila_morphology.csv",
+      "image_size": 224,
+      "batch_size": 16,
+      "epochs": 35,
+      "lr": 0.0001,
+      "weight_decay": 0.01,
+      "dropout": 0.2,
+      "criterion": "val_auc",
+      "seed": 42,
+      "device": "cuda",
+      "output_dir": "outputs/models/M2_global",
+      "predictions_out": "results/M2_global_test_predictions.csv",
+      "metrics_out": "results/M2_global_metrics.json"
+    }
+  },
+  "fusion_checkpoint": {
+    "epoch": 14,
+    "val_auc": 0.8288854003139717,
+    "val_loss": 1.2214223146438599,
+    "variant": "M5a_global_cdr",
+    "in_features": 1025,
+    "args": {
+      "manifest": "data/manifests/papila_morphology.csv",
+      "global_features": "data/features/papila_m2_global_features.pt",
+      "local_features": "data/features/papila_m3_local_features.pt",
+      "hidden_dim": 0,
+      "dropout": 0.2,
+      "batch_size": 16,
+      "epochs": 40,
+      "lr": 0.001,
+      "weight_decay": 0.01,
+      "seed": 42,
+      "device": "cuda"
+    }
+  },
+  "oof_checkpoint_files_found": [],
+  "oracle_scaler_mean": 0.36291258503401363,
+  "oracle_scaler_std_ddof0": 0.15741332679878733,
+  "input_fingerprints": [
+    {
+      "path": "outputs/models/M2_global/best_model.pt",
+      "bytes": 6214469,
+      "sha256": "ff93ce0fb9b1c7116addbcb1501878f3e998293514df5a254a87257ab1a86d09"
+    },
+    {
+      "path": "outputs/models/M5a_global_cdr/best_model.pt",
+      "bytes": 15355,
+      "sha256": "d94475c65e0ddbfa396241a3cd721f528af4866ffbf59929875554fd01032890"
+    },
+    {
+      "path": "results/segmentation/best_mobilenetv3_unet.pt",
+      "bytes": 5181859,
+      "sha256": "53f8f5465c515a9bfb018963f212f7abf9d89741d90410b5596a5780092d31c1"
+    },
+    {
+      "path": "data/features/papila_m2_global_features.pt",
+      "bytes": 1728999,
+      "sha256": "3277d1f2a3a2265874a497944eeeaef292c46ed2973779484f26692cf9d2deaa"
+    }
+  ],
+  "records": [
+    {
+      "dataset": "PAPILA",
+      "image_id": "RET016OD",
+      "feature_max_abs_error_original_route": 0.006990998983383179,
+      "feature_max_abs_error_cache_route": 0.5470051765441895,
+      "m2_prob_reinferred": 0.959974467754364,
+      "m2_prob_stored": 0.9595518708229064,
+      "cdr_reinferred": 0.6,
+      "cdr_stored": 0.6
+    },
+    {
+      "dataset": "PAPILA",
+      "image_id": "RET016OS",
+      "feature_max_abs_error_original_route": 0.00548127293586731,
+      "feature_max_abs_error_cache_route": 0.48868173360824585,
+      "m2_prob_reinferred": 0.9660786986351013,
+      "m2_prob_stored": 0.9644166827201844,
+      "cdr_reinferred": 0.4807692307692308,
+      "cdr_stored": 0.4808
+    },
+    {
+      "dataset": "PAPILA",
+      "image_id": "RET025OD",
+      "feature_max_abs_error_original_route": 0.005439102649688721,
+      "feature_max_abs_error_cache_route": 0.5616879463195801,
+      "m2_prob_reinferred": 0.8800216317176819,
+      "m2_prob_stored": 0.8750558495521545,
+      "cdr_reinferred": 0.46808510638297873,
+      "cdr_stored": 0.4681
+    },
+    {
+      "dataset": "PAPILA",
+      "image_id": "RET025OS",
+      "feature_max_abs_error_original_route": 0.00567251443862915,
+      "feature_max_abs_error_cache_route": 0.5119961500167847,
+      "m2_prob_reinferred": 0.9999998807907104,
+      "m2_prob_stored": 0.9999998807907104,
+      "cdr_reinferred": 0.8636363636363636,
+      "cdr_stored": 0.8636
+    },
+    {
+      "dataset": "REFUGE",
+      "image_id": "V0001",
+      "cdr_reinferred": 0.8043478260869565,
+      "cdr_stored": 0.8043478260869565,
+      "m2_prob_reinferred": 0.23181326687335968,
+      "m2_prob_stored": 0.2324480563402176,
+      "m5a_prob_reinferred": 0.7552116513252258,
+      "m5a_prob_stored": 0.7548699900301781
+    },
+    {
+      "dataset": "REFUGE",
+      "image_id": "V0002",
+      "cdr_reinferred": 0.42857142857142855,
+      "cdr_stored": 0.4285714285714285,
+      "m2_prob_reinferred": 0.999458372592926,
+      "m2_prob_stored": 0.9994484782218932,
+      "m5a_prob_reinferred": 0.8363026976585388,
+      "m5a_prob_stored": 0.8357891916473671
+    },
+    {
+      "dataset": "REFUGE",
+      "image_id": "V0003",
+      "cdr_reinferred": 0.813953488372093,
+      "cdr_stored": 0.813953488372093,
+      "m2_prob_reinferred": 0.9729464650154114,
+      "m2_prob_stored": 0.9727988839149476,
+      "m5a_prob_reinferred": 0.9758685231208801,
+      "m5a_prob_stored": 0.9759458146510124
+    },
+    {
+      "dataset": "REFUGE",
+      "image_id": "V0004",
+      "cdr_reinferred": 0.9230769230769231,
+      "cdr_stored": 0.9230769230769232,
+      "m2_prob_reinferred": 0.6773207783699036,
+      "m2_prob_stored": 0.6760514974594116,
+      "m5a_prob_reinferred": 0.3917313814163208,
+      "m5a_prob_stored": 0.3914262214950112
+    },
+    {
+      "dataset": "REFUGE",
+      "image_id": "T0001",
+      "cdr_reinferred": 0.8260869565217391,
+      "cdr_stored": 0.8260869565217391,
+      "m2_prob_reinferred": 0.1202927753329277,
+      "m2_prob_stored": 0.1194261834025383,
+      "m5a_prob_reinferred": 0.2811146676540375,
+      "m5a_prob_stored": 0.2807215136038775
+    },
+    {
+      "dataset": "REFUGE",
+      "image_id": "T0002",
+      "cdr_reinferred": 0.6739130434782609,
+      "cdr_stored": 0.6739130434782609,
+      "m2_prob_reinferred": 0.5714804530143738,
+      "m2_prob_stored": 0.5691400170326233,
+      "m5a_prob_reinferred": 0.2645430266857147,
+      "m5a_prob_stored": 0.2660010897715378
+    },
+    {
+      "dataset": "REFUGE",
+      "image_id": "T0003",
+      "cdr_reinferred": 0.7777777777777778,
+      "cdr_stored": 0.75,
+      "m2_prob_reinferred": 0.7862309217453003,
+      "m2_prob_stored": 0.784327507019043,
+      "m5a_prob_reinferred": 0.4717691242694855,
+      "m5a_prob_stored": 0.4592453303116221
+    },
+    {
+      "dataset": "REFUGE",
+      "image_id": "T0004",
+      "cdr_reinferred": 0.8,
+      "cdr_stored": 0.8,
+      "m2_prob_reinferred": 0.523920476436615,
+      "m2_prob_stored": 0.5198365449905396,
+      "m5a_prob_reinferred": 0.9201564192771912,
+      "m5a_prob_stored": 0.9202754505639263
+    },
+    {
+      "dataset": "REFUGE",
+      "image_id": "g0001",
+      "cdr_reinferred": 0.0,
+      "cdr_stored": 0.0,
+      "m2_prob_reinferred": 0.9577398896217346,
+      "m2_prob_stored": 0.9570411443710328,
+      "m5a_prob_reinferred": 0.5455586910247803,
+      "m5a_prob_stored": 0.5455941809317214
+    },
+    {
+      "dataset": "REFUGE",
+      "image_id": "g0002",
+      "cdr_reinferred": 0.9411764705882353,
+      "cdr_stored": 0.9411764705882352,
+      "m2_prob_reinferred": 0.989571213722229,
+      "m2_prob_stored": 0.9893920421600342,
+      "m5a_prob_reinferred": 0.9557685852050781,
+      "m5a_prob_stored": 0.9556681690222436
+    },
+    {
+      "dataset": "REFUGE",
+      "image_id": "g0003",
+      "cdr_reinferred": 0.9230769230769231,
+      "cdr_stored": 0.9230769230769232,
+      "m2_prob_reinferred": 0.9888678193092346,
+      "m2_prob_stored": 0.9886255264282228,
+      "m5a_prob_reinferred": 0.9544878602027893,
+      "m5a_prob_stored": 0.954387815689368
+    },
+    {
+      "dataset": "REFUGE",
+      "image_id": "g0004",
+      "cdr_reinferred": 0.8,
+      "cdr_stored": 0.8421052631578947,
+      "m2_prob_reinferred": 0.9891568422317505,
+      "m2_prob_stored": 0.9891784191131592,
+      "m5a_prob_reinferred": 0.9506696462631226,
+      "m5a_prob_stored": 0.9532713031403856
+    }
+  ]
+}
