@@ -9,7 +9,7 @@
 [![Python](https://img.shields.io/badge/Python-3.9%20%7C%203.10%20%7C%203.11%20%7C%203.12%20%7C%203.13-blue.svg)](https://www.python.org/)
 [![PyTorch](https://img.shields.io/badge/PyTorch-2.0%2B-ee4c2c.svg)](https://pytorch.org/)
 [![Status](https://img.shields.io/badge/Status-Protocol%20v2%20Implemented-blue.svg)](docs/clinical_protocol_v2.md)
-[![Test Suite](https://img.shields.io/badge/Tests-37%2F37%20Passing-brightgreen.svg)](#)
+[![Test Suite](https://img.shields.io/badge/Tests-38%2F38%20Passing-brightgreen.svg)](#)
 [![Parameters](https://img.shields.io/badge/Model%20Size-2.78M%20Params%20(10.8%20MB)-orange.svg)](#)
 [![License](https://img.shields.io/badge/License-ODC--By%20%2F%20CC--BY--NC--ND-lightgrey.svg)](#license)
 

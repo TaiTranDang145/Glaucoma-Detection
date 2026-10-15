@@ -120,6 +120,22 @@ class ClinicalProtocolTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "overlap"):
             fit_calibrator(np.zeros(len(bad)), bad, train, val)
 
+    def test_cached_image_is_not_mutated_and_refreshes_after_file_change(self):
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "cached.png"
+            Image.new("RGB", (40, 30), color=(30, 60, 90)).save(path)
+            frame = pd.DataFrame([{"image_id": "cached", "path": str(path), "label": 0}])
+            evaluation = ClinicalImageDataset(frame, "global")
+            original = evaluation[0]["image"].clone()
+            training = ClinicalImageDataset(frame, "global", training=True)
+            for _ in range(4):
+                training[0]
+            torch.testing.assert_close(evaluation[0]["image"], original, atol=0, rtol=0)
+            old_stat = path.stat()
+            Image.new("RGB", (40, 30), color=(150, 120, 90)).save(path)
+            os.utime(path, ns=(old_stat.st_atime_ns, old_stat.st_mtime_ns + 1_000_000_000))
+            self.assertFalse(torch.equal(evaluation[0]["image"], original))
+
     def test_test_labels_cannot_affect_head_scaler_calibrator_or_threshold(self):
         frame = all_roles()
         rng = np.random.default_rng(7)

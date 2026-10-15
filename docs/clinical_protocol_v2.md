@@ -38,6 +38,8 @@ Both training and inference decode through PIL RGB, center-pad to square with bl
 
 The branches receive separately prepared tensors. V2 does not feed 256px inputs to the global backbone and does not resize an already normalized segmenter tensor to create the global input.
 
+Prepared uint8 images are cached per process (up to 512 entries) to avoid decoding the original high-resolution files every epoch. Augmentation receives a copy; the cached image cannot be mutated. File size/modification time invalidate changed inputs. DataLoader workers persist across epochs when `--workers` is positive, retaining this cache and their seeded augmentation RNG state.
+
 ## Calibration and threshold
 
 The head is LayerNorm → Dropout(0.2) → Linear(1025,1), combining a 1024-dimensional embedding and normalized predicted CDR. After validation-based head selection:

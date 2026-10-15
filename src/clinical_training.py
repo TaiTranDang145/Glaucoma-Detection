@@ -50,6 +50,7 @@ def image_loader(frame, branch, config, training=False, masks=False, seed=42):
                                    config["mask_dir"] if masks else None, seed)
     return DataLoader(dataset, batch_size=config["batch_size"], shuffle=training,
                       num_workers=config["workers"], worker_init_fn=seed_loader_worker,
+                      persistent_workers=config["workers"] > 0,
                       generator=torch.Generator().manual_seed(seed),
                       pin_memory=str(config["device"]).startswith("cuda"))
 

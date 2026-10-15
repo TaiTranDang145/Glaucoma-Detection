@@ -4,6 +4,7 @@ import hashlib
 import importlib.metadata
 import json
 import platform
+from functools import lru_cache
 from pathlib import Path
 
 import albumentations as A
@@ -179,6 +180,15 @@ def inference_inputs(rgb):
             transform(image=prepare_rgb(rgb, 256))["image"])
 
 
+@lru_cache(maxsize=512)
+def _prepared_image(path, size, modified_ns, file_size):
+    # File metadata participates in the cache key; augmentation always gets a copy.
+    with Image.open(path) as image:
+        prepared = prepare_rgb(np.asarray(image.convert("RGB")), size)
+    prepared.setflags(write=False)
+    return prepared
+
+
 class ClinicalImageDataset(Dataset):
     def __init__(self, frame, branch, training=False, mask_dir=None, seed=42):
         if branch not in {"global", "segmenter"}:
@@ -194,8 +204,9 @@ class ClinicalImageDataset(Dataset):
 
     def __getitem__(self, index):
         row = self.frame.iloc[index]
-        with Image.open(row.path) as image:
-            rgb = prepare_rgb(np.asarray(image.convert("RGB")), self.size)
+        path = Path(row.path)
+        stat = path.stat()
+        rgb = _prepared_image(str(path), self.size, stat.st_mtime_ns, stat.st_size).copy()
         payload = {"image": rgb}
         if self.mask_dir is not None:
             masks = [cv2.imread(str(self.mask_dir / f"{row.image_id}_{structure}_consensus.png"), 0)
