@@ -1,4 +1,4 @@
-> **Protocol update (2026-10-15):** Use the [clinical OOF v2 workflow](docs/clinical_protocol_v2.md) for new runs. The [research audit](reports/research_claims_audit_2026-10-15.md) limits the historical claims below; corrected full-training results are pending.
+> **Protocol update (2026-10-15):** Use the [clinical OOF v2 workflow](docs/clinical_protocol_v2.md) for new runs. The [research audit](reports/research_claims_audit_2026-10-15.md) limits the historical claims below. [Seed 42 has completed full v2 training](reports/clinical_oof_v2_seed42_2026-10-15_report.md): PAPILA test AUC 0.8658, sensitivity 46.15%, specificity 90.20% at the validation-selected threshold; the exported bundle passed replay on all 64 test images.
 
 <div align="center">
 

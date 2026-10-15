@@ -72,3 +72,13 @@ graphify-out/
 data/*
 !data/manifests/
 !data/manifests/**
+
+# Per-image outputs from new clinical runs stay local; publish aggregate metrics.
+results/clinical_oof_v2_*/bundle.json
+results/clinical_oof_v2_*/bundle_replay_test_predictions.csv
+results/clinical_oof_v2_*/cdr_predictions.csv
+results/clinical_oof_v2_*/fold_evidence.json
+results/clinical_oof_v2_*/fold_plan.json
+results/clinical_oof_v2_*/predictions.csv
+results/clinical_oof_v2_*/protocol.json
+results/clinical_oof_v2_*/roles.csv

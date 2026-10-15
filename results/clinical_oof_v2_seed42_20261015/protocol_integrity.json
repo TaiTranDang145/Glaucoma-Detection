@@ -1,0 +1,47 @@
+{
+  "source_commit": "4bdbe1085ea93b66cba7d0b23893a9bd18fff341",
+  "all_training_source_hashes_match_commit": true,
+  "all_folds_patient_disjoint": true,
+  "folds": [
+    {
+      "fold": 0,
+      "selection_train_images": 128,
+      "selection_val_images": 62,
+      "refit_train_images": 190,
+      "heldout_images": 46,
+      "patient_disjoint": true
+    },
+    {
+      "fold": 1,
+      "selection_train_images": 124,
+      "selection_val_images": 66,
+      "refit_train_images": 190,
+      "heldout_images": 46,
+      "patient_disjoint": true
+    },
+    {
+      "fold": 2,
+      "selection_train_images": 124,
+      "selection_val_images": 64,
+      "refit_train_images": 188,
+      "heldout_images": 48,
+      "patient_disjoint": true
+    },
+    {
+      "fold": 3,
+      "selection_train_images": 124,
+      "selection_val_images": 64,
+      "refit_train_images": 188,
+      "heldout_images": 48,
+      "patient_disjoint": true
+    },
+    {
+      "fold": 4,
+      "selection_train_images": 126,
+      "selection_val_images": 62,
+      "refit_train_images": 188,
+      "heldout_images": 48,
+      "patient_disjoint": true
+    }
+  ]
+}

@@ -1,0 +1,446 @@
+             images  patients  positives
+role
+calibration      58        29         12
+test             64        32         13
+train           236       118         49
+val              62        31         13
+OOF fold 0: inner selection, then outer-train refit
+Unexpected keys (classifier.bias, classifier.weight, conv_head.bias, conv_head.weight) found while loading pretrained weights. This may be expected if model is being adapted.
+segmenter seed=42 epoch=1/35 train_loss=1.85626 selection=0.02673 elapsed=11.9s
+segmenter seed=42 epoch=2/35 train_loss=1.72301 selection=0.23488 elapsed=4.8s
+segmenter seed=42 epoch=3/35 train_loss=1.66182 selection=0.29685 elapsed=3.3s
+segmenter seed=42 epoch=4/35 train_loss=1.61268 selection=0.21647 elapsed=2.6s
+segmenter seed=42 epoch=5/35 train_loss=1.57215 selection=0.47365 elapsed=2.2s
+segmenter seed=42 epoch=6/35 train_loss=1.53581 selection=0.53882 elapsed=1.8s
+segmenter seed=42 epoch=7/35 train_loss=1.49939 selection=0.66579 elapsed=1.9s
+segmenter seed=42 epoch=8/35 train_loss=1.46540 selection=0.63120 elapsed=1.6s
+segmenter seed=42 epoch=9/35 train_loss=1.43354 selection=0.62356 elapsed=1.5s
+segmenter seed=42 epoch=10/35 train_loss=1.40064 selection=0.69552 elapsed=1.5s
+segmenter seed=42 epoch=11/35 train_loss=1.36763 selection=0.68710 elapsed=1.5s
+segmenter seed=42 epoch=12/35 train_loss=1.34479 selection=0.65504 elapsed=1.6s
+segmenter seed=42 epoch=13/35 train_loss=1.31271 selection=0.66271 elapsed=1.5s
+segmenter seed=42 epoch=14/35 train_loss=1.28156 selection=0.67438 elapsed=1.5s
+segmenter seed=42 epoch=15/35 train_loss=1.25466 selection=0.68461 elapsed=1.5s
+segmenter seed=42 epoch=16/35 train_loss=1.22577 selection=0.74057 elapsed=1.5s
+segmenter seed=42 epoch=17/35 train_loss=1.20300 selection=0.69397 elapsed=1.5s
+segmenter seed=42 epoch=18/35 train_loss=1.18075 selection=0.72907 elapsed=1.5s
+segmenter seed=42 epoch=19/35 train_loss=1.15775 selection=0.73716 elapsed=1.5s
+segmenter seed=42 epoch=20/35 train_loss=1.14010 selection=0.71865 elapsed=1.5s
+segmenter seed=42 epoch=21/35 train_loss=1.12396 selection=0.74044 elapsed=1.5s
+segmenter seed=42 epoch=22/35 train_loss=1.10653 selection=0.76221 elapsed=1.4s
+segmenter seed=42 epoch=23/35 train_loss=1.09547 selection=0.74204 elapsed=1.4s
+segmenter seed=42 epoch=24/35 train_loss=1.08402 selection=0.75254 elapsed=1.5s
+segmenter seed=42 epoch=25/35 train_loss=1.07089 selection=0.75114 elapsed=1.4s
+segmenter seed=42 epoch=26/35 train_loss=1.06154 selection=0.75473 elapsed=1.5s
+segmenter seed=42 epoch=27/35 train_loss=1.05212 selection=0.75017 elapsed=1.5s
+segmenter seed=42 epoch=28/35 train_loss=1.04897 selection=0.76372 elapsed=1.5s
+segmenter seed=42 epoch=29/35 train_loss=1.04237 selection=0.76139 elapsed=1.5s
+segmenter seed=42 epoch=30/35 train_loss=1.03761 selection=0.75044 elapsed=1.5s
+segmenter seed=42 epoch=31/35 train_loss=1.03574 selection=0.75583 elapsed=1.6s
+segmenter seed=42 epoch=32/35 train_loss=1.03400 selection=0.76179 elapsed=1.5s
+segmenter seed=42 epoch=33/35 train_loss=1.02911 selection=0.75051 elapsed=1.9s
+segmenter seed=42 epoch=34/35 train_loss=1.03037 selection=0.75478 elapsed=1.7s
+segmenter seed=42 epoch=35/35 train_loss=1.02932 selection=0.75666 elapsed=1.6s
+Unexpected keys (classifier.bias, classifier.weight, conv_head.bias, conv_head.weight) found while loading pretrained weights. This may be expected if model is being adapted.
+segmenter seed=42 epoch=1/28 train_loss=1.81877 refit elapsed=12.5s
+segmenter seed=42 epoch=2/28 train_loss=1.68225 refit elapsed=6.2s
+segmenter seed=42 epoch=3/28 train_loss=1.61728 refit elapsed=3.8s
+segmenter seed=42 epoch=4/28 train_loss=1.56541 refit elapsed=2.5s
+segmenter seed=42 epoch=5/28 train_loss=1.51733 refit elapsed=2.0s
+segmenter seed=42 epoch=6/28 train_loss=1.46507 refit elapsed=1.9s
+segmenter seed=42 epoch=7/28 train_loss=1.41274 refit elapsed=1.7s
+segmenter seed=42 epoch=8/28 train_loss=1.36271 refit elapsed=1.9s
+segmenter seed=42 epoch=9/28 train_loss=1.30541 refit elapsed=1.7s
+segmenter seed=42 epoch=10/28 train_loss=1.25181 refit elapsed=1.7s
+segmenter seed=42 epoch=11/28 train_loss=1.20009 refit elapsed=1.7s
+segmenter seed=42 epoch=12/28 train_loss=1.15966 refit elapsed=1.7s
+segmenter seed=42 epoch=13/28 train_loss=1.11143 refit elapsed=1.7s
+segmenter seed=42 epoch=14/28 train_loss=1.07065 refit elapsed=1.7s
+segmenter seed=42 epoch=15/28 train_loss=1.03870 refit elapsed=1.7s
+segmenter seed=42 epoch=16/28 train_loss=1.00693 refit elapsed=1.7s
+segmenter seed=42 epoch=17/28 train_loss=0.96948 refit elapsed=1.7s
+segmenter seed=42 epoch=18/28 train_loss=0.93033 refit elapsed=1.7s
+segmenter seed=42 epoch=19/28 train_loss=0.89745 refit elapsed=1.7s
+segmenter seed=42 epoch=20/28 train_loss=0.86129 refit elapsed=1.7s
+segmenter seed=42 epoch=21/28 train_loss=0.84102 refit elapsed=1.7s
+segmenter seed=42 epoch=22/28 train_loss=0.81277 refit elapsed=1.7s
+segmenter seed=42 epoch=23/28 train_loss=0.78833 refit elapsed=1.7s
+segmenter seed=42 epoch=24/28 train_loss=0.76480 refit elapsed=1.7s
+segmenter seed=42 epoch=25/28 train_loss=0.75264 refit elapsed=1.8s
+segmenter seed=42 epoch=26/28 train_loss=0.73407 refit elapsed=1.7s
+segmenter seed=42 epoch=27/28 train_loss=0.72002 refit elapsed=1.7s
+segmenter seed=42 epoch=28/28 train_loss=0.71456 refit elapsed=2.0s
+OOF fold 1: inner selection, then outer-train refit
+Unexpected keys (classifier.bias, classifier.weight, conv_head.bias, conv_head.weight) found while loading pretrained weights. This may be expected if model is being adapted.
+segmenter seed=43 epoch=1/35 train_loss=1.70014 selection=0.03912 elapsed=12.0s
+segmenter seed=43 epoch=2/35 train_loss=1.57109 selection=0.43626 elapsed=4.4s
+segmenter seed=43 epoch=3/35 train_loss=1.52264 selection=0.46835 elapsed=2.7s
+segmenter seed=43 epoch=4/35 train_loss=1.48316 selection=0.53391 elapsed=1.8s
+segmenter seed=43 epoch=5/35 train_loss=1.44511 selection=0.53054 elapsed=1.6s
+segmenter seed=43 epoch=6/35 train_loss=1.40928 selection=0.57125 elapsed=1.5s
+segmenter seed=43 epoch=7/35 train_loss=1.37235 selection=0.59243 elapsed=1.6s
+segmenter seed=43 epoch=8/35 train_loss=1.33820 selection=0.62451 elapsed=1.5s
+segmenter seed=43 epoch=9/35 train_loss=1.30304 selection=0.67520 elapsed=1.4s
+segmenter seed=43 epoch=10/35 train_loss=1.26684 selection=0.73708 elapsed=1.4s
+segmenter seed=43 epoch=11/35 train_loss=1.23193 selection=0.63456 elapsed=1.5s
+segmenter seed=43 epoch=12/35 train_loss=1.20227 selection=0.72422 elapsed=1.4s
+segmenter seed=43 epoch=13/35 train_loss=1.16863 selection=0.70655 elapsed=1.4s
+segmenter seed=43 epoch=14/35 train_loss=1.13664 selection=0.67691 elapsed=1.4s
+segmenter seed=43 epoch=15/35 train_loss=1.10950 selection=0.73732 elapsed=1.5s
+segmenter seed=43 epoch=16/35 train_loss=1.08100 selection=0.75419 elapsed=1.5s
+segmenter seed=43 epoch=17/35 train_loss=1.05050 selection=0.76991 elapsed=1.5s
+segmenter seed=43 epoch=18/35 train_loss=1.02384 selection=0.78251 elapsed=1.6s
+segmenter seed=43 epoch=19/35 train_loss=1.00654 selection=0.74562 elapsed=1.6s
+segmenter seed=43 epoch=20/35 train_loss=0.98170 selection=0.74033 elapsed=1.4s
+segmenter seed=43 epoch=21/35 train_loss=0.96267 selection=0.78304 elapsed=1.4s
+segmenter seed=43 epoch=22/35 train_loss=0.94517 selection=0.73907 elapsed=1.5s
+segmenter seed=43 epoch=23/35 train_loss=0.93139 selection=0.78249 elapsed=1.4s
+segmenter seed=43 epoch=24/35 train_loss=0.91563 selection=0.78790 elapsed=1.4s
+segmenter seed=43 epoch=25/35 train_loss=0.90485 selection=0.76697 elapsed=1.4s
+segmenter seed=43 epoch=26/35 train_loss=0.88999 selection=0.78155 elapsed=1.5s
+segmenter seed=43 epoch=27/35 train_loss=0.88446 selection=0.78587 elapsed=1.4s
+segmenter seed=43 epoch=28/35 train_loss=0.88017 selection=0.78674 elapsed=1.4s
+segmenter seed=43 epoch=29/35 train_loss=0.86654 selection=0.79237 elapsed=1.5s
+segmenter seed=43 epoch=30/35 train_loss=0.86541 selection=0.78257 elapsed=1.4s
+segmenter seed=43 epoch=31/35 train_loss=0.86017 selection=0.78576 elapsed=1.4s
+segmenter seed=43 epoch=32/35 train_loss=0.86039 selection=0.78815 elapsed=1.4s
+segmenter seed=43 epoch=33/35 train_loss=0.85666 selection=0.78955 elapsed=1.4s
+segmenter seed=43 epoch=34/35 train_loss=0.85349 selection=0.78682 elapsed=1.4s
+segmenter seed=43 epoch=35/35 train_loss=0.85093 selection=0.78850 elapsed=1.4s
+Unexpected keys (classifier.bias, classifier.weight, conv_head.bias, conv_head.weight) found while loading pretrained weights. This may be expected if model is being adapted.
+segmenter seed=43 epoch=1/29 train_loss=1.65518 refit elapsed=11.2s
+segmenter seed=43 epoch=2/29 train_loss=1.53231 refit elapsed=6.3s
+segmenter seed=43 epoch=3/29 train_loss=1.47251 refit elapsed=3.4s
+segmenter seed=43 epoch=4/29 train_loss=1.41671 refit elapsed=2.7s
+segmenter seed=43 epoch=5/29 train_loss=1.36054 refit elapsed=1.8s
+segmenter seed=43 epoch=6/29 train_loss=1.30554 refit elapsed=1.8s
+segmenter seed=43 epoch=7/29 train_loss=1.24778 refit elapsed=1.7s
+segmenter seed=43 epoch=8/29 train_loss=1.19153 refit elapsed=1.7s
+segmenter seed=43 epoch=9/29 train_loss=1.13402 refit elapsed=1.7s
+segmenter seed=43 epoch=10/29 train_loss=1.07931 refit elapsed=1.7s
+segmenter seed=43 epoch=11/29 train_loss=1.02564 refit elapsed=1.8s
+segmenter seed=43 epoch=12/29 train_loss=0.96615 refit elapsed=1.7s
+segmenter seed=43 epoch=13/29 train_loss=0.91119 refit elapsed=1.7s
+segmenter seed=43 epoch=14/29 train_loss=0.85763 refit elapsed=1.7s
+segmenter seed=43 epoch=15/29 train_loss=0.80267 refit elapsed=1.7s
+segmenter seed=43 epoch=16/29 train_loss=0.75460 refit elapsed=1.7s
+segmenter seed=43 epoch=17/29 train_loss=0.70769 refit elapsed=1.7s
+segmenter seed=43 epoch=18/29 train_loss=0.66890 refit elapsed=1.6s
+segmenter seed=43 epoch=19/29 train_loss=0.62742 refit elapsed=1.7s
+segmenter seed=43 epoch=20/29 train_loss=0.59208 refit elapsed=1.7s
+segmenter seed=43 epoch=21/29 train_loss=0.56004 refit elapsed=1.7s
+segmenter seed=43 epoch=22/29 train_loss=0.53351 refit elapsed=1.8s
+segmenter seed=43 epoch=23/29 train_loss=0.50673 refit elapsed=1.8s
+segmenter seed=43 epoch=24/29 train_loss=0.49650 refit elapsed=1.8s
+segmenter seed=43 epoch=25/29 train_loss=0.47656 refit elapsed=1.7s
+segmenter seed=43 epoch=26/29 train_loss=0.46479 refit elapsed=1.7s
+segmenter seed=43 epoch=27/29 train_loss=0.45001 refit elapsed=1.8s
+segmenter seed=43 epoch=28/29 train_loss=0.44497 refit elapsed=1.7s
+segmenter seed=43 epoch=29/29 train_loss=0.43874 refit elapsed=1.7s
+OOF fold 2: inner selection, then outer-train refit
+Unexpected keys (classifier.bias, classifier.weight, conv_head.bias, conv_head.weight) found while loading pretrained weights. This may be expected if model is being adapted.
+segmenter seed=44 epoch=1/35 train_loss=1.85093 selection=0.02983 elapsed=11.5s
+segmenter seed=44 epoch=2/35 train_loss=1.72687 selection=0.07614 elapsed=4.1s
+segmenter seed=44 epoch=3/35 train_loss=1.66925 selection=0.27104 elapsed=2.5s
+segmenter seed=44 epoch=4/35 train_loss=1.63055 selection=0.38367 elapsed=1.9s
+segmenter seed=44 epoch=5/35 train_loss=1.59567 selection=0.39539 elapsed=1.7s
+segmenter seed=44 epoch=6/35 train_loss=1.56392 selection=0.47133 elapsed=1.8s
+segmenter seed=44 epoch=7/35 train_loss=1.52856 selection=0.49478 elapsed=1.5s
+segmenter seed=44 epoch=8/35 train_loss=1.49246 selection=0.58452 elapsed=1.4s
+segmenter seed=44 epoch=9/35 train_loss=1.45649 selection=0.59649 elapsed=1.4s
+segmenter seed=44 epoch=10/35 train_loss=1.42325 selection=0.67797 elapsed=1.4s
+segmenter seed=44 epoch=11/35 train_loss=1.38819 selection=0.67280 elapsed=1.4s
+segmenter seed=44 epoch=12/35 train_loss=1.35602 selection=0.58497 elapsed=1.4s
+segmenter seed=44 epoch=13/35 train_loss=1.32543 selection=0.68434 elapsed=1.5s
+segmenter seed=44 epoch=14/35 train_loss=1.29366 selection=0.72593 elapsed=1.6s
+segmenter seed=44 epoch=15/35 train_loss=1.26734 selection=0.68076 elapsed=1.4s
+segmenter seed=44 epoch=16/35 train_loss=1.25466 selection=0.66105 elapsed=1.5s
+segmenter seed=44 epoch=17/35 train_loss=1.22855 selection=0.69856 elapsed=1.5s
+segmenter seed=44 epoch=18/35 train_loss=1.20262 selection=0.76238 elapsed=1.4s
+segmenter seed=44 epoch=19/35 train_loss=1.18007 selection=0.68287 elapsed=1.5s
+segmenter seed=44 epoch=20/35 train_loss=1.15855 selection=0.72558 elapsed=1.5s
+segmenter seed=44 epoch=21/35 train_loss=1.14286 selection=0.71787 elapsed=1.6s
+segmenter seed=44 epoch=22/35 train_loss=1.12405 selection=0.69629 elapsed=1.4s
+segmenter seed=44 epoch=23/35 train_loss=1.11029 selection=0.72524 elapsed=1.4s
+segmenter seed=44 epoch=24/35 train_loss=1.09627 selection=0.74675 elapsed=1.5s
+segmenter seed=44 epoch=25/35 train_loss=1.08566 selection=0.74598 elapsed=1.4s
+segmenter seed=44 epoch=26/35 train_loss=1.07400 selection=0.72604 elapsed=1.4s
+segmenter seed=44 epoch=27/35 train_loss=1.06805 selection=0.76288 elapsed=1.4s
+segmenter seed=44 epoch=28/35 train_loss=1.06047 selection=0.73106 elapsed=1.5s
+segmenter seed=44 epoch=29/35 train_loss=1.05777 selection=0.76176 elapsed=1.4s
+segmenter seed=44 epoch=30/35 train_loss=1.05058 selection=0.75177 elapsed=1.4s
+segmenter seed=44 epoch=31/35 train_loss=1.04987 selection=0.74095 elapsed=1.4s
+segmenter seed=44 epoch=32/35 train_loss=1.04738 selection=0.74530 elapsed=1.4s
+segmenter seed=44 epoch=33/35 train_loss=1.04677 selection=0.75649 elapsed=1.4s
+segmenter seed=44 epoch=34/35 train_loss=1.04533 selection=0.74863 elapsed=1.4s
+segmenter seed=44 epoch=35/35 train_loss=1.04569 selection=0.75281 elapsed=1.4s
+Unexpected keys (classifier.bias, classifier.weight, conv_head.bias, conv_head.weight) found while loading pretrained weights. This may be expected if model is being adapted.
+segmenter seed=44 epoch=1/27 train_loss=1.81777 refit elapsed=10.7s
+segmenter seed=44 epoch=2/27 train_loss=1.68280 refit elapsed=5.5s
+segmenter seed=44 epoch=3/27 train_loss=1.61817 refit elapsed=3.7s
+segmenter seed=44 epoch=4/27 train_loss=1.56444 refit elapsed=2.3s
+segmenter seed=44 epoch=5/27 train_loss=1.51045 refit elapsed=2.0s
+segmenter seed=44 epoch=6/27 train_loss=1.45701 refit elapsed=1.9s
+segmenter seed=44 epoch=7/27 train_loss=1.40038 refit elapsed=1.7s
+segmenter seed=44 epoch=8/27 train_loss=1.34409 refit elapsed=1.7s
+segmenter seed=44 epoch=9/27 train_loss=1.29108 refit elapsed=1.7s
+segmenter seed=44 epoch=10/27 train_loss=1.23552 refit elapsed=1.7s
+segmenter seed=44 epoch=11/27 train_loss=1.18646 refit elapsed=1.7s
+segmenter seed=44 epoch=12/27 train_loss=1.13664 refit elapsed=1.8s
+segmenter seed=44 epoch=13/27 train_loss=1.08575 refit elapsed=1.7s
+segmenter seed=44 epoch=14/27 train_loss=1.04118 refit elapsed=1.6s
+segmenter seed=44 epoch=15/27 train_loss=0.99695 refit elapsed=1.7s
+segmenter seed=44 epoch=16/27 train_loss=0.95915 refit elapsed=1.6s
+segmenter seed=44 epoch=17/27 train_loss=0.92035 refit elapsed=1.6s
+segmenter seed=44 epoch=18/27 train_loss=0.88589 refit elapsed=1.7s
+segmenter seed=44 epoch=19/27 train_loss=0.85464 refit elapsed=1.7s
+segmenter seed=44 epoch=20/27 train_loss=0.82426 refit elapsed=1.7s
+segmenter seed=44 epoch=21/27 train_loss=0.80025 refit elapsed=1.8s
+segmenter seed=44 epoch=22/27 train_loss=0.77687 refit elapsed=1.7s
+segmenter seed=44 epoch=23/27 train_loss=0.75481 refit elapsed=1.9s
+segmenter seed=44 epoch=24/27 train_loss=0.73876 refit elapsed=1.8s
+segmenter seed=44 epoch=25/27 train_loss=0.72270 refit elapsed=1.7s
+segmenter seed=44 epoch=26/27 train_loss=0.71165 refit elapsed=1.7s
+segmenter seed=44 epoch=27/27 train_loss=0.69901 refit elapsed=1.7s
+OOF fold 3: inner selection, then outer-train refit
+Unexpected keys (classifier.bias, classifier.weight, conv_head.bias, conv_head.weight) found while loading pretrained weights. This may be expected if model is being adapted.
+segmenter seed=45 epoch=1/35 train_loss=1.79989 selection=0.00178 elapsed=11.3s
+segmenter seed=45 epoch=2/35 train_loss=1.65512 selection=0.27402 elapsed=4.6s
+segmenter seed=45 epoch=3/35 train_loss=1.59120 selection=0.09612 elapsed=2.6s
+segmenter seed=45 epoch=4/35 train_loss=1.56736 selection=0.10999 elapsed=1.9s
+segmenter seed=45 epoch=5/35 train_loss=1.53639 selection=0.41368 elapsed=1.7s
+segmenter seed=45 epoch=6/35 train_loss=1.50601 selection=0.49848 elapsed=1.5s
+segmenter seed=45 epoch=7/35 train_loss=1.47675 selection=0.54093 elapsed=1.5s
+segmenter seed=45 epoch=8/35 train_loss=1.45200 selection=0.63734 elapsed=1.5s
+segmenter seed=45 epoch=9/35 train_loss=1.42936 selection=0.65557 elapsed=1.4s
+segmenter seed=45 epoch=10/35 train_loss=1.40685 selection=0.69149 elapsed=1.6s
+segmenter seed=45 epoch=11/35 train_loss=1.38263 selection=0.70299 elapsed=1.7s
+segmenter seed=45 epoch=12/35 train_loss=1.36123 selection=0.66197 elapsed=1.7s
+segmenter seed=45 epoch=13/35 train_loss=1.33901 selection=0.69928 elapsed=1.7s
+segmenter seed=45 epoch=14/35 train_loss=1.31576 selection=0.73857 elapsed=1.6s
+segmenter seed=45 epoch=15/35 train_loss=1.29522 selection=0.69200 elapsed=1.8s
+segmenter seed=45 epoch=16/35 train_loss=1.27510 selection=0.74170 elapsed=1.6s
+segmenter seed=45 epoch=17/35 train_loss=1.25624 selection=0.75180 elapsed=1.5s
+segmenter seed=45 epoch=18/35 train_loss=1.23871 selection=0.74243 elapsed=1.6s
+segmenter seed=45 epoch=19/35 train_loss=1.22057 selection=0.77855 elapsed=1.6s
+segmenter seed=45 epoch=20/35 train_loss=1.20499 selection=0.69681 elapsed=1.5s
+segmenter seed=45 epoch=21/35 train_loss=1.18961 selection=0.72474 elapsed=1.4s
+segmenter seed=45 epoch=22/35 train_loss=1.17506 selection=0.74994 elapsed=1.5s
+segmenter seed=45 epoch=23/35 train_loss=1.16277 selection=0.74583 elapsed=1.5s
+segmenter seed=45 epoch=24/35 train_loss=1.15049 selection=0.75979 elapsed=1.5s
+segmenter seed=45 epoch=25/35 train_loss=1.14372 selection=0.70833 elapsed=1.5s
+segmenter seed=45 epoch=26/35 train_loss=1.13647 selection=0.73433 elapsed=1.6s
+segmenter seed=45 epoch=27/35 train_loss=1.12669 selection=0.76718 elapsed=1.4s
+segmenter seed=45 epoch=28/35 train_loss=1.12560 selection=0.75743 elapsed=1.5s
+segmenter seed=45 epoch=29/35 train_loss=1.12005 selection=0.74736 elapsed=1.4s
+segmenter seed=45 epoch=30/35 train_loss=1.11178 selection=0.77063 elapsed=1.4s
+segmenter seed=45 epoch=31/35 train_loss=1.10981 selection=0.77296 elapsed=1.5s
+segmenter seed=45 epoch=32/35 train_loss=1.10576 selection=0.77250 elapsed=1.5s
+segmenter seed=45 epoch=33/35 train_loss=1.10758 selection=0.77424 elapsed=1.5s
+segmenter seed=45 epoch=34/35 train_loss=1.10535 selection=0.77062 elapsed=1.5s
+segmenter seed=45 epoch=35/35 train_loss=1.10183 selection=0.77215 elapsed=1.4s
+Unexpected keys (classifier.bias, classifier.weight, conv_head.bias, conv_head.weight) found while loading pretrained weights. This may be expected if model is being adapted.
+segmenter seed=45 epoch=1/19 train_loss=1.75865 refit elapsed=11.6s
+segmenter seed=45 epoch=2/19 train_loss=1.60665 refit elapsed=5.9s
+segmenter seed=45 epoch=3/19 train_loss=1.54631 refit elapsed=4.0s
+segmenter seed=45 epoch=4/19 train_loss=1.50410 refit elapsed=2.2s
+segmenter seed=45 epoch=5/19 train_loss=1.46407 refit elapsed=1.7s
+segmenter seed=45 epoch=6/19 train_loss=1.43030 refit elapsed=1.7s
+segmenter seed=45 epoch=7/19 train_loss=1.39429 refit elapsed=1.7s
+segmenter seed=45 epoch=8/19 train_loss=1.36242 refit elapsed=1.7s
+segmenter seed=45 epoch=9/19 train_loss=1.32497 refit elapsed=1.7s
+segmenter seed=45 epoch=10/19 train_loss=1.28793 refit elapsed=1.7s
+segmenter seed=45 epoch=11/19 train_loss=1.25299 refit elapsed=1.8s
+segmenter seed=45 epoch=12/19 train_loss=1.21404 refit elapsed=1.8s
+segmenter seed=45 epoch=13/19 train_loss=1.17506 refit elapsed=1.9s
+segmenter seed=45 epoch=14/19 train_loss=1.13749 refit elapsed=2.0s
+segmenter seed=45 epoch=15/19 train_loss=1.10042 refit elapsed=1.7s
+segmenter seed=45 epoch=16/19 train_loss=1.06392 refit elapsed=1.9s
+segmenter seed=45 epoch=17/19 train_loss=1.03419 refit elapsed=1.8s
+segmenter seed=45 epoch=18/19 train_loss=1.00222 refit elapsed=1.8s
+segmenter seed=45 epoch=19/19 train_loss=0.97583 refit elapsed=1.8s
+OOF fold 4: inner selection, then outer-train refit
+Unexpected keys (classifier.bias, classifier.weight, conv_head.bias, conv_head.weight) found while loading pretrained weights. This may be expected if model is being adapted.
+segmenter seed=46 epoch=1/35 train_loss=1.59217 selection=0.05474 elapsed=14.3s
+segmenter seed=46 epoch=2/35 train_loss=1.43221 selection=0.52379 elapsed=5.1s
+segmenter seed=46 epoch=3/35 train_loss=1.38594 selection=0.53482 elapsed=2.7s
+segmenter seed=46 epoch=4/35 train_loss=1.34730 selection=0.49769 elapsed=2.1s
+segmenter seed=46 epoch=5/35 train_loss=1.31351 selection=0.48908 elapsed=1.4s
+segmenter seed=46 epoch=6/35 train_loss=1.27536 selection=0.44204 elapsed=1.6s
+segmenter seed=46 epoch=7/35 train_loss=1.23862 selection=0.57131 elapsed=1.5s
+segmenter seed=46 epoch=8/35 train_loss=1.20198 selection=0.66094 elapsed=1.5s
+segmenter seed=46 epoch=9/35 train_loss=1.16599 selection=0.66058 elapsed=1.4s
+segmenter seed=46 epoch=10/35 train_loss=1.13222 selection=0.69076 elapsed=1.5s
+segmenter seed=46 epoch=11/35 train_loss=1.09358 selection=0.72845 elapsed=1.4s
+segmenter seed=46 epoch=12/35 train_loss=1.06306 selection=0.63564 elapsed=1.5s
+segmenter seed=46 epoch=13/35 train_loss=1.03485 selection=0.65406 elapsed=1.7s
+segmenter seed=46 epoch=14/35 train_loss=1.00169 selection=0.63368 elapsed=1.6s
+segmenter seed=46 epoch=15/35 train_loss=0.97454 selection=0.69462 elapsed=1.6s
+segmenter seed=46 epoch=16/35 train_loss=0.94256 selection=0.70487 elapsed=1.6s
+segmenter seed=46 epoch=17/35 train_loss=0.91772 selection=0.74058 elapsed=1.7s
+segmenter seed=46 epoch=18/35 train_loss=0.89132 selection=0.76587 elapsed=1.6s
+segmenter seed=46 epoch=19/35 train_loss=0.86950 selection=0.72117 elapsed=1.7s
+segmenter seed=46 epoch=20/35 train_loss=0.84442 selection=0.74621 elapsed=1.6s
+segmenter seed=46 epoch=21/35 train_loss=0.82566 selection=0.76518 elapsed=1.6s
+segmenter seed=46 epoch=22/35 train_loss=0.80937 selection=0.70924 elapsed=1.7s
+segmenter seed=46 epoch=23/35 train_loss=0.79566 selection=0.74931 elapsed=1.7s
+segmenter seed=46 epoch=24/35 train_loss=0.78062 selection=0.75873 elapsed=1.6s
+segmenter seed=46 epoch=25/35 train_loss=0.76779 selection=0.73451 elapsed=1.7s
+segmenter seed=46 epoch=26/35 train_loss=0.75942 selection=0.77483 elapsed=1.8s
+segmenter seed=46 epoch=27/35 train_loss=0.74684 selection=0.77125 elapsed=1.9s
+segmenter seed=46 epoch=28/35 train_loss=0.74128 selection=0.76356 elapsed=1.6s
+segmenter seed=46 epoch=29/35 train_loss=0.73639 selection=0.75959 elapsed=1.4s
+segmenter seed=46 epoch=30/35 train_loss=0.73192 selection=0.77279 elapsed=1.6s
+segmenter seed=46 epoch=31/35 train_loss=0.72946 selection=0.77746 elapsed=1.7s
+segmenter seed=46 epoch=32/35 train_loss=0.72568 selection=0.77933 elapsed=1.5s
+segmenter seed=46 epoch=33/35 train_loss=0.72608 selection=0.77994 elapsed=1.7s
+segmenter seed=46 epoch=34/35 train_loss=0.72439 selection=0.78070 elapsed=1.6s
+segmenter seed=46 epoch=35/35 train_loss=0.72322 selection=0.78073 elapsed=1.5s
+Unexpected keys (classifier.bias, classifier.weight, conv_head.bias, conv_head.weight) found while loading pretrained weights. This may be expected if model is being adapted.
+segmenter seed=46 epoch=1/35 train_loss=1.53970 refit elapsed=11.6s
+segmenter seed=46 epoch=2/35 train_loss=1.39372 refit elapsed=6.3s
+segmenter seed=46 epoch=3/35 train_loss=1.33437 refit elapsed=3.6s
+segmenter seed=46 epoch=4/35 train_loss=1.27698 refit elapsed=2.1s
+segmenter seed=46 epoch=5/35 train_loss=1.22245 refit elapsed=1.7s
+segmenter seed=46 epoch=6/35 train_loss=1.16647 refit elapsed=1.6s
+segmenter seed=46 epoch=7/35 train_loss=1.11159 refit elapsed=1.8s
+segmenter seed=46 epoch=8/35 train_loss=1.05805 refit elapsed=1.8s
+segmenter seed=46 epoch=9/35 train_loss=1.00752 refit elapsed=1.7s
+segmenter seed=46 epoch=10/35 train_loss=0.95326 refit elapsed=1.7s
+segmenter seed=46 epoch=11/35 train_loss=0.90271 refit elapsed=1.7s
+segmenter seed=46 epoch=12/35 train_loss=0.84968 refit elapsed=1.7s
+segmenter seed=46 epoch=13/35 train_loss=0.80272 refit elapsed=1.6s
+segmenter seed=46 epoch=14/35 train_loss=0.75423 refit elapsed=1.7s
+segmenter seed=46 epoch=15/35 train_loss=0.70821 refit elapsed=1.7s
+segmenter seed=46 epoch=16/35 train_loss=0.66383 refit elapsed=1.6s
+segmenter seed=46 epoch=17/35 train_loss=0.62494 refit elapsed=1.7s
+segmenter seed=46 epoch=18/35 train_loss=0.58775 refit elapsed=1.6s
+segmenter seed=46 epoch=19/35 train_loss=0.55674 refit elapsed=1.7s
+segmenter seed=46 epoch=20/35 train_loss=0.52802 refit elapsed=1.7s
+segmenter seed=46 epoch=21/35 train_loss=0.50716 refit elapsed=1.6s
+segmenter seed=46 epoch=22/35 train_loss=0.48065 refit elapsed=1.7s
+segmenter seed=46 epoch=23/35 train_loss=0.46047 refit elapsed=1.6s
+segmenter seed=46 epoch=24/35 train_loss=0.44543 refit elapsed=1.8s
+segmenter seed=46 epoch=25/35 train_loss=0.43202 refit elapsed=1.7s
+segmenter seed=46 epoch=26/35 train_loss=0.42119 refit elapsed=1.8s
+segmenter seed=46 epoch=27/35 train_loss=0.41033 refit elapsed=1.8s
+segmenter seed=46 epoch=28/35 train_loss=0.40103 refit elapsed=1.7s
+segmenter seed=46 epoch=29/35 train_loss=0.39512 refit elapsed=1.8s
+segmenter seed=46 epoch=30/35 train_loss=0.38985 refit elapsed=1.7s
+segmenter seed=46 epoch=31/35 train_loss=0.38669 refit elapsed=1.8s
+segmenter seed=46 epoch=32/35 train_loss=0.38369 refit elapsed=1.8s
+segmenter seed=46 epoch=33/35 train_loss=0.38334 refit elapsed=1.8s
+segmenter seed=46 epoch=34/35 train_loss=0.38203 refit elapsed=1.8s
+segmenter seed=46 epoch=35/35 train_loss=0.38217 refit elapsed=1.7s
+Selecting final segmenter and global backbone on source validation
+Unexpected keys (classifier.bias, classifier.weight, conv_head.bias, conv_head.weight) found while loading pretrained weights. This may be expected if model is being adapted.
+segmenter seed=42 epoch=1/35 train_loss=1.80164 selection=0.07516 elapsed=17.1s
+segmenter seed=42 epoch=2/35 train_loss=1.65196 selection=0.26760 elapsed=7.1s
+segmenter seed=42 epoch=3/35 train_loss=1.57881 selection=0.41259 elapsed=4.4s
+segmenter seed=42 epoch=4/35 train_loss=1.51286 selection=0.55334 elapsed=3.4s
+segmenter seed=42 epoch=5/35 train_loss=1.44910 selection=0.64150 elapsed=2.7s
+segmenter seed=42 epoch=6/35 train_loss=1.38408 selection=0.64999 elapsed=2.5s
+segmenter seed=42 epoch=7/35 train_loss=1.32211 selection=0.64995 elapsed=2.4s
+segmenter seed=42 epoch=8/35 train_loss=1.25864 selection=0.67084 elapsed=2.5s
+segmenter seed=42 epoch=9/35 train_loss=1.18952 selection=0.63610 elapsed=2.4s
+segmenter seed=42 epoch=10/35 train_loss=1.11562 selection=0.64449 elapsed=2.6s
+segmenter seed=42 epoch=11/35 train_loss=1.05262 selection=0.65230 elapsed=2.7s
+segmenter seed=42 epoch=12/35 train_loss=0.99623 selection=0.74140 elapsed=2.4s
+segmenter seed=42 epoch=13/35 train_loss=0.94058 selection=0.69696 elapsed=2.5s
+segmenter seed=42 epoch=14/35 train_loss=0.88507 selection=0.77979 elapsed=2.5s
+segmenter seed=42 epoch=15/35 train_loss=0.83755 selection=0.73504 elapsed=2.4s
+segmenter seed=42 epoch=16/35 train_loss=0.78657 selection=0.74516 elapsed=2.5s
+segmenter seed=42 epoch=17/35 train_loss=0.74656 selection=0.69994 elapsed=2.5s
+segmenter seed=42 epoch=18/35 train_loss=0.70854 selection=0.73210 elapsed=2.5s
+segmenter seed=42 epoch=19/35 train_loss=0.66963 selection=0.79881 elapsed=2.5s
+segmenter seed=42 epoch=20/35 train_loss=0.63003 selection=0.79823 elapsed=2.6s
+segmenter seed=42 epoch=21/35 train_loss=0.58591 selection=0.78922 elapsed=2.5s
+segmenter seed=42 epoch=22/35 train_loss=0.54916 selection=0.81338 elapsed=2.5s
+segmenter seed=42 epoch=23/35 train_loss=0.51700 selection=0.80937 elapsed=2.4s
+segmenter seed=42 epoch=24/35 train_loss=0.49085 selection=0.81679 elapsed=2.5s
+segmenter seed=42 epoch=25/35 train_loss=0.47110 selection=0.81264 elapsed=2.5s
+segmenter seed=42 epoch=26/35 train_loss=0.45123 selection=0.81467 elapsed=2.4s
+segmenter seed=42 epoch=27/35 train_loss=0.43585 selection=0.80609 elapsed=2.5s
+segmenter seed=42 epoch=28/35 train_loss=0.42710 selection=0.81309 elapsed=2.5s
+segmenter seed=42 epoch=29/35 train_loss=0.41626 selection=0.82178 elapsed=2.4s
+segmenter seed=42 epoch=30/35 train_loss=0.41011 selection=0.80974 elapsed=2.5s
+segmenter seed=42 epoch=31/35 train_loss=0.40459 selection=0.81390 elapsed=2.5s
+segmenter seed=42 epoch=32/35 train_loss=0.39881 selection=0.81631 elapsed=2.4s
+segmenter seed=42 epoch=33/35 train_loss=0.39798 selection=0.82075 elapsed=2.5s
+segmenter seed=42 epoch=34/35 train_loss=0.39636 selection=0.81876 elapsed=2.4s
+segmenter seed=42 epoch=35/35 train_loss=0.39534 selection=0.82072 elapsed=2.6s
+global seed=42 epoch=1/35 train_loss=4.91670 selection=0.65149 elapsed=17.0s
+global seed=42 epoch=2/35 train_loss=2.68922 selection=0.58242 elapsed=6.0s
+global seed=42 epoch=3/35 train_loss=2.08302 selection=0.79435 elapsed=3.9s
+global seed=42 epoch=4/35 train_loss=1.78858 selection=0.61852 elapsed=2.5s
+global seed=42 epoch=5/35 train_loss=1.44220 selection=0.61852 elapsed=1.8s
+global seed=42 epoch=6/35 train_loss=1.67186 selection=0.71115 elapsed=1.0s
+global seed=42 epoch=7/35 train_loss=1.30258 selection=0.68917 elapsed=0.8s
+global seed=42 epoch=8/35 train_loss=0.93663 selection=0.80691 elapsed=0.8s
+global seed=42 epoch=9/35 train_loss=0.94381 selection=0.82732 elapsed=0.8s
+global seed=42 epoch=10/35 train_loss=1.05495 selection=0.80220 elapsed=0.7s
+global seed=42 epoch=11/35 train_loss=1.05696 selection=0.67504 elapsed=0.7s
+global seed=42 epoch=12/35 train_loss=0.58527 selection=0.69388 elapsed=0.8s
+global seed=42 epoch=13/35 train_loss=0.67647 selection=0.71900 elapsed=0.9s
+global seed=42 epoch=14/35 train_loss=0.46804 selection=0.72214 elapsed=0.7s
+global seed=42 epoch=15/35 train_loss=0.39354 selection=0.72527 elapsed=0.7s
+global seed=42 epoch=16/35 train_loss=0.77869 selection=0.71115 elapsed=0.7s
+global seed=42 epoch=17/35 train_loss=0.38100 selection=0.75196 elapsed=0.7s
+global seed=42 epoch=18/35 train_loss=0.52118 selection=0.78179 elapsed=0.7s
+global seed=42 epoch=19/35 train_loss=0.48804 selection=0.77237 elapsed=0.7s
+global seed=42 epoch=20/35 train_loss=0.38197 selection=0.76766 elapsed=0.8s
+global seed=42 epoch=21/35 train_loss=0.34418 selection=0.75510 elapsed=0.7s
+global seed=42 epoch=22/35 train_loss=0.47208 selection=0.79278 elapsed=0.7s
+global seed=42 epoch=23/35 train_loss=0.45320 selection=0.74411 elapsed=0.7s
+global seed=42 epoch=24/35 train_loss=0.34506 selection=0.74568 elapsed=0.7s
+global seed=42 epoch=25/35 train_loss=0.28984 selection=0.76138 elapsed=0.7s
+global seed=42 epoch=26/35 train_loss=0.42149 selection=0.74725 elapsed=0.7s
+global seed=42 epoch=27/35 train_loss=0.15298 selection=0.75196 elapsed=0.7s
+global seed=42 epoch=28/35 train_loss=0.25814 selection=0.78336 elapsed=0.7s
+global seed=42 epoch=29/35 train_loss=0.15389 selection=0.77551 elapsed=0.7s
+global seed=42 epoch=30/35 train_loss=0.32217 selection=0.77080 elapsed=0.7s
+global seed=42 epoch=31/35 train_loss=0.35988 selection=0.79278 elapsed=0.7s
+global seed=42 epoch=32/35 train_loss=0.35637 selection=0.78807 elapsed=0.7s
+global seed=42 epoch=33/35 train_loss=0.32222 selection=0.78650 elapsed=0.7s
+global seed=42 epoch=34/35 train_loss=0.20207 selection=0.78650 elapsed=0.7s
+global seed=42 epoch=35/35 train_loss=0.29902 selection=0.79121 elapsed=0.7s
+head seed=42 epoch=1/40 val_auc=0.79435
+head seed=42 epoch=2/40 val_auc=0.80220
+head seed=42 epoch=3/40 val_auc=0.81319
+head seed=42 epoch=4/40 val_auc=0.80534
+head seed=42 epoch=5/40 val_auc=0.82104
+head seed=42 epoch=6/40 val_auc=0.81476
+head seed=42 epoch=7/40 val_auc=0.81947
+head seed=42 epoch=8/40 val_auc=0.81947
+head seed=42 epoch=9/40 val_auc=0.82418
+head seed=42 epoch=10/40 val_auc=0.82261
+head seed=42 epoch=11/40 val_auc=0.81790
+head seed=42 epoch=12/40 val_auc=0.81947
+head seed=42 epoch=13/40 val_auc=0.81319
+head seed=42 epoch=14/40 val_auc=0.80848
+head seed=42 epoch=15/40 val_auc=0.80691
+head seed=42 epoch=16/40 val_auc=0.80848
+head seed=42 epoch=17/40 val_auc=0.80377
+head seed=42 epoch=18/40 val_auc=0.80377
+head seed=42 epoch=19/40 val_auc=0.80220
+head seed=42 epoch=20/40 val_auc=0.80063
+head seed=42 epoch=21/40 val_auc=0.79435
+head seed=42 epoch=22/40 val_auc=0.79121
+head seed=42 epoch=23/40 val_auc=0.79592
+head seed=42 epoch=24/40 val_auc=0.79435
+head seed=42 epoch=25/40 val_auc=0.79435
+head seed=42 epoch=26/40 val_auc=0.79749
+head seed=42 epoch=27/40 val_auc=0.79906
+head seed=42 epoch=28/40 val_auc=0.79435
+head seed=42 epoch=29/40 val_auc=0.79906
+head seed=42 epoch=30/40 val_auc=0.79435
+head seed=42 epoch=31/40 val_auc=0.79278
+head seed=42 epoch=32/40 val_auc=0.79592
+head seed=42 epoch=33/40 val_auc=0.79592
+head seed=42 epoch=34/40 val_auc=0.79592
+head seed=42 epoch=35/40 val_auc=0.79435
+head seed=42 epoch=36/40 val_auc=0.79435
+head seed=42 epoch=37/40 val_auc=0.79435
+head seed=42 epoch=38/40 val_auc=0.79435
+head seed=42 epoch=39/40 val_auc=0.79435
+head seed=42 epoch=40/40 val_auc=0.79435

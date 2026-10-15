@@ -1,0 +1,47 @@
+[
+  {
+    "fold": 0,
+    "selected_epoch": 28,
+    "refit_epochs": 28,
+    "heldout_images": 46,
+    "same_initialization": true,
+    "patient_disjoint": true,
+    "calibration_validation_test_excluded": true
+  },
+  {
+    "fold": 1,
+    "selected_epoch": 29,
+    "refit_epochs": 29,
+    "heldout_images": 46,
+    "same_initialization": true,
+    "patient_disjoint": true,
+    "calibration_validation_test_excluded": true
+  },
+  {
+    "fold": 2,
+    "selected_epoch": 27,
+    "refit_epochs": 27,
+    "heldout_images": 48,
+    "same_initialization": true,
+    "patient_disjoint": true,
+    "calibration_validation_test_excluded": true
+  },
+  {
+    "fold": 3,
+    "selected_epoch": 19,
+    "refit_epochs": 19,
+    "heldout_images": 48,
+    "same_initialization": true,
+    "patient_disjoint": true,
+    "calibration_validation_test_excluded": true
+  },
+  {
+    "fold": 4,
+    "selected_epoch": 35,
+    "refit_epochs": 35,
+    "heldout_images": 48,
+    "same_initialization": true,
+    "patient_disjoint": true,
+    "calibration_validation_test_excluded": true
+  }
+]

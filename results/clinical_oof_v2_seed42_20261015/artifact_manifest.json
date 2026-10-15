@@ -1,0 +1,25 @@
+{
+  "source_commit": "4bdbe1085ea93b66cba7d0b23893a9bd18fff341",
+  "bundle": {
+    "path": "outputs/clinical_oof_v2_seed42_20261015_run02/seed_42/bundle.pt",
+    "bytes": 11523437,
+    "sha256": "abff4d7ab2dbc8309a1220745004586a6e693fb7e7cb97fe83355e0f125f2f51"
+  },
+  "archive": {
+    "path": "artifacts/clinical_oof_v2_seed42_20261015_bundle.zip",
+    "bytes": 10672301,
+    "sha256": "5b0f667d02fa4cbcb52c247e94f7606657c9b18ad3272058777a31b3cae375e2"
+  },
+  "archive_contents_sha256": {
+    "bundle.pt": "abff4d7ab2dbc8309a1220745004586a6e693fb7e7cb97fe83355e0f125f2f51",
+    "bundle.json": "7a0facfef6e93b8e57bf7c3491abee4a4eb1d7122a9f54e026f874304fb9d2de",
+    "protocol.json": "30b7ef48e8d3430a08a00e19601734673b28b7d0750afd8461751dca45d66206",
+    "roles.csv": "a24353dc7cb45212743a010127f07ef8d812446acce8a7e9158f997f709c593e",
+    "fold_plan.json": "d8bbda1a0e29cf326147c994ea0c2d441b053cd71ca98db47547f994eb4e3062",
+    "predictions.csv": "f480e709153f0a87bfe1121a7af28d804a17759b1bb9bfb85038d4b3fa5fc5d9",
+    "summary.json": "52922e45a89e9387e9ca1f61db12745da99a257b147b7d2de5a8d5fa1580de8f",
+    "research_report.md": "65593ebd0924e17ba2dd90c096d3379a8c2a291f249ffdd9e2d41377db9bd527",
+    "README.txt": "57774e65aee3340342d3aac89ac1619e4ae98cbb1e33179b395d1c6483be012f"
+  },
+  "archive_integrity_verified": true
+}

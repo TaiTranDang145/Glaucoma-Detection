@@ -1,0 +1,29 @@
+{
+  "seed": 42,
+  "bundle_sha256": "abff4d7ab2dbc8309a1220745004586a6e693fb7e7cb97fe83355e0f125f2f51",
+  "reload_check_passed": true,
+  "metrics": {
+    "calibration": {
+      "n": 58,
+      "auc": 0.786231884057971,
+      "brier_calibrated": 0.11929687857627869,
+      "sensitivity": 0.6666666666666666,
+      "specificity": 0.8260869565217391
+    },
+    "test": {
+      "n": 64,
+      "auc": 0.8657616892911011,
+      "brier_calibrated": 0.11117346584796906,
+      "sensitivity": 0.46153846153846156,
+      "specificity": 0.9019607843137255
+    },
+    "val": {
+      "n": 62,
+      "auc": 0.8241758241758241,
+      "brier_calibrated": 0.12927751243114471,
+      "sensitivity": 0.6153846153846154,
+      "specificity": 0.9183673469387755
+    }
+  },
+  "calibration_note": "Calibration-role metrics are fitted-sample diagnostics, not independent validation."
+}

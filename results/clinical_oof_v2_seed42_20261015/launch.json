@@ -1,0 +1,41 @@
+{
+  "status": "completed",
+  "seed": 42,
+  "source_commit": "4bdbe1085ea93b66cba7d0b23893a9bd18fff341",
+  "run_dir": "outputs/clinical_oof_v2_seed42_20261015_run02",
+  "log_path": "outputs/logs/clinical_oof_v2_seed42_20261015_run02.log",
+  "protocol": {
+    "manifest": "data/manifests/papila_morphology.csv",
+    "split_manifest": "data/manifests/papila_manifest.csv",
+    "mask_dir": "data/cache/masks_256",
+    "output_dir": "outputs/clinical_oof_v2_seed42_20261015_run02",
+    "seeds": [
+      42
+    ],
+    "split_seed": 42,
+    "calibration_folds": 5,
+    "outer_folds": 5,
+    "inner_folds": 3,
+    "segmenter_epochs": 35,
+    "global_epochs": 35,
+    "head_epochs": 40,
+    "batch_size": 16,
+    "workers": 2,
+    "threads": 2,
+    "device": "cuda",
+    "pretrained": true,
+    "segmenter_lr": 0.001,
+    "global_lr": 0.0001,
+    "head_lr": 0.001,
+    "weight_decay": 0.01
+  },
+  "previous_attempt": {
+    "run_dir": "outputs/clinical_oof_v2_seed42_20261015",
+    "status": "interrupted_before_first_checkpoint",
+    "reason": "Restarted after immutable image cache and persistent DataLoader workers were implemented and verified."
+  },
+  "source_fingerprints_match": true,
+  "bundle_path": "outputs/clinical_oof_v2_seed42_20261015_run02/seed_42/bundle.pt",
+  "summary_path": "outputs/clinical_oof_v2_seed42_20261015_run02/seed_42/summary.json",
+  "research_training_seconds": 884.528039932251
+}

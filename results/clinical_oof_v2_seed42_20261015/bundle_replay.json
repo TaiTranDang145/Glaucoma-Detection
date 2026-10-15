@@ -1,0 +1,26 @@
+{
+  "bundle_sha256": "abff4d7ab2dbc8309a1220745004586a6e693fb7e7cb97fe83355e0f125f2f51",
+  "device": "NVIDIA GeForce RTX 3050 6GB Laptop GPU",
+  "test_images": 64,
+  "max_absolute_difference": {
+    "logit": 0.0007768521118167726,
+    "prob_raw": 4.370253513813309e-06,
+    "prob_calibrated": 1.570924732208212e-05,
+    "cdr_pred": 8.326672684688674e-17
+  },
+  "changed_binary_predictions": 0,
+  "replayed_metrics": {
+    "n": 64,
+    "auc": 0.8657616892911011,
+    "brier_calibrated": 0.11117349565029144,
+    "sensitivity": 0.46153846153846156,
+    "specificity": 0.9019607843137255
+  },
+  "all_components_exclude_calibration_and_test_from_fit_and_selection": true,
+  "parameters": {
+    "global": 1518881,
+    "segmenter": 1256050,
+    "head": 3076
+  },
+  "bundle_bytes": 11523437
+}

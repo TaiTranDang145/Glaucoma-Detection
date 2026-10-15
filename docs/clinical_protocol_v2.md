@@ -109,4 +109,4 @@ NO_ALBUMENTATIONS_UPDATE=1 venv/bin/python -m unittest discover -s tests -v
 
 Tests cover patient leakage, nested split/refit contracts, feature reordering/provenance, matching image preprocessing, held-out calibration and isolation from test labels. Integration tests train actual MobileNetV3/UNet/head models briefly on synthetic images, export/reload the bundle and run external inference. Temporary synthetic weights are deleted; they are not research models or new PAPILA/REFUGE metrics.
 
-The implementation and source plan can be verified without GPU. A full PAPILA retraining and REFUGE benchmark remain separate execution steps; the audit's old AUC values must not be relabeled as corrected v2 results.
+The implementation and source plan can be verified without GPU. [Seed 42 has completed full PAPILA training and bundle verification](../reports/clinical_oof_v2_seed42_2026-10-15_report.md). A REFUGE benchmark remains a separate execution step; the audit's old AUC values must not be relabeled as corrected v2 results.

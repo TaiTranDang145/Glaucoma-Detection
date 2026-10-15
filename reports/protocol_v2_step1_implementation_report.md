@@ -2,6 +2,8 @@
 
 Ngày: **15/10/2026**.
 
+**Cập nhật sau bước 1:** [Seed 42 đã được huấn luyện thực tế và xuất bundle](clinical_oof_v2_seed42_2026-10-15_report.md). Các phát biểu “chưa train” trong báo cáo này mô tả trạng thái tại thời điểm kết thúc bước triển khai, trước lượt chạy đó.
+
 **Đã hoàn tất phần sửa code/protocol và kiểm chứng kỹ thuật.** Đã chạy huấn luyện ngắn bằng dữ liệu giả lập để kiểm tra toàn luồng; chưa huấn luyện lại mô hình nghiên cứu trên PAPILA và chưa tạo kết quả AUC REFUGE mới.
 
 ## Những thay đổi đã thực hiện

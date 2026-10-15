@@ -1,0 +1,34 @@
+{
+  "metrics": {
+    "calibration": {
+      "n": 58,
+      "mae": 0.07605177728538513,
+      "pearson_r": 0.8183008879142265,
+      "empty_disc_count": 0,
+      "zero_cup_count": 0
+    },
+    "test": {
+      "n": 64,
+      "mae": 0.06488592425361123,
+      "pearson_r": 0.8853100691047873,
+      "empty_disc_count": 0,
+      "zero_cup_count": 0
+    },
+    "train": {
+      "n": 236,
+      "mae": 0.1109503804390544,
+      "pearson_r": 0.6510163293309454,
+      "empty_disc_count": 0,
+      "zero_cup_count": 2
+    },
+    "val": {
+      "n": 62,
+      "mae": 0.0788470918378066,
+      "pearson_r": 0.7094025531392245,
+      "empty_disc_count": 0,
+      "zero_cup_count": 0
+    }
+  },
+  "training_cdr_is_oof_only": true,
+  "scaler_matches_training_oof_cdr": true
+}
